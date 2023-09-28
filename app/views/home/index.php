@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HomePage</title>
 </head>
 <body>
-    <h1>This is home page</h1>
+    <?php include __DIR__ . '/../components/navbar/navbar.php'?>
+    <section class="home-section">
+        <div class="text">Konten Homepage di Sini</div>
+    </section>
 </body>
 </html>
