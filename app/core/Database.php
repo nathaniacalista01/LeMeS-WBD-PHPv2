@@ -20,17 +20,22 @@
                 //throw $th;
                 echo $e->getMessage();
             }
-            // try {
-            //     $this->connection = new PDO("mysql:host=".$host."; dbname=".$db,$username,$password);
-            // } catch (PDOException $error) {
-            //     die($error->getMessage());
-            // }
-
-            // try {
-            //     $this->connection->exec(Table::USER_TABLE);
-            // } catch (PDOException $e) {
-            //     die($e->getMessage());
-            // }
+            
+            try {
+                $this->connection->exec(Table::STUDENT_TABLE);
+                $this->connection->exec(Table::TEACHER_TABLE);
+                $this->connection->exec(Table::COURSE_TABLE);
+                $this->connection->exec(Table::MODULE_TABLE);
+                $this->connection->exec(Table::COURSE_MODULE_TABLE);
+                $this->connection->exec(Table::ENUM_TYPE);
+                $this->connection->exec(Table::MATERIAL_TABLE);
+                $this->connection->exec(Table::MODULE_MATERIAL_TABLE);
+                $this->connection->exec(Table::COURSE_PARTICIPANT_TABLE);
+                $this->connection->exec(Table::COURSE_LECTURER_TABLE);
+                echo "Succesfully initialized all tables";
+            } catch (PDOException $e) {
+                die($e->getMessage());
+            }
         }
         public static function instance(){
             if(self::$instance === null){
