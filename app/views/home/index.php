@@ -29,6 +29,67 @@
                 <span class="dot" onclick="currentSlide(2)"></span>
             </div>
         </div>
+        <div class="card-container">
+            <div class="cards grid-row">
+                <!-- Iterate through database the courses and put into this card -->
+                <div class="card">
+                    <div class="card-top">
+                        <img src="../../../resources/banner1.png" alt="Blog Name">
+                    </div>
+                    <div class="card-info">
+                        <div class="course-name">
+                            <h2>First Course</h2>
+                        </div>
+                        <span class="lecturer">Lecturer 1</span>
+                    </div>
+                    <div class="card-bottom flex-row">
+                        <a href="#" class="course-btn">Course Detail</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-top">
+                        <img src="../../../resources/banner1.png" alt="Blog Name">
+                    </div>
+                    <div class="card-info">
+                        <div class="course-name">
+                            <h2>Usual Course 2 lalala</h2>
+                        </div>
+                            <span class="lecturer">Lecture 2</span>
+                    </div>
+                    <div class="card-bottom flex-row">
+                        <a href="#" class="course-btn">Course Detail</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-top">
+                        <img src="../../../resources/banner1.png" alt="Blog Name">
+                    </div>
+                    <div class="card-info">
+                        <div class="course-name">
+                            <h2>This is course 3 that the title is overflow because of too long</h2>
+                        </div>
+                        <span class="lecturer">Lecturer 3</span>
+                    </div>
+                    <div class="card-bottom flex-row">
+                        <a href="#" class="course-btn">Course Detail</a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-top">
+                        <img src="../../../resources/banner1.png" alt="Blog Name">
+                    </div>
+                    <div class="card-info">
+                        <div class="course-name">
+                            <h2>Course 4</h2>
+                        </div>
+                        <span class="lecturer">Lecturer 4</span>
+                    </div>
+                    <div class="card-bottom flex-row">
+                        <a href="#" class="course-btn">Course Detail</a>
+                    </div>
+                </div>
+            </div>		
+        </div>
     </section>
     <script>
         <?php include __DIR__ . '/home.js';?>
