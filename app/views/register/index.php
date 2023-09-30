@@ -15,7 +15,7 @@
                 </div>
 
                 <div class="login-forms">
-                    <form action="" method="post" class="login-create" id="login-up">
+                    <form action="api/auth/register.php" method="post" class="login-create" id="login-up">
                         <h1 class="login-title">Create Account</h1>
 
                         <div class="login-box">

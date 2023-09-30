@@ -10,7 +10,7 @@
             username VARCHAR(256) UNIQUE NOT NULL,
             fullname VARCHAR(256) NOT NULL,
             password VARCHAR(256) NOT NULL,
-            created_on TIMESTAMP NOT NULL
+            created_on TIMESTAMP DEFAULT NOW()
         )';
 
         public const TEACHER_TABLE =

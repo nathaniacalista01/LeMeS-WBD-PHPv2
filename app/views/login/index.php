@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="login-forms">
-                    <form action="api/login.php" method="post" class="login-register" id="login-in">
+                    <form action="api/auth/login.php" method="post" class="login-register" id="login-in">
                         <h1 class="login-title">Sign In</h1>
 
                         <div class="login-box">
