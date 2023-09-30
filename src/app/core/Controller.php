@@ -2,7 +2,7 @@
     class Controller{
         
         public function view($folderName,$viewName,$data=[]){
-            $fileName =  'views/'.$folderName.'/'.$viewName.'.php';
+            $fileName =  'app/views/'.$folderName.'/'.$viewName.'.php';
             if(file_exists($fileName)){
                 require_once($fileName);
             }else{

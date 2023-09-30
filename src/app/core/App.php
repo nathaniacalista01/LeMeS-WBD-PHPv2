@@ -6,14 +6,14 @@
         public function __construct(){
             $url = $this->getUrl();
             $controllers = $url[0] === '' ? 'Home' : $url[0];
-            $filename = 'controllers/'.$controllers.'Controller.php';
+            $filename = 'app/controllers/'.$controllers.'Controller.php';
             if(file_exists($filename)){
                 $this->controllers = $controllers;
             }else{
                 $this->controllers = 'NotFound';
             }
             unset($url[0]);
-            require_once('controllers/'.$this->controllers.'Controller.php');
+            require_once('app/controllers/'.$this->controllers.'Controller.php');
             $controller_class = $this->controllers.'Controller';
             $this->controllers = new $controller_class;
             if(isset($url[1])){
