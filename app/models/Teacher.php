@@ -1,8 +1,8 @@
 <?php
 require_once(__DIR__."/Model.php");
-class Material extends Model{
+class Teacher extends Model{
     public function __construct(){
-        parent::__construct("materials");
+        parent::__construct("teachers");
     }
 }
 ?>

@@ -1,10 +1,8 @@
 <?php
-    class Student{
-        private $table = "students";
-        private $database;
-
+require_once(__DIR__."/Model.php");
+    class Student extends Model{
         public function __construct(){
-            $this->database = new Database;
+            parent::__construct("students");
         }
 
         public function register($fullname,$username,$password){
