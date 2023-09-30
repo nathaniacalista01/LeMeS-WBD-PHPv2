@@ -4,20 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Side Bar</title>
-    <style><?php include __DIR__ . '../../public/css/navbar/navbar.css' ?></style>
+    <link href="../../public/css/navbar/navbar.css" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
     <div class="sidebar">
         <div class="logo-details">
-            <img src="../../../resources/teslogo.png" alt="Homepage" class="logo-img">
+            <img src="../../public/asset/teslogo.png" alt="Homepage" class="logo-img">
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
             <li>
                 <div class="profile-details">
                     <a href="#">
-                        <img src="../../../resources/tesprofilepicture.svg" alt="profileImg" class="photo"/>
+                        <img src="../../public/asset/tesprofilepicture.svg" alt="profileImg" class="photo"/>
                         <div class="name-job">
                             <div class="name">Nama</div>
                             <div class="job">Role</div>

@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
-    <style><?php include __DIR__ . '/home.css' ?></style>
+    <link href="../../public/css/home/home.css" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
-    <?php include __DIR__ . '/../components/navbar/navbar.php'?>
+    <?php include __DIR__ . '/../navbar/navbar.php'?>
     <section class="home-section">
         <div class="header">
             <div class="slideshow-container">
     
                 <div class="mySlides fade">
-                    <img src="../../../resources/banner1.png" style="width:100%">
+                    <img src="../../public/asset/banner1.png" style="width:100%">
                 </div>
     
                 <div class="mySlides fade">
-                    <img src="../../../resources/banner2.png" style="width:100%">
+                    <img src="../../public/asset/banner2.png" style="width:100%">
                 </div>
                 <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
                 <a class="next" onclick="plusSlides(1)">&#10095;</a>
@@ -34,7 +34,7 @@
                 <!-- Iterate through database the courses and put into this card -->
                 <div class="card">
                     <div class="card-top">
-                        <img src="../../../resources/banner1.png" alt="Blog Name">
+                        <img src="../../public/asset/banner1.png" alt="Blog Name">
                     </div>
                     <div class="card-info">
                         <div class="course-name">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="card">
                     <div class="card-top">
-                        <img src="../../../resources/banner1.png" alt="Blog Name">
+                        <img src="../../public/asset/banner2.png" alt="Blog Name">
                     </div>
                     <div class="card-info">
                         <div class="course-name">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="card">
                     <div class="card-top">
-                        <img src="../../../resources/banner1.png" alt="Blog Name">
+                        <img src="../../public/asset/banner1.png" alt="Blog Name">
                     </div>
                     <div class="card-info">
                         <div class="course-name">
@@ -76,7 +76,7 @@
                 </div>
                 <div class="card">
                     <div class="card-top">
-                        <img src="../../../resources/banner1.png" alt="Blog Name">
+                        <img src="../../public/asset/banner2.png" alt="Blog Name">
                     </div>
                     <div class="card-info">
                         <div class="course-name">
