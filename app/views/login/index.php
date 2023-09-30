@@ -23,7 +23,7 @@
 
                         <div class="login-box">
                             <i class='bx bx-user login-icon'></i>
-                            <input type="text" placeholder="Username or Email" name="username" class="login-input">
+                            <input type="text" placeholder="username" name="username" class="login-input">
                         </div>
 
                         <div class="login-box">
@@ -31,53 +31,20 @@
                             <input type="password" placeholder="Password" name="password" class="login-input">
                         </div>
 
-                        <a href="#" class="login-forgot">Forgot password ?</a>
+                        <!-- <a href="#" class="login-forgot">Forgot password ?</a> -->
 
                         <button type="submit" class="login-button">Sign In</button>
 
                         <div>
                             <span class="login-account">Don't have an Account ?</span>
-                            <span class="login-signin" id="sign-up">Sign Up</span>
-                        </div>
-                    </form>
-
-                    <form action="" class="login-create none" id="login-up">
-                        <h1 class="login-title">Create Account</h1>
-
-                        <div class="login-box">
-                            <i class='bx bx-user login-icon'></i>
-                            <input type="text" placeholder="Username" class="login-input">
-                        </div>
-
-                        <div class="login-box">
-                            <i class="bx bx-at login-icon"></i>
-                            <input type="text" placeholder="Email" class="login-input">
-                        </div>
-
-                        <div class="login-box">
-                            <i class='bx bx-lock-alt login-icon'></i>
-                            <input type="password" placeholder="Password" class="login-input">
-                        </div>
-
-                        <a href="#" class="login-button">Sign Up</a>
-
-                        <div>
-                            <span class="login-account">Already have an Account ?</span>
-                            <span class="login-signup" id="sign-in">Sign In</span>
-                        </div>
-
-                        <div class="login-social">
-                            <a href="#" class="login-social-icon"><i class='bx bxl-facebook' ></i></a>
-                            <a href="#" class="login-social-icon"><i class='bx bxl-twitter' ></i></a>
-                            <a href="#" class="login-social-icon"><i class='bx bxl-google' ></i></a>
+                            <span class="login-signin" id="sign-up"><a href="register">Sign Up</a></span>
                         </div>
                     </form>
                 </div>
             </div>
         </div>
 
-        <script>
-        <?php include __DIR__ . '/login.js';?>
+        <script src="../../public/js/login.js">
         </script>
     </body>
 </html>
