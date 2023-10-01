@@ -71,6 +71,7 @@ const check_username = () => {
         }
       } 
     };
+    check_button();
     xmr.send(JSON.stringify({ username: username }));
   }
   check_button();

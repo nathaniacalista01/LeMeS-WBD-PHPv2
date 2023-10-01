@@ -8,12 +8,17 @@ require_once(__DIR__."/Model.php");
         public function register($fullname,$username,$password){
             $timestamp = time();
             $hashed_pass = password_hash($password,PASSWORD_DEFAULT);
-            $query = "INSERT INTO students (fullname,username,password) VALUES(:fullname,:username,:password)";
-            $this->database->query($query);
-            $this->database->bind('fullname',$fullname);
-            $this->database->bind('username',$username);
-            $this->database->bind('password',$hashed_pass);
-            $this->database->execute();
+            try {
+                $query = "INSERT INTO students (fullname,username,password) VALUES(:fullname,:username,:password)";
+                $this->database->query($query);
+                $this->database->bind('fullname',$fullname);
+                $this->database->bind('username',$username);
+                $this->database->bind('password',$hashed_pass);
+                $this->database->execute();       
+            } catch (PDOException $th) {
+                echo $th->getMessage();
+            }
+           
         }
         public function getStudentByUsername($username){
             $query = "SELECT * FROM students where username = :username";
@@ -23,4 +28,4 @@ require_once(__DIR__."/Model.php");
             return $result;
         }
     }
-?>  
+?>
