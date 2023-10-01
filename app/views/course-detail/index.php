@@ -209,27 +209,114 @@
                                 </div>
                             </div>
 
-                            <div class="tab-pane fade show active" id="course-teacher" role="tabpanel"
+                            <div class="tab-pane fade" id="course-teacher" role="tabpanel"
                             aria-labelledby="course-teacher-tab">
-                                <div class="course-instructor box">
+                                <div class="course-teacher box">
                                     <h3 class="mb-3 text capitalize">Teacher</h3>
                                     <div class="teacher-details">
-                                        <div class="details-wrap">
-                                            <div class="left-box">
-                                                <div class="right-box">
-                                                    <div class="img-box">
-                                                        <!-- <img src=" -->
-                                                    </div>
+                                        <div class="details-wrap d-flex align-items-center flex-wrap">
+                                            <div class="left-box me-4">
+                                                <div class="img-box">
+                                                    <img src="../../public/asset/1.png" class="rounded-circle" alt="teacher img">
                                                 </div>
+                                            </div>
+                                                <div class="right-box">
+                                                    <h4> John Doe <span>(Teacher)</span></h4>
+                                                    <ul>
+                                                        <li><i class="fas fa-star"></i> 4.5 Rating</li>
+                                                        <li><i class="fas fa-play-circle"></i> 10 Courses</li>
+                                                        <li><i class="fas fa-certificate"></i> 3000 Reviews</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="text">
+                                                <p class="mb-0">lorem ipsum</p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="tab-pane fade" id="course-reviews" role="tabpanel"
+                            <div class="tab-pane fade show active" id="course-reviews" role="tabpanel"
                             aria-labelledby="course-reviews-tab">
-                                Reviews
+                                <div class="course-reviews box">
+                                    <div class="rating-summary">
+                                        <h3 class="mb-4 text-capitalize">students feedback</h3>
+                                        <div class="row">
+                                            <div class="col-md-4 d-flex align-items-center justify-content-center
+                                            text-center">
+                                                <div class="rating-box">
+                                                    <div class="average-rating">
+                                                        <div class="average-stars">
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star"></i>
+                                                            <i class="fas fa-star-half-alt"></i>
+                                                            <div class="reviews">230 Reviews</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="rating-bars">
+                                                            <div class="rating-bars-item">
+                                                                <div class="star-text">5 Star</div>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 50%;"></div>
+                                                                    </div>
+                                                                        <div class="percent">50%</div>
+                                                            </div>
+                                                            <div class="rating-bars-item">
+                                                                <div class="star-text">4 Star</div>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 30%;"></div>
+                                                                    </div>
+                                                                        <div class="percent">30%</div>
+                                                            </div>
+                                                            <div class="rating-bars-item">
+                                                                <div class="star-text">3 Star</div>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 10%;"></div>
+                                                                    </div>
+                                                                        <div class="percent">10%</div>
+                                                            </div>
+                                                            <div class="rating-bars-item">
+                                                                <div class="star-text">2 Star</div>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 7%;"></div>
+                                                                    </div>
+                                                                        <div class="percent">7%</div>
+                                                            </div>
+                                                            <div class="rating-bars-item">
+                                                                <div class="star-text">1 Star</div>
+                                                                    <div class="progress">
+                                                                        <div class="progress-bar" style="width: 3%;"></div>
+                                                                    </div>
+                                                                        <div class="percent">3%</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="reviews-list">
+                                                <div class="reviews-item">
+                                                    <div class="img-box">
+                                                        <img src="../../public/asset/1.png" alt="review img">
+                                                    </div>
+                                                    <h4>John Doe</h4>
+                                                    <div class="stars-rating">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <span class="date">1 week ago</span>
+                                                    </div>
+                                                    <p>Great work. I understand this subject.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
                             </div>
 
                         </div>
