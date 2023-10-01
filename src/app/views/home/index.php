@@ -10,6 +10,9 @@
 <body>
     <?php include __DIR__ . '/../navbar/navbar.php'?>
     <section class="home-section">
+
+    <!-- HEADER SLIDESHOW -->
+
         <div class="header">
             <div class="slideshow-container">
     
@@ -29,9 +32,43 @@
                 <span class="dot" onclick="currentSlide(2)"></span>
             </div>
         </div>
+
+    <!-- SEARCH BAR -->
+
+        <div class="search-sort">
+            <div class="search-bar">
+                <div id="select">
+                    <p id="selectText">All Courses</p>
+                    <i class='bx bxs-chevron-down'></i>
+                    <ul id="list">
+                        <li class="options">All Courses</li>
+                        <li class="options">Art and Design</li>
+                        <li class="options">Business</li>
+                        <li class="options">Math and Science</li>
+                        <li class="options">Programming</li>
+                    </ul>
+                </div>
+                <input type="text" id="inputField" placeholder="Search In All Courses">
+            </div>
+            <div id="sort">
+                <p id="sortText">Sort By</p>
+                <i class='bx bxs-chevron-down'></i>
+                <ul id="sortList">
+                    <li class="sort-options">Course Ascending</li>
+                    <li class="sort-options">Course Descending</li>
+                    <li class="sort-options">Lecturer Ascending</li>
+                    <li class="sort-options">Lecturer Descending</li>
+                </ul>
+            </div>
+        </div>
+
+    <!-- COURSES CARDS -->
+
         <div class="card-container">
             <div class="cards grid-row">
+
                 <!-- Iterate through database the courses and put into this card -->
+                
                 <div class="card">
                     <div class="card-top">
                         <img src="../../public/asset/banner1.png" alt="Blog Name">
