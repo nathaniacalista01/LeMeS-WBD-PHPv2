@@ -6,7 +6,7 @@
     <title>My Courses</title>
 </head>
 <body>
-    <?php include __DIR__ . '/../components/navbar/navbar.php'?>
+    <?php include __DIR__ . '/../navbar/navbar.php'?>
     <section class="home-section">
         <div class="text">Konten My Courses di Sini</div>
     </section>

@@ -127,6 +127,19 @@
                 </div>
             </div>		
         </div>
+
+        <div class="paging">
+            <div class="pagination">
+                <a href=""><i class='bx bxs-chevron-left' ></i>PREV &nbsp;</a>
+                <a href="">1</a>
+                <a href="">2</a>
+                <a href="">3</a>
+                <a href="">4</a>
+                <a href="">...</a>
+                <a href="">10</a>
+                <a href=""> &nbsp;  NEXT <i class='bx bxs-chevron-right' ></i></a>
+            </div>
+        </div>
     </section>
     <script>
         <?php include __DIR__ . '/home.js';?>
