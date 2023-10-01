@@ -16,7 +16,11 @@ require_once(__DIR__."/Model.php");
             $this->database->execute();
         }
         public function getStudentByUsername($username){
-            $query = "SELECT password from ".$this->table." WHERE username=".$username;
+            $query = "SELECT * FROM students where username = :username";
+            $this->database->query($query);
+            $this->database->bind("username",$username);
+            $result = $this->database->single_fetch();
+            return $result;
         }
     }
 ?>  

@@ -33,7 +33,6 @@
                 $this->connection->exec(Table::MODULE_MATERIAL_TABLE);
                 $this->connection->exec(Table::COURSE_PARTICIPANT_TABLE);
                 $this->connection->exec(Table::COURSE_LECTURER_TABLE);
-                echo "Succesfully initialized all tables";
             } catch (PDOException $e) {
                 die($e->getMessage());
             }
@@ -77,10 +76,14 @@
         public function execute(){
             try {
                 $this->stmt->execute();
-                echo "Succesfully insert data";
             } catch (PDOException $th) {
                 echo $th->getMessage();
             }
+        }
+
+        public function single_fetch(){
+            $this->execute();
+            return $this->stmt->fetch(PDO::FETCH_ASSOC);
         }
     }
 ?>
