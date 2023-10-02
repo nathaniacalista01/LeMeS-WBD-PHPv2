@@ -6,6 +6,6 @@
     require_once("core/Seed.php");
     $app = new App;
     $database = new Database;
+    // Uncomment ini cuma pas awal2 ya (pas mau nge seed aja)
     // $seed = new Seed;
-    // $seed->seed_user();
 ?>
