@@ -11,6 +11,7 @@
     <body>
         <?php 
             if(isset($data["message"])){
+                $message = $data["message"];
                 include(__DIR__."/../components/alertBox.php");
             }
         ?>
