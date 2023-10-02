@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="alert-box" id="alert-box">
+        <div class=<?php echo $type ?> id="alert-box">
             <?php echo $message ?>
         </div>
     </div>

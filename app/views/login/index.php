@@ -13,7 +13,17 @@
             // Menampilkan alert
             if(isset($data["message"])){
                 $message = $data["message"];
+                $type = "success";
                 include(__DIR__."/../components/alertBox.php");
+            }
+        ?>
+        <?php
+            if(isset($_SESSION["error"])){
+                echo "Session error";
+                $message = $_SESSION["error"];
+                $type = "error";
+                include(__DIR__."/../components/alertBox.php");
+                unset($_SESSION["error"]);
             }
         ?>
         <div class="login">
