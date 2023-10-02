@@ -1,12 +1,21 @@
 <?php
     class Table{
         public const ENUM_TYPE = "
-            DROP TYPE IF EXISTS source CASCADE; 
-            CREATE TYPE source AS ENUM('video','pdf');
+        DO $$ 
+        BEGIN
+            IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'source') THEN
+                CREATE TYPE source AS ENUM('video','pdf');            
+            END IF;
+        END $$;
+            
         ";
         public const ENUM_ROLE = "
-            DROP TYPE IF EXISTS role CASCADE;
-            CREATE TYPE role as ENUM('STUDENT','TEACHER','ADMIN');
+        DO $$ 
+        BEGIN
+            IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'role') THEN
+                CREATE TYPE role as ENUM('STUDENT','TEACHER','ADMIN');
+            END IF;
+        END $$;
         ";
         public const USER_TABLE = 
         "CREATE TABLE IF NOT EXISTS users (
@@ -25,11 +34,11 @@
             title varchar(256) NOT NULL,
             description VARCHAR(256),
             image_path VARCHAR(256),
-            release_date TIMESTAMP NOT NULL
+            release_date TIMESTAMP DEFAULT NOW()
         )';
 
         public const COURSE_PARTICIPANT_TABLE = 
-        'CREATE TABLE IF NOT EXISTS course_paricitpant(
+        'CREATE TABLE IF NOT EXISTS course_participant(
             course_participant_id SERIAL PRIMARY KEY,
             course_id INT REFERENCES courses(course_id) NOT NULL,
             participant_id INT REFERENCES users(user_id) NOT NULL,
