@@ -30,6 +30,7 @@
         if($result !== null){
             $hashed_pass = $result["password"];
             if(password_verify($password,$hashed_pass)){
+                $_SESSION['success'] = "Log in succesful!";
                 header('Location: /');
                 exit;
             }else{
