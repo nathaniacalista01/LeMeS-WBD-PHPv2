@@ -14,6 +14,8 @@
             <i class='bx bx-menu' id="btn"></i>
         </div>
         <ul class="nav-list">
+
+        <!-- PROFILE PICTURE, NAME, ROLE -->
             <li>
                 <div class="profile-details">
                     <a href="#">
@@ -26,6 +28,8 @@
                     <span class="tooltip">Profile</span>
                 </div>
             </li>
+
+            <!-- HOMEPAGE BUTTON -->
             <li>
                 <a href="#">
                     <i class='bx bx-home'></i>
@@ -33,6 +37,8 @@
                 </a>
                 <span class="tooltip">Homepage</span>
             </li>
+
+            <!-- MY COURSES BUTTON -->
             <li>
                 <a href="#">
                     <i class='bx bx-book' ></i>
@@ -40,6 +46,8 @@
                 </a>
                 <span class="tooltip">My Courses</span>
             </li>
+
+            <!-- ASSIGNMENTS BUTTON -->
             <li>
                 <a href="#">
                 <i class='bx bx-task' ></i>
@@ -47,6 +55,8 @@
                 </a>
                 <span class="tooltip">Assignments</span>
             </li>
+
+            <!-- SETTING BUTTON -->
             <li>
                     <a href="#">
                         <i class='bx bx-cog'></i>
@@ -54,11 +64,13 @@
                     </a>
                     <span class="tooltip">Setting</span>
                 </li>
+
+                <!-- LOGOUT BUTTON -->
                 <li>
-                    <a href="#">
+                    <button class="logbtn" onclick="openModalLogout()">
                         <i class='bx bx-log-out' id="log-out"></i>
                         <span class="link-name">Log Out</span>
-                    </a>
+                    </button>
                     <span class="tooltip">Log Out</span>
                 </li>
             <div class="footer">
@@ -76,6 +88,22 @@
             </div>    
         </ul>
     </div>
+
+    <!-- LOGOUT POPUP CONFIRMATION -->
+    <div id="overlay-logout" onclick="closeDialogLogout()">
+        <dialog id="dialog-logout">
+            <div class="modal-container-logout">
+                <i class='bx bx-error-circle'></i>
+                <h2>Logout</h2>
+                <p>Are you sure want to logout?</p>
+                <div class="buttons-logout">
+                    <button class="close-btn-logout">Cancel</button> <!-- CANCEL LOGOUT AND CLOSE POPUP -->
+                    <button class="confirm-logout">Logout</button> <!-- IF CONFIRM TO LOGOUT CLICK HERE -->
+                </div>
+            </div>
+        </dialog>
+    </div>
+
     <script>
         <?php include __DIR__ . '/navbar.js';?>
     </script>

@@ -143,7 +143,7 @@
   display: none;
 }
 
-.sidebar li a{
+.sidebar li a, .sidebar li .logbtn{
   display: flex;
   height: 100%;
   width: 100%;
@@ -154,11 +154,11 @@
   background: #ffffff;
 }
 
-.sidebar li a:hover{
+.sidebar li a:hover, .sidebar li .logbtn:hover{
   background: #dbdbdb;
 }
 
-.sidebar li a .link-name{
+.sidebar li a .link-name, .sidebar li .logbtn .link-name{
   color: #000000;
   font-size: 15px;
   font-weight: 400;
@@ -169,15 +169,22 @@
   margin-left: 8px;
 }
 
-.sidebar.open li a .link-name{
+.sidebar.open li a .link-name, .sidebar.open li .logbtn .link-name{
   opacity: 1;
   pointer-events: auto;
 }
 
 .sidebar li a:hover .link-name,
-.sidebar li a:hover i{
+.sidebar li a:hover i,
+.sidebar li .logbtn:hover .link-name,
+.sidebar li .logbtn:hover i{
   transition: all 0.5s ease;
   color: #b700ff;
+}
+
+.sidebar li .logbtn{
+  border: none;
+  cursor: pointer;
 }
 
 .sidebar .footer{
@@ -226,4 +233,64 @@
   .sidebar li .tooltip{
     display: none;
   }
+}
+
+.modal-container-logout .buttons-logout{
+  margin-top: 40px;
+}
+
+.modal-container-logout .close-btn-logout,
+.modal-container-logout .confirm-logout{
+  cursor: pointer;
+    border: none;
+    font-size: 16px;
+    color: white;
+    background: #597aff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-weight: 700px;
+    left: 100px;
+}
+
+.modal-container-logout .close-btn-logout:hover{
+  background: #214dff;
+}
+
+.modal-container-logout .confirm-logout:hover{
+  background: red;
+}
+
+.modal-container-logout .confirm-logout{
+  background: rgb(255, 61, 61);
+  margin-left: 25px;
+}
+
+.modal-container-logout{
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+    text-align: center;
+}
+
+.modal-container-logout i{
+  font-size: 100px;
+  color: red;
+  margin-top: 20px;
+}
+
+#dialog-logout{
+  width: 350px;
+  height: 300px;
+  min-width: 300px;
+  min-height: 300px;
+  border: none;
+  margin: auto;
+  padding: auto;
+}
+
+#overlay-logout{
+  width: 100%;
+  background-color: transparent;
+  display: none;
+  position: fixed;
 }
