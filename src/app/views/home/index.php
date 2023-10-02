@@ -63,69 +63,90 @@
         </div>
 
     <!-- COURSES CARDS -->
-
+        
         <div class="card-container">
             <div class="cards grid-row">
 
                 <!-- Iterate through database the courses and put into this card -->
-                
-                <div class="card">
-                    <div class="card-top">
-                        <img src="../../public/asset/banner1.png" alt="Blog Name">
-                    </div>
-                    <div class="card-info">
-                        <div class="course-name">
-                            <h2>First Course</h2>
+                    
+                <div class="card" onclick="openModal()" style="cursor: pointer;">
+                        <div class="card-top">
+                            <img src="../../public/asset/banner1.png" alt="Blog Name">
                         </div>
-                        <span class="lecturer">Lecturer 1</span>
+                        <div class="card-info">
+                            <div class="course-name">
+                                <h2>First Course</h2>
+                            </div>
+                            <span class="lecturer">Lecturer 1</span>
+                        </div>
+                        <div class="card-bottom flex-row">
+                            <p>23-09-2022</p>
+                        </div>
+                </div>
+                <div class="card" onclick="openModal()" style="cursor: pointer;">
+                        <div class="card-top">
+                            <img src="../../public/asset/banner2.png" alt="Blog Name">
+                        </div>
+                        <div class="card-info">
+                            <div class="course-name">
+                                <h2>Usual Course 2 lalala</h2>
+                            </div>
+                                <span class="lecturer">Lecture 2</span>
+                        </div>
+                        <div class="card-bottom flex-row">
+                            <p>02-02-2023</p>
+                        </div>
+                </div>
+                <div class="card" onclick="openModal()" style="cursor: pointer;">
+                        <div class="card-top">
+                            <img src="../../public/asset/banner1.png" alt="Blog Name">
+                        </div>
+                        <div class="card-info">
+                            <div class="course-name">
+                                <h2>This is course 3 that the title is overflow because of too long</h2>
+                            </div>
+                            <span class="lecturer">Lecturer 3</span>
+                        </div>
+                        <div class="card-bottom flex-row">
+                            <p>28-08-2023</p>
+                        </div>
+                </div>
+                <div class="card" onclick="openModal()" style="cursor: pointer;">
+                        <div class="card-top">
+                            <img src="../../public/asset/banner2.png" alt="Blog Name">
+                        </div>
+                        <div class="card-info">
+                            <div class="course-name">
+                                <h2>Course 4</h2>
+                            </div>
+                            <span class="lecturer">Lecturer 4</span>
+                        </div>
+                        <div class="card-bottom flex-row">
+                            <p>10-09-2022</p>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="overlay" onclick="closeDialog()">
+            <dialog id="dialog">
+                <div class="modal-container">
+                    <div class="flex">
+                        <p>tanggal upload kelas</p>
+                        <button class="close-btn"><i class='bx bx-x-circle'></i></button>
                     </div>
-                    <div class="card-bottom flex-row">
-                        <a href="#" class="course-btn">Course Detail</a>
+                    <div class="title"><h3>Judul Course</h3></div>
+                    <div class="description">
+                        <p>
+                            course ini adalah matkul asdlklwa aaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaa aaaaaaa aaaaaa aaaaaaaa aaaaaassssssssasdasdgasdadssassssssssssssssssassssssssasddasdasvcasdasaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa
+                        </p>
+                    </div>
+                    <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div>
+                    <div class="buttons-enroll">
+                        <button class="enroll-btn">Enroll this Course</button>  <!-- IF WANT TO ENROLL CLICK HERE -->
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-top">
-                        <img src="../../public/asset/banner2.png" alt="Blog Name">
-                    </div>
-                    <div class="card-info">
-                        <div class="course-name">
-                            <h2>Usual Course 2 lalala</h2>
-                        </div>
-                            <span class="lecturer">Lecture 2</span>
-                    </div>
-                    <div class="card-bottom flex-row">
-                        <a href="#" class="course-btn">Course Detail</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-top">
-                        <img src="../../public/asset/banner1.png" alt="Blog Name">
-                    </div>
-                    <div class="card-info">
-                        <div class="course-name">
-                            <h2>This is course 3 that the title is overflow because of too long</h2>
-                        </div>
-                        <span class="lecturer">Lecturer 3</span>
-                    </div>
-                    <div class="card-bottom flex-row">
-                        <a href="#" class="course-btn">Course Detail</a>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-top">
-                        <img src="../../public/asset/banner2.png" alt="Blog Name">
-                    </div>
-                    <div class="card-info">
-                        <div class="course-name">
-                            <h2>Course 4</h2>
-                        </div>
-                        <span class="lecturer">Lecturer 4</span>
-                    </div>
-                    <div class="card-bottom flex-row">
-                        <a href="#" class="course-btn">Course Detail</a>
-                    </div>
-                </div>
-            </div>		
+            </dialog>
         </div>
 
         <div class="paging">

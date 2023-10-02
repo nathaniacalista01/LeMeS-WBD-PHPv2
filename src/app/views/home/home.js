@@ -44,6 +44,7 @@ for(option of options){
   }
 }
 
+// ---------------------- SORT --------------------------
 let sort = document.getElementById("sort");
 let sortOptions = document.getElementsByClassName("sort-options");
 
@@ -55,4 +56,33 @@ for(option of sortOptions){
   option.onclick = function(){
     sortText.innerHTML = this.innerHTML;
   }
+}
+
+// ------------------- ENROLLMENT POPUP -----------------------
+
+function openModal() {
+  var myDialog = document.getElementById('dialog');
+  var overlay = document.getElementById('overlay');
+  myDialog.showModal();
+  overlay.style.display = 'block';
+}
+
+const closeModalBtn = document.querySelector(".close-btn");
+
+// close modal when the Esc key is pressed
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
+
+closeModalBtn.addEventListener("click", () => {
+  dialog.close();
+});
+
+function closeDialog() {
+  var dialog = document.getElementById('dialog');
+  var overlay = document.getElementById('overlay');
+  dialog.close();
+  overlay.style.display = 'none';
 }
