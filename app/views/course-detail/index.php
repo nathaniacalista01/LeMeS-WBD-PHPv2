@@ -4,13 +4,67 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Detail Course</title>
+        <title>Course Detail</title>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
         <link rel="stylesheet" href="../../public/css/course-detail/course-detail.css">
-        <link rel="stylesheet" href="../../public/css/course-detail/color-1.css">
+        <link rel="stylesheet" href="../../public/css/course-detail/bootstrap.min.css">
+        <link rel="stylesheet" href="../../public/css/course-detail/font-awesome.css">
+        <link rel="stylesheet" class="js-color-style" href="../../public/css/course-detail/color-1.css">
     </head>
     <body>
+        <div class="main-wrapper">
+           <header class="header">
+            <div class="container">
+                <div class="header-main d-flex justify-content-between align-items-center">
+                    <div class="header-logo">
+                        <a href="../../views/course-detail/index.php"><span>Edu</span>care</a>
+                    </div>
+                    <button type="button" class="header-hamburger-btn js-header-menu-toggler">
+                        <span></span>
+                    </button>
+                    <div class="header-backdrop js-header-backdrop"></div>
+                    <nav class="header-menu js-header-menu">
+                        <button type="button" class="header-close-btn js-header-menu-toggler">
+                            <i class="fas fa-times"></i>
+                        </button>
+                        <ul class="menu">
+                            <li class="menu-item"><a href="../../views/course-detail/index.php">Home</a></li>
+                            <li class="menu-item menu-item-has-children">
+                                <a href="#" class="js-toggle-sub-menu">courses <i class="fas fa-chevron down"></i></a>
+                                <ul class="sub-menu js-sub-menu">
+                                    <li class="sub-menu-item"><a href="">course</a></li>
+                                    <li class="sub-menu-item"><a href="">course detail</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item menu-item-has-children">
+                                <a href="#" class="js-toggle-sub-menu">pages <i class="fas fa-chevron down"></i></a>
+                                <ul class="sub-menu js-sub-menu">
+                                    <li class="sub-menu-item"><a href="../../views/login/index.php">log in</a></li>
+                                    <li class="sub-menu-item"><a href="../../views/login/index.php">sign up</a></li>
+                                </ul>
+                            </li>
+                            <li class="menu-item"><a href="#">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+           </header> 
+        </div>
+        <!-- <section class="banner-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="banner-text">
+                            <h2></h2>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                    </div>
+                </div>
+            </div>
+        </section> -->
         <section class="course-detail section-padding">
             <div class="container">
                 <div class="row">
@@ -133,7 +187,7 @@
                                             <h2 class="accordion-header" id="heading-3">
                                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                                 data-bs-target="#collapse-3" aria-expanded="false" aria-controls="collapse-3">
-                                                    Types <span>2 lessons | 20min</span>
+                                                    Control structure <span>2 lessons | 20min</span>
                                                 </button>
                                             </h2>
                                             <div id="collapse-3" class="accordion-collapse collapse"
@@ -324,11 +378,17 @@
                     <div class="col-lg-4">
                         <!-- course sidebar -->
                         <div class="course-sidebar box">
-                            course sidebar
+                            <div class="img-box">
+                                <!-- <img src="" -->
+                            </div>
+                            <div class="price"></div>
+                            <h3></h3>
+                            <ul></ul>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <script src="../../public/js/bootstrap.bundle.min.js"></script>  
     </body>
 </html>
