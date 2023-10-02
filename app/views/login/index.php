@@ -6,10 +6,13 @@
         <title>Log In or Sign Up</title>
         <link href="../../public/css/login/login.css" rel="stylesheet">
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        
     </head>
     <body>
         <?php 
-           
+            if(isset($data["message"])){
+                include(__DIR__."/../components/alertBox.php");
+            }
         ?>
         <div class="login">
             <div class="login-content">
@@ -43,8 +46,6 @@
                 </div>
             </div>
         </div>
-
-        <script src="../../public/js/login.js">
-        </script>
+        
     </body>
 </html>

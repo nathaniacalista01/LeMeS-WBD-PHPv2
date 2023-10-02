@@ -27,7 +27,7 @@ if(isset($_POST["fullname"]) && isset($_POST["username"]) && isset($_POST["passw
     $username = $_POST["username"];
     $password=$_POST["password"];
     $student->register($fullname,$username,$password);
-    header('Location: /login');
+    header('Location: /login/redirect');
     exit;
 }
 ?>
