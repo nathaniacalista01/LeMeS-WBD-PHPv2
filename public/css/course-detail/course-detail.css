@@ -3,8 +3,8 @@
 
 :root {
     --orange: hsl(36, 80%, 50%);
-    --white: hsl(0, 0%, 100%);
-    --WHITE: hsl(0, 0%, 100%);
+    --white: hsl(284, 43%, 72%);
+    --WHITE: hsl(275, 74%, 74%);
     --BLACK: hsl(0, 0%, 0%);
     --black-90: hsl(0, 0%, 10%);
     --black-70: hsl(0, 0%, 30%);
@@ -12,8 +12,8 @@
     --yellow-light: hsl(44, 95%, 83%);
     --green-light: hsl(158, 68%, 75%);
     --red-light: hsl(0, 84%, 80%);
-    --purple-light: hsl(264, 20%, 80%);
-    --select-box-bg-color: hsl(287, 54%, 74%);
+    --purple-light: hsl(279, 63%, 88%);
+    --select-box-bg-color: hsl(282, 62%, 83%);
     --border-color-1: hsl(283, 72%, 71%);
 }
 
@@ -144,6 +144,10 @@ h3 {
     border-radius: 5px;
     box-shadow: var(--shadow);
     padding: 30px;
+}
+
+.btn-block {
+    width: 100%;
 }
 
 .section-padding {
@@ -387,4 +391,79 @@ h3 {
 
 .reviews-item p {
     margin: 5px 0 0;
+}
+
+.course-sidebar .img-box {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.course-sidebar .img-box::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: var(--black-alpha-40);
+}
+
+.course-sidebar .img-box .play-icon {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: var(--main-color);
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--WHITE);
+}
+
+.course-sidebar .img-box p {
+    position: absolute;
+    color: var(--WHITE);
+    top: calc(50% + 40px);
+    font-weight: 500;
+    width: 100%;
+}
+
+.course-sidebar .price span {
+    margin-right: 8px;
+}
+
+.course-sidebar .price-new {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--black-90);
+}
+
+.course-sidebar .price-discount {
+    color: var(--main-color);
+}
+
+.course-sidebar .features-list {
+    margin: 0 0 20px;
+}
+.course-sidebar .features-list li {
+    position: relative;
+    padding-left: 21px;
+    margin-bottom: 8px;
+}
+
+.course-sidebar .features-list li::before {
+    content: '';
+    height: 6px;
+    width: 6px;
+    background-color: var(--main-color);
+    position: absolute;
+    left: 0;
+    top: 9px;
+    border-radius: 50%;
 }

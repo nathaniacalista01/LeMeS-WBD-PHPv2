@@ -378,12 +378,28 @@
                     <div class="col-lg-4">
                         <!-- course sidebar -->
                         <div class="course-sidebar box">
-                            <div class="img-box">
-                                <!-- <img src="" -->
+                            <div class="img-box position-relative">
+                                <img src="../../public/asset/3.jpg" class="w-100" alt="course img">
+                                <div class="play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <p class="text-center">Course Preview</p>
                             </div>
-                            <div class="price"></div>
-                            <h3></h3>
-                            <ul></ul>
+                            <div class="price d-flex align-items-center mb-3">
+                                <span class="price-old">Rp100.000</span>
+                                <spam class="price-new">Rp0</spam>
+                                <span class="price-discount">100% Off</span>
+                            </div>
+                            <h3 class="mb-3">Course Features</h3>
+                            <ul class="features-list">
+                                <li>Total 15 lessons</li>
+                                <li>Other Features</li>
+                                <li>Other Features</li>
+                                <li>Other Features</li>
+                            </ul>
+                            <div class="btn-wrap">
+                                <button type="button" class="btn btn-theme btn-block">Enroll now</button>
+                            </div>
                         </div>
                     </div>
                 </div>
