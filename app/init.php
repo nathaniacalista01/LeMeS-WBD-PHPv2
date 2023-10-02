@@ -4,4 +4,5 @@
     require_once("core/Database.php");
     require_once("core/Table.php");
     $app = new App;
+    $database = new Database;
 ?>

@@ -1,15 +1,15 @@
 <?php
 require_once(__DIR__."/Model.php");
-    class Student extends Model{
+    class User extends Model{
         public function __construct(){
-            parent::__construct("students");
+            parent::__construct("users");
         }
 
         public function register($fullname,$username,$password){
             $timestamp = time();
             $hashed_pass = password_hash($password,PASSWORD_DEFAULT);
             try {
-                $query = "INSERT INTO students (fullname,username,password) VALUES(:fullname,:username,:password)";
+                $query = "INSERT INTO users (fullname,username,password) VALUES(:fullname,:username,:password)";
                 $this->database->query($query);
                 $this->database->bind('fullname',$fullname);
                 $this->database->bind('username',$username);
@@ -20,8 +20,8 @@ require_once(__DIR__."/Model.php");
             }
            
         }
-        public function getStudentByUsername($username){
-            $query = "SELECT * FROM students where username = :username";
+        public function getUserByUsername($username){
+            $query = "SELECT * FROM users where username = :username";
             $this->database->query($query);
             $this->database->bind("username",$username);
             $result = $this->database->single_fetch();
