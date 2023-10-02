@@ -11,15 +11,15 @@
     <body>
         <?php 
             // Menampilkan alert
-            if(isset($data["message"])){
-                $message = $data["message"];
+            if(isset($_SESSION["success"])){
+                $message = $_SESSION["success"];
                 $type = "success";
                 include(__DIR__."/../components/alertBox.php");
+                unset($_SESSION["success"]);
             }
         ?>
         <?php
             if(isset($_SESSION["error"])){
-                echo "Session error";
                 $message = $_SESSION["error"];
                 $type = "error";
                 include(__DIR__."/../components/alertBox.php");

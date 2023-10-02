@@ -15,5 +15,9 @@
                 return $this->view('login','index',[]);
             }
         }
+
+        public function testing(){
+            print_r($_SESSION);
+        }
     }
 ?>

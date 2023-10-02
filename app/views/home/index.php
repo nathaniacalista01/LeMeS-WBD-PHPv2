@@ -11,6 +11,7 @@
             $message = $_SESSION["success"];
             $type = "success";
             include(__DIR__."/../components/alertBox.php");
+            unset($_SESSION["success"]);
         }
     ?>
     <h1>This is home page</h1>
