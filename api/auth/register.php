@@ -4,7 +4,9 @@ require_once("../../app/core/Database.php");
 require_once("../../app/models/Student.php");
 require_once("../../app/core/Table.php");
 require_once("../../config/config.php");
-
+if(session_status() === PHP_SESSION_NONE){
+    session_start();
+}
 $xml = file_get_contents('php://input');
 $data = json_decode($xml, true);
 $student = new Student();
@@ -27,7 +29,8 @@ if(isset($_POST["fullname"]) && isset($_POST["username"]) && isset($_POST["passw
     $username = $_POST["username"];
     $password=$_POST["password"];
     $student->register($fullname,$username,$password);
-    header('Location: /login/redirect');
+    $_SESSION["success"] = "Sucesfully registered!";
+    header('Location: /login');
     exit;
 }
 ?>

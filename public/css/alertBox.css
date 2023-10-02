@@ -2,7 +2,7 @@
     position: relative;
 }
 
-.alert-box{
+.success{
     position:absolute;
     left: 30%;
     top: 20px;
@@ -14,5 +14,21 @@
     display: flex;
     align-items: center;
     background-color: #12c99b;
+    color: white;
+}
+
+
+.error{
+    position:absolute;
+    left: 30%;
+    top: 20px;
+    z-index: 10;
+    min-height: 67px;
+    width: 560px;
+    border-radius: 12px;
+    padding: 16px 22px 17px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #e41749;
     color: white;
 }
