@@ -7,6 +7,7 @@
     <link href="../../public/css/home/home.css" rel="stylesheet">
     <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="../../public/js/home.js" defer></script>
+    <title>Document</title>
 </head>
 <body>
     <?php
@@ -172,5 +173,6 @@
             </div>
         </div>
     </section>
+    <h1>This is home page</h1>
 </body>
 </html>
