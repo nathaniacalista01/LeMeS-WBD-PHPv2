@@ -67,8 +67,8 @@
                     }
                 }
                 $this->stmt->bindValue($param, $value, $type);
-            } catch (PDOException) {
-                throw new LoggedException('Internal Server Error', 500);
+            } catch (PDOException $th) {
+                echo $th->getMessage();
             }
         }
 
@@ -83,6 +83,10 @@
         public function single_fetch(){
             $this->execute();
             return $this->stmt->fetch(PDO::FETCH_ASSOC);
+        }
+        public function fetchAll(){
+            $this->execute();
+            return $this->stmt->fetchAll(PDO::FETCH_ASSOC);
         }
     }
 ?>

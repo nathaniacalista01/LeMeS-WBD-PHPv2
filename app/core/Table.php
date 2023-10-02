@@ -1,11 +1,9 @@
 <?php
     class Table{
         public const ENUM_TYPE = "
-            DROP TYPE IF EXISTS source CASCADE; 
             CREATE TYPE source AS ENUM('video','pdf');
         ";
         public const ENUM_ROLE = "
-            DROP TYPE IF EXISTS role CASCADE;
             CREATE TYPE role as ENUM('STUDENT','TEACHER','ADMIN');
         ";
         public const USER_TABLE = 
@@ -25,7 +23,7 @@
             title varchar(256) NOT NULL,
             description VARCHAR(256),
             image_path VARCHAR(256),
-            release_date TIMESTAMP NOT NULL
+            release_date TIMESTAMP DEFAULT NOW()
         )';
 
         public const COURSE_PARTICIPANT_TABLE = 
