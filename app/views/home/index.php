@@ -151,7 +151,11 @@
                     if($start_index < $max_page-2){
                         echo "<a>...</a>";
                     }
-                    echo "<a href='/course/lists/page=$max_page'>$max_page</a>";
+                    if($start_index == $max_page){
+                        echo "<a style='background-color:#5271e9;color:white;' href='/course/$type/page=$max_page'>$max_page</a>";
+                    }else{
+                        echo "<a href='/course/$type/page=$max_page'>$max_page</a>";
+                    }
                     if($start_index < $max_page){
                         $next_index = $start_index + 1;
                         echo "<a href='/course/$type/page=$next_index'> &nbsp;  NEXT <i class='bx bxs-chevron-right' ></i></a>";
