@@ -12,12 +12,11 @@ require_once(__DIR__."/Model.php");
             return $result;
         }
        public function getFewCourses($page){
-        $query = "SELECT * from courses ORDER BY release_date DESC LIMIT 10 OFFSET :offset";
+        $query = "SELECT * from courses ORDER BY release_date DESC LIMIT 4 OFFSET :offset";
         $this->database->query($query);
-        $this->database->bind('offset',($page-1)*10);
-        $this->database->execute();
+        $this->database->bind('offset',($page-1)*4);
         $result = $this->database->fetchAll();
-        echo $result;
+        return $result;
        }
 
     }
