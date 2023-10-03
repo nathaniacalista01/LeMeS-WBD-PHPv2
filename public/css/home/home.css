@@ -336,7 +336,7 @@
     transition: .3s linear;
     text-decoration: none;
 }
-  
+
 .pagination a:hover{
     color: #fff;
     background-color: #5271e9;

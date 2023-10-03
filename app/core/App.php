@@ -26,6 +26,11 @@
             if(!empty($url)){
                 // Kalau ada parameter
                 $this->params = array_values($url);
+            }else{
+                if($this->methods == "lists"){
+                    header("Location: course/lists/page=1");
+                    exit;
+                }
             }
             call_user_func_array([$this->controllers,$this->methods],$this->params);
         }

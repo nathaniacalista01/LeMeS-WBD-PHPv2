@@ -3,7 +3,7 @@
     class AdminController extends Controller{
         // Landing page admin, menampilkan semua courses
         public function index(){
-            return $this->view("admin","index",[]);
+            
         }
 
         // Page admin untuk melihat semua students

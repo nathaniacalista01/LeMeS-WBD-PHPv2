@@ -79,63 +79,28 @@
             <div class="cards grid-row">
 
                 <!-- Iterate through database the courses and put into this card -->
-                    
-                <div class="card" onclick="openModal()" style="cursor: pointer;">
-                        <div class="card-top">
-                            <img src="../../public/asset/banner1.png" alt="Blog Name">
-                        </div>
-                        <div class="card-info">
-                            <div class="course-name">
-                                <h2>First Course</h2>
+                <?php
+                    $courses = $data["courses"];
+                    foreach ($courses as $course ) {
+                        $formattedDate = date('d-m-y', strtotime($course['release_date']));
+                        echo"
+                        <div class='card' onclick='openModal()' style='cursor: pointer;'>
+                            <div class='card-top'>
+                                <img src='../../public/asset/banner1.png' alt='Blog Name'>
                             </div>
-                            <span class="lecturer">Lecturer 1</span>
-                        </div>
-                        <div class="card-bottom flex-row">
-                            <p>23-09-2022</p>
-                        </div>
-                </div>
-                <div class="card" onclick="openModal()" style="cursor: pointer;">
-                        <div class="card-top">
-                            <img src="../../public/asset/banner2.png" alt="Blog Name">
-                        </div>
-                        <div class="card-info">
-                            <div class="course-name">
-                                <h2>Usual Course 2 lalala</h2>
+                            <div class='card-info'>
+                                <div class='course-name'>
+                                    <h2>$course[title]</h2>
+                                </div>
+                                <span class='lecturer'>$course[description]</span>
                             </div>
-                                <span class="lecturer">Lecture 2</span>
-                        </div>
-                        <div class="card-bottom flex-row">
-                            <p>02-02-2023</p>
-                        </div>
-                </div>
-                <div class="card" onclick="openModal()" style="cursor: pointer;">
-                        <div class="card-top">
-                            <img src="../../public/asset/banner1.png" alt="Blog Name">
-                        </div>
-                        <div class="card-info">
-                            <div class="course-name">
-                                <h2>This is course 3 that the title is overflow because of too long</h2>
+                            <div class='card-bottom flex-row'>
+                                <p>$formattedDate</p>
                             </div>
-                            <span class="lecturer">Lecturer 3</span>
                         </div>
-                        <div class="card-bottom flex-row">
-                            <p>28-08-2023</p>
-                        </div>
-                </div>
-                <div class="card" onclick="openModal()" style="cursor: pointer;">
-                        <div class="card-top">
-                            <img src="../../public/asset/banner2.png" alt="Blog Name">
-                        </div>
-                        <div class="card-info">
-                            <div class="course-name">
-                                <h2>Course 4</h2>
-                            </div>
-                            <span class="lecturer">Lecturer 4</span>
-                        </div>
-                        <div class="card-bottom flex-row">
-                            <p>10-09-2022</p>
-                        </div>
-                </div>
+                        ";
+                    }
+                ?>
             </div>
         </div>
 
@@ -162,14 +127,35 @@
 
         <div class="paging">
             <div class="pagination">
-                <a href=""><i class='bx bxs-chevron-left' ></i>PREV &nbsp;</a>
-                <a href="">1</a>
-                <a href="">2</a>
-                <a href="">3</a>
-                <a href="">4</a>
-                <a href="">...</a>
-                <a href="">10</a>
-                <a href=""> &nbsp;  NEXT <i class='bx bxs-chevron-right' ></i></a>
+                <?php 
+                    $start_index = $data["page_number"]; 
+                    $max_page = $data["max_page"];
+                    $prev_index = $start_index <= 1 ? 1 : $start_index-1;
+
+                    if($start_index > 1){
+                        $prev_index = $start_index-1;
+                        echo "<a href='/course/lists/page=$prev_index'><i class='bx bx-chevron-left'></i>PREV</a>";
+                    }
+                    for($i =$prev_index; $i < $start_index+2;$i++){
+                        if($i == $max_page){
+                            break;
+                        }
+                        $classname = '';
+                        if($i == $start_index){
+                            echo "<a class='pagination-active' style='background-color:#5271e9;color:white;' id='pagination-active'>$i</a>";
+                        }else{
+                            echo "<a href='/course/lists/page=$i'id='pagination-number'>$i</a>";
+                        }
+                    }
+                    if($start_index < $max_page-2){
+                        echo "<a>...</a>";
+                    }
+                    echo "<a href='/course/lists/page=$max_page'>$max_page</a>";
+                    if($start_index < $max_page){
+                        $next_index = $start_index + 1;
+                        echo "<a href='/course/lists/page=$next_index'> &nbsp;  NEXT <i class='bx bxs-chevron-right' ></i></a>";
+                    }
+                ?>
             </div>
         </div>
     </section>

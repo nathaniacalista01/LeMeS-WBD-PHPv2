@@ -1,7 +1,7 @@
 <?php
     class HomeController extends Controller{
         public function index(){
-            return $this->view('home','index',[]);
+           header("Location: /course/lists/page=1");
         }
         public function redirect(){
             echo "redirect";
