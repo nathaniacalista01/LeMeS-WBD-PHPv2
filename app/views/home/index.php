@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomePage</title>
     <link href="../../public/css/home/home.css" rel="stylesheet">
-    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <script src="../../public/js/home.js" defer></script>
     <title>Document</title>
 </head>
@@ -50,7 +49,11 @@
             <div class="search-bar">
                 <div id="select">
                     <p id="selectText">All Courses</p>
-                    <i class='bx bxs-chevron-down'></i>
+                    <i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"/>
+                        </svg>
+                    </i>
                     <ul id="list">
                         <li class="options">All Courses</li>
                         <li class="options">Art and Design</li>
@@ -63,7 +66,11 @@
             </div>
             <div id="sort">
                 <p id="sortText">Sort By</p>
-                <i class='bx bxs-chevron-down'></i>
+                <i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"/>
+                    </svg>
+                </i>
                 <ul id="sortList">
                     <li class="sort-options">Course Ascending</li>
                     <li class="sort-options">Course Descending</li>
@@ -109,7 +116,14 @@
                 <div class="modal-container">
                     <div class="flex">
                         <p>tanggal upload kelas</p>
-                        <button class="close-btn"><i class='bx bx-x-circle'></i></button>
+                        <button class="close-btn">
+                            <i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"/>
+                                <path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"/>
+                            </svg>
+                            </i>
+                        </button>
                     </div>
                     <div class="title"><h3>Judul Course</h3></div>
                     <div class="description">
@@ -134,7 +148,7 @@
 
                     if($start_index > 1){
                         $prev_index = $start_index-1;
-                        echo "<a href='/course/lists/page=$prev_index'><i class='bx bx-chevron-left'></i>PREV</a>";
+                        echo "<a href='/course/lists/page=$prev_index'>PREV</a>";
                     }
                     for($i =$prev_index; $i < $start_index+2;$i++){
                         if($i == $max_page){
@@ -153,7 +167,7 @@
                     echo "<a href='/course/lists/page=$max_page'>$max_page</a>";
                     if($start_index < $max_page){
                         $next_index = $start_index + 1;
-                        echo "<a href='/course/lists/page=$next_index'> &nbsp;  NEXT <i class='bx bxs-chevron-right' ></i></a>";
+                        echo "<a href='/course/lists/page=$next_index'> &nbsp;  NEXT</a>";
                     }
                 ?>
             </div>
