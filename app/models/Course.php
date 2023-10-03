@@ -11,6 +11,10 @@ require_once(__DIR__."/Model.php");
             $result = $this->database->fetchAll();
             return $result;
         }
+        public function getTotalRows($course_per_page){
+            $courses = count( $this->getAllCourses());
+            return ceil($courses/$course_per_page);
+        }
        public function getFewCourses($page){
         $query = "SELECT * from courses ORDER BY release_date DESC LIMIT 4 OFFSET :offset";
         $this->database->query($query);

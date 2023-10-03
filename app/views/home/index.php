@@ -127,18 +127,35 @@
 
         <div class="paging">
             <div class="pagination">
-                <a href=""><i class='bx bxs-chevron-left' ></i>PREV &nbsp;</a>
                 <?php 
-                    $start_index = 0; 
-                    for($i =$start_index; $i < $start_index+4;$i++){
-                        $number = $i+1;
-                        echo "<a href='/course/lists/page=$number' class='' id='pagination-number'>$number</a>";
+                    $start_index = $data["page_number"]; 
+                    $max_page = $data["max_page"];
+                    $prev_index = $start_index <= 1 ? 1 : $start_index-1;
+
+                    if($start_index > 1){
+                        $prev_index = $start_index-1;
+                        echo "<a href='/course/lists/page=$prev_index'><i class='bx bx-chevron-left'></i>PREV</a>";
+                    }
+                    for($i =$prev_index; $i < $start_index+2;$i++){
+                        if($i == $max_page){
+                            break;
+                        }
+                        $classname = '';
+                        if($i == $start_index){
+                            echo "<a class='pagination-active' style='background-color:#5271e9;color:white;' id='pagination-active'>$i</a>";
+                        }else{
+                            echo "<a href='/course/lists/page=$i'id='pagination-number'>$i</a>";
+                        }
+                    }
+                    if($start_index < $max_page-2){
+                        echo "<a>...</a>";
+                    }
+                    echo "<a href='/course/lists/page=$max_page'>$max_page</a>";
+                    if($start_index < $max_page){
+                        $next_index = $start_index + 1;
+                        echo "<a href='/course/lists/page=$next_index'> &nbsp;  NEXT <i class='bx bxs-chevron-right' ></i></a>";
                     }
                 ?>
-               
-                <a href="">...</a>
-                <a href=""><?php echo $data["total_page"] ?></a>
-                <a href=""> &nbsp;  NEXT <i class='bx bxs-chevron-right' ></i></a>
             </div>
         </div>
     </section>
