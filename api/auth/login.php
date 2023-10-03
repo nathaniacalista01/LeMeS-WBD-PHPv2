@@ -30,6 +30,7 @@
             if(password_verify($password,$hashed_pass)){
                 $_SESSION['success'] = "Log in succesful!";
                 $_SESSION['username'] = $username;
+                $_SESSION["user_id"] = $result["user_id"];
                 header('Location: /');
                 exit;
             }else{

@@ -2,7 +2,7 @@
     class Seed{
         private $database;
         public function __construct(){
-            $this->database = new Database;
+            $this->database = Database::instance();
             $this->seed_users();
             $this->seed_courses();
             $this->seed_modules();

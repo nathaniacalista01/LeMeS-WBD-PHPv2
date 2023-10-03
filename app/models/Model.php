@@ -5,7 +5,7 @@
 
         public function __construct($table_name){
             $this->tables = $table_name;
-            $this->database = new Database;
+            $this->database = Database::instance();
         }
     }
 ?>

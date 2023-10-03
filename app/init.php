@@ -8,7 +8,7 @@
     require_once("models/Course.php");
     require_once("models/Material.php");
     $app = new App;
-    $database = new Database;
+    $database = Database::instance();
     // Uncomment ini cuma pas awal2 ya (pas mau nge seed aja)
     // $seed = new Seed;
 ?>
