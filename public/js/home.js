@@ -64,19 +64,27 @@ for (option of sortOptions) {
 
 // ------------------- ENROLLMENT POPUP -----------------------
 
-function openModal(id, title, description, formattedDate) {
+function openModal(joined,id, title, description, formattedDate) {
   var myDialog = document.getElementById("dialog");
   var overlay = document.getElementById("overlay");
   var upload_text = document.getElementById("upload-date");
   var course_title = document.getElementById("course-title");
   var course_desc = document.getElementById("course-desc");
   var course_id = document.getElementById("course_id");
+  var button = document.getElementById("button");
+  var enroll_button = document.getElementById("enroll-btn");
+  var go_button = document.getElementById("course-detail");
   myDialog.showModal();
   overlay.style.display = "block";
   course_title.innerText = title;
   course_desc.innerText = description;
   upload_text.innerText = formattedDate;
   course_id.innerText = id;
+  if(joined){
+    enroll_button.style.display = "none";
+    go_button.style.display="block";
+  }else{
+  }
 }
 
 const closeModalBtn = document.querySelector(".close-btn");
@@ -106,12 +114,11 @@ function enrolled() {
   const xml = new XMLHttpRequest();
   xml.open("POST", "/api/course/enroll.php");
   xml.onload = function () {
-    console.log(this);
     if (this.response == 200) {
       window.location.href = "/";
     } else if (this.status == 500) {
       window.location.href = "/login";
-    }else{
+    } else {
       window.location.href = "/";
     }
   };

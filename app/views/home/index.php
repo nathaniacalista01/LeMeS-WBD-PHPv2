@@ -10,6 +10,10 @@
 </head>
 <body>
     <?php
+        if(isset($_SESSION["user_id"])){
+            $user = new User;
+            $enrolled_courses = $user->getAllCoursesEnrolled();
+        }
         if(isset($_SESSION["success"])){
             $message = $_SESSION["success"];
             $type = "success";
@@ -93,12 +97,20 @@
 
                 <!-- Iterate through database the courses and put into this card -->
                 <?php
+                    $model = new Course();
                     $courses = $data["courses"];
                     foreach ($courses as $course ) {
+                        $joined = false;
+                        if(isset($_SESSION["user_id"])){
+                            $rows = $model->search_participant($course["course_id"]);
+                            if($rows){
+                                $joined = true;
+                            }
+                        }
                         $image_path = isset($course["image_path"]) ? $course["image_path"]:"../../public/asset/banner1.png";
                         $formattedDate = date('d-m-y', strtotime($course['release_date']));
                         echo"
-                        <div class='card' onclick='openModal(\"$course[course_id]\",\"$course[title]\",\"$course[description]\",\"$formattedDate\")' style='cursor: pointer;'>
+                        <div class='card' onclick='openModal(\"$joined\",\"$course[course_id]\",\"$course[title]\",\"$course[description]\",\"$formattedDate\")' style='cursor: pointer;'>
                             <div class='card-top'>
                                 <img src='$image_path' alt='Blog Name'>
                             </div>
@@ -138,12 +150,10 @@
                         </p>
                         <p style="display:none" id="course_id"></p>
                     </div>
-                    <!-- <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div> -->
-                    <div class="buttons-enroll">
-                        <?php
-
-                        ?>
-                        <button class="enroll-btn" onclick="enrolled()">Enroll this Course</button>  <!-- IF WANT TO ENROLL CLICK HERE -->
+                    <div class="buttons-enroll" id="button">
+                        <button id="course-detail" class="enroll-btn" style="display:none;">Go to this course</button>
+                        <!-- <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div> -->
+                        <button class='enroll-btn' id="enroll-btn" onclick='enrolled()'>Enroll this Course</button>
                     </div>
                 </div>
             </dialog>
