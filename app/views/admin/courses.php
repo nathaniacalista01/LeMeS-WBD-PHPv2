@@ -42,10 +42,18 @@
                                         <button class="edit-course">
                                             Edit
                                         </button>
-                                        <button class="delete-course">
-                                            Delete
-                                        </button>
-                                    </div>
+                                        <div class="delete-course">
+                                        <a href="#popup">Delete</a></div>
+                                            <div id="popup">
+    	                                        <div class="window">
+        	                                        <a href="#" class="close-button" title="Close">X</a>
+                                                        <h2>Are you sure to delete this course?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                                <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
+                                                </div>
+                                            </div>
                                 </td>
                             </tr>
 
