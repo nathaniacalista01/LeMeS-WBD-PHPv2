@@ -18,15 +18,15 @@
                 header("Location: /login");
             }else{
                 $components = explode("=",$params);
-                $course = new Course();
+                $user = new User();
                 // Current page number
                 $page_number = $components[1];
                 // Get all courses enrolled
-                $all_courses_enrolled = $course->getAllCoursesEnrolled();
+                $all_courses_enrolled = $user->getAllCoursesEnrolled();
                 // Get maximal page
                 $max_page = ceil(count($all_courses_enrolled)/4);
                 // Get few courses enrolled
-                $courses_enrolled = $course->getFewCoursesEnrolled($page_number);
+                $courses_enrolled = $user->getFewCoursesEnrolled($page_number);
 
                 return $this->view('home','index',["page_number"=>$page_number,"max_page"=>$max_page,"courses" => $courses_enrolled,"type" => "enrolled"]);
             }
