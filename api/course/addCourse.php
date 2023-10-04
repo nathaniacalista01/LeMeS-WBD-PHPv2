@@ -22,13 +22,17 @@
             echo "Sorry your file is too large.";
             $uploaded = false;
         }
-        if($type != "png" && $type != "jpeg"){
-            echo "Only png and jpeg files are allowed";
+        if($type != "png" && $type != "jpeg" && $type !== "jpg"){
+            echo "Only png ,jpg, and jpeg files are allowed";
             $uploaded = false;
         }
 
         if($uploaded){
+            var_dump("Succes upload");
             $response = move_uploaded_file($_FILES["image_path"]["tmp_name"],$targeted_file);
+        }else{
+            var_dump("Gagal upload");
+            echo "Your upload failed!";
         }
 
         $course = new Course();

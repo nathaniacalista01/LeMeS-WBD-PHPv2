@@ -22,7 +22,7 @@
             echo "Sorry your file is too large.";
             $uploaded = false;
         }
-        if($type != "png" && $type != "jpeg"){
+        if($type != "png" && $type != "jpeg" && $type != "jpg"){
             echo "Only png and jpeg files are allowed";
             $uploaded = false;
         }
