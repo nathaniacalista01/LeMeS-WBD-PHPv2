@@ -24,5 +24,9 @@
         public function editTeacher(){
             return $this->view("admin","index",[]);
         }
+        // Page admin untuk melihat courses
+        public function courses(){
+            return $this->view("admin","courses",[]);
+        }
     }
 ?>
