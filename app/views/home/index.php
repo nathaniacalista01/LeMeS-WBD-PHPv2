@@ -92,7 +92,7 @@
                         $image_path = isset($course["image_path"]) ? $course["image_path"]:"../../public/asset/banner1.png";
                         $formattedDate = date('d-m-y', strtotime($course['release_date']));
                         echo"
-                        <div class='card' onclick='openModal()' style='cursor: pointer;'>
+                        <div class='card' onclick='openModal(\"$course[title]\",\"$course[description]\",\"$formattedDate\")' style='cursor: pointer;'>
                             <div class='card-top'>
                                 <img src='$image_path' alt='Blog Name'>
                             </div>
@@ -116,7 +116,7 @@
             <dialog id="dialog">
                 <div class="modal-container">
                     <div class="flex">
-                        <p>tanggal upload kelas</p>
+                        <p id="upload-date"></p>
                         <button class="close-btn">
                             <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -126,13 +126,12 @@
                             </i>
                         </button>
                     </div>
-                    <div class="title"><h3>Judul Course</h3></div>
+                    <div class="title"><h3 id="course-title"></h3></div>
                     <div class="description">
-                        <p>
-                            course ini adalah matkul asdlklwa aaaaaaa aaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaa aaaaaaa aaaaaa aaaaaaaa aaaaaassssssssasdasdgasdadssassssssssssssssssassssssssasddasdasvcasdasaaaa aaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaa
+                        <p id="course-desc">
                         </p>
                     </div>
-                    <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div>
+                    <!-- <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div> -->
                     <div class="buttons-enroll">
                         <button class="enroll-btn">Enroll this Course</button>  <!-- IF WANT TO ENROLL CLICK HERE -->
                     </div>
