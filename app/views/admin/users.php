@@ -44,6 +44,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -64,6 +68,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -84,6 +92,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -104,6 +116,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -124,6 +140,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -144,6 +164,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -164,6 +188,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -184,6 +212,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -204,6 +236,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -224,6 +260,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
@@ -244,6 +284,10 @@
     	                                        <div class="window">
         	                                        <a href="#" class="close-button" title="Close">X</a>
                                                         <h2>Are you sure to delete this user?</h2>
+                                                        <div class="clearfix">
+                                                            <button type="button" class="cancelbtn">Cancel</button>
+                                                            <button type="button" class="deletebtn">Delete</button>
+                                                        </div>
                                                 </div>
                                             </div>
                                 </td>
