@@ -89,11 +89,12 @@
                 <?php
                     $courses = $data["courses"];
                     foreach ($courses as $course ) {
+                        $image_path = isset($course["image_path"]) ? $course["image_path"]:"../../public/asset/banner1.png";
                         $formattedDate = date('d-m-y', strtotime($course['release_date']));
                         echo"
                         <div class='card' onclick='openModal()' style='cursor: pointer;'>
                             <div class='card-top'>
-                                <img src='../../public/asset/banner1.png' alt='Blog Name'>
+                                <img src='$image_path' alt='Blog Name'>
                             </div>
                             <div class='card-info'>
                                 <div class='course-name'>

@@ -25,9 +25,10 @@ require_once(__DIR__."/Model.php");
             return $result;
         }
         public function getAllCoursesEnrolled(){
-            $query = "SELECT c.course_id,c.title,c.description,c.image_path,c.release_date
-            FROM courses as c NATURAL JOIN course_participant
-            WHERE participant_id = :participant_id AND is_accepted = true;
+            $query = "
+                SELECT c.course_id,c.title,c.description,c.image_path,c.release_date
+                FROM courses as c NATURAL JOIN course_participant
+                WHERE participant_id = :participant_id AND is_accepted = true;
             ";
             $this->database->query($query);
             $this->database->bind("participant_id",$_SESSION["user_id"]);
@@ -39,13 +40,23 @@ require_once(__DIR__."/Model.php");
             $courses = count( $this->getAllCourses());
             return ceil($courses/$course_per_page);
         }
-       public function getFewCourses($page){
-        $query = "SELECT * from courses ORDER BY release_date DESC LIMIT 4 OFFSET :offset";
-        $this->database->query($query);
-        $this->database->bind('offset',($page-1)*4);
-        $result = $this->database->fetchAll();
-        return $result;
-       }
+        public function getFewCourses($page){
+            $query = "SELECT * from courses ORDER BY release_date DESC LIMIT 4 OFFSET :offset";
+            $this->database->query($query);
+            $this->database->bind('offset',($page-1)*4);
+            $result = $this->database->fetchAll();
+            return $result;
+        }
+
+        public function add_course($title,$description,$image_path){
+            $query = "INSERT INTO courses(title,description,image_path) VALUES (:title,:description,:image_path)";
+            $this->database->query($query);
+            $this->database->bind("title",$title);
+            $this->database->bind("description",$description);
+            $this->database->bind("image_path",$image_path);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
 
     }
 ?>
