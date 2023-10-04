@@ -9,56 +9,63 @@
         </script>
     </head>
     <body>
-        <div class="profile">
-            <div class="profile-update">
-                <!-- <div class="login-img">
-                    <img src="../../public/asset/img-login.svg" alt="login">
-                </div> -->
+        <?php include __DIR__ . '/../navbar/navbar.php'?>
+        <section class="home-section">
+            <div class="profile">
+                <div class="profile-content">
+                    <div class="profile-forms">
+                        <form class="profile-create" id="form-register">
+                            <h1 class="profile-title">Change Profile</h1>
+                            <div style="display: block;">
+                                <img src="../../public/asset/logout-warning.png" alt="profile picture">
+                            </div>
+                            <div class="change-button">
+                                <label for="files" class="change-picture">Change Picture</label>
+                                <input id="files" style="visibility:hidden;" type="file" accept=".jpg, .jpeg, .png">
+                            </div>
 
-                <div class="profile-forms">
-                    <!-- <form action="/api/auth/login.php" method="post" class="login-register" id="login-in"> -->
-                        <h1 class="profile-title">Profile</h1>
-
-                        <div class="profile-box">
-                            <i class='bx bx-user profile-icon'></i>
-                            <input type="text" 
-                                placeholder="Username" 
-                                name="username" 
-                                id="username-input"
-                                class="profile-input"
-                                required    
-                            >
-                        </div>
-                        <p id="username-alert"></p>
-                        <div class="profile-box">
-                            <i class='bx bx-user profile-icon'></i>
-                            <input type="text" 
-                                placeholder="Fullname" 
-                                name="fullname" 
-                                id="profile-input"
-                                class="profile-input"
-                                required    
-                            >
-                        </div>
-                        <div class="profile-box">
-                            <i class='bx bx-lock-alt profile-icon'></i>
-                            <input 
-                                type="password" 
-                                placeholder="Password" 
-                                name="password"
-                                class="profile-input"
-                                required
-                            >
-                        </div>
-
-                        <!-- <a href="#" class="login-forgot">Forgot password ?</a> -->
-
-                        <button type="submit" class="profile-button" id="profile-button">Save</button>
-
-                    </form>
+                            <div class="profile-box" id="fullname-box">
+                                <input type="text" 
+                                    placeholder="Full Name"
+                                    name="fullname"
+                                    id="fullname-input" 
+                                    class="profile-input"
+                                    onkeyup = "check_fullname()"
+                                    required
+                                />
+                            </div>
+                            <p id="fullname-alert"></p>
+                            <div class="profile-box" id="username-box">
+                                <input type="text" 
+                                    placeholder="Username" 
+                                    id="username-input" 
+                                    name="username" 
+                                    class="profile-input" 
+                                    onkeyup="check_username()"
+                                    required
+                                    />
+                            </div>
+                            <p id="username-alert"></p>
+                            <div class="profile-box" id="password-box">
+                                <input 
+                                    type="password" 
+                                    placeholder="Password" 
+                                    id="password-input" 
+                                    name="password" 
+                                    class="profile-input"
+                                    onkeyup="check_password()"
+                                    required
+                                />
+                            </div>
+                            <p id="password-alert"></p>
+                            <div class="change-buttons" style="display: flex;">
+                                <button class="cancel-change-button" id="cancel-change-button" disabled>Cancel</button>
+                                <button type="submit" class="profile-button" id="profile-button" disabled>Save</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
-        
+        </section>
     </body>
 </html>
