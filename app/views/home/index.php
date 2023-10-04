@@ -16,6 +16,12 @@
             include(__DIR__."/../components/alertBox.php");
             unset($_SESSION["success"]);
         }
+        if(isset($_SESSION["error"])){
+            $message = $_SESSION["error"];
+            $type = "error";
+            include(__DIR__."/../components/alertBox.php");
+            unset($_SESSION["error"]);
+        }
     ?>
 
     <?php include __DIR__ . '/../navbar/navbar.php'?>
@@ -92,7 +98,7 @@
                         $image_path = isset($course["image_path"]) ? $course["image_path"]:"../../public/asset/banner1.png";
                         $formattedDate = date('d-m-y', strtotime($course['release_date']));
                         echo"
-                        <div class='card' onclick='openModal(\"$course[title]\",\"$course[description]\",\"$formattedDate\")' style='cursor: pointer;'>
+                        <div class='card' onclick='openModal(\"$course[course_id]\",\"$course[title]\",\"$course[description]\",\"$formattedDate\")' style='cursor: pointer;'>
                             <div class='card-top'>
                                 <img src='$image_path' alt='Blog Name'>
                             </div>
@@ -130,10 +136,14 @@
                     <div class="description">
                         <p id="course-desc">
                         </p>
+                        <p style="display:none" id="course_id"></p>
                     </div>
                     <!-- <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div> -->
                     <div class="buttons-enroll">
-                        <button class="enroll-btn">Enroll this Course</button>  <!-- IF WANT TO ENROLL CLICK HERE -->
+                        <?php
+
+                        ?>
+                        <button class="enroll-btn" onclick="enrolled()">Enroll this Course</button>  <!-- IF WANT TO ENROLL CLICK HERE -->
                     </div>
                 </div>
             </dialog>
