@@ -7,7 +7,7 @@
         }
 
         // Page admin untuk melihat semua students
-        public function students(){
+        public function users(){
             return $this->view("admin","users",[]);
         }
 
