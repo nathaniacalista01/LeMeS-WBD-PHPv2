@@ -71,7 +71,6 @@ function openModal(joined,id, title, description, formattedDate) {
   var course_title = document.getElementById("course-title");
   var course_desc = document.getElementById("course-desc");
   var course_id = document.getElementById("course_id");
-  var button = document.getElementById("button");
   var enroll_button = document.getElementById("enroll-btn");
   var go_button = document.getElementById("course-detail");
   myDialog.showModal();
