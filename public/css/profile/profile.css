@@ -131,6 +131,7 @@ a {
   }
 
 .profile-input {
+  padding-right: 0;
   border: none;
   outline: none;
   font-size: var(--normal-font-size);
@@ -162,7 +163,7 @@ a {
 
 .change-picture{
   background-color: var(--first-color);
-  color: #fff;
+  color: #ffffff;
   padding: 0px 3px;
   margin-top: 4px;
   cursor: pointer;
@@ -240,4 +241,12 @@ a {
   grid-template-columns: repeat(2, max-content);
   justify-content: center;
   margin-top: 3%;
+}
+
+.profile-toggle-change{
+  display: none;
+}
+
+.profile-toggle-fixed{
+  display: block;
 }
