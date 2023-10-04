@@ -1,4 +1,7 @@
 <?php
+    if(session_status() === PHP_SESSION_NONE){
+        session_start();
+    }
     require_once("../../app/models/Course.php");
     require_once("../../app/core/App.php");
     require_once("../../app/core/Database.php");
@@ -36,7 +39,7 @@
         $rows = $course->update_course($title,$description,$image_file,$course_id);
         if($rows){
             http_response_code(200);
-            $_SESSION["success"] = "Album has sucesfully added";
+            $_SESSION["success"] = "Album has sucesfully edited";
             echo json_encode(array("message" =>"Album sucesfully updated"));
         }else{
             http_response_code(500);
