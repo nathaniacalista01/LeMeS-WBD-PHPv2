@@ -1,20 +1,43 @@
-const signUp = document.getElementById('sign-up'),
-    signIn = document.getElementById('sign-in'),
-    loginIn = document.getElementById('login-in'),
-    loginUp = document.getElementById('login-up')
+const reset = (component) => {
+  component.innerText = "";
+  component.className = "";
+};
 
-signUp.addEventListener('click', ()=> {
-    loginIn.classList.remove('block')
-    loginUp.classList.remove('none')
+const check_username = () => {
+  var username_input = document.getElementById("username-input");
+  var username = username_input.value;
+  var username_alert = document.getElementById("username-alert");
+  if (username.length < 3) {
+    // Kasus kalau username kurang panjang
+    username_alert.className = "alert-show";
+    username_alert.innerText = "Username's minimum length is 3";
+    username_input.style.borderColor = "red";
+  } else {
+    const xml = new XMLHttpRequest();
+    xml.open("POST", "/api/auth/login.php");
+    xml.onload = function () {
+      if (this.status == 200) {
+        let response = JSON.parse(this.responseText);
+        if (response.status === "success") {
+          reset(username_alert);
+          username_input.style.borderColor = "green";
+        }else{
+            username_alert.className = "alert-show";
+            username_alert.innerText = "Username doesn't exists"
+            username_input.style.borderColor = "red";
+        }
+      }
+      check_button();
+    };
+    xml.send(JSON.stringify({ username: username }));
+  }
+  check_button();
+};
 
-    loginIn.classList.toggle('none')
-    loginUp.classList.toggle('block')
-})
-
-signIn.addEventListener('click', ()=> {
-    loginIn.classList.remove('none')
-    loginUp.classList.remove('block')
-
-    loginIn.classList.toggle('block')
-    loginUp.classList.toggle('none')
-})
+const check_button = () =>{
+  var username_input = document.getElementById("username-input");
+  if(username_input.style.borderColor == "green"){
+    var button = document.getElementById("login-button");
+    button.disabled = false;
+  }
+}

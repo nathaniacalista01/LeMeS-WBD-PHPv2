@@ -5,11 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Log In or Sign Up</title>
         <link href="../../public/css/login/login.css" rel="stylesheet">
-        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <script src="../../public/js/login.js" defer>
+        </script>
     </head>
     <body>
         <?php 
-           
+            // Menampilkan alert
+            if(isset($_SESSION["success"])){
+                $message = $_SESSION["success"];
+                $type = "success";
+                include(__DIR__."/../components/alertBox.php");
+                unset($_SESSION["success"]);
+            }
+        ?>
+        <?php
+            if(isset($_SESSION["error"])){
+                $message = $_SESSION["error"];
+                $type = "error";
+                include(__DIR__."/../components/alertBox.php");
+                unset($_SESSION["error"]);
+            }
         ?>
         <div class="login">
             <div class="login-content">
@@ -18,22 +33,35 @@
                 </div>
 
                 <div class="login-forms">
-                    <form action="api/login.php" method="post" class="login-register" id="login-in">
+                    <form action="/api/auth/login.php" method="post" class="login-register" id="login-in">
                         <h1 class="login-title">Sign In</h1>
 
                         <div class="login-box">
                             <i class='bx bx-user login-icon'></i>
-                            <input type="text" placeholder="username" name="username" class="login-input">
+                            <input type="text" 
+                                placeholder="Username" 
+                                name="username" 
+                                id="username-input"
+                                onkeyup="check_username()"
+                                class="login-input"
+                                required    
+                            >
                         </div>
-
+                        <p id="username-alert"></p>
                         <div class="login-box">
                             <i class='bx bx-lock-alt login-icon'></i>
-                            <input type="password" placeholder="Password" name="password" class="login-input">
+                            <input 
+                                type="password" 
+                                placeholder="Password" 
+                                name="password"
+                                class="login-input"
+                                required
+                            >
                         </div>
 
                         <!-- <a href="#" class="login-forgot">Forgot password ?</a> -->
 
-                        <button type="submit" class="login-button">Sign In</button>
+                        <button type="submit" class="login-button" id="login-button" disabled>Sign In</button>
 
                         <div>
                             <span class="login-account">Don't have an Account ?</span>
@@ -43,8 +71,6 @@
                 </div>
             </div>
         </div>
-
-        <script src="../../public/js/login.js">
-        </script>
+        
     </body>
 </html>
