@@ -33,7 +33,13 @@
         }
 
         public function addCourse(){
-            return $this->view("courses","addCourse",[]);
+            return $this->view("courses","add",[]);
+        }
+
+        public function editCourse($params){
+            $course = new Course();
+            $result = $course->single_course($params);
+            return $this->view("courses","edit",["course" => $result]);
         }
     }
 ?>

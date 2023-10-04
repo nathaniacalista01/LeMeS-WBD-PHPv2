@@ -10,8 +10,10 @@
      require_once("../../config/config.php");
 
     $directory = "../../public/image/course/";
-    $targeted_file = $directory . basename($_FILES["image_path"]["name"]);
-    $image_file = "/public/image/course/" . basename($_FILES["image_path"]["name"]);
+    $file_name = $_FILES["image_path"]["name"];
+    $cleaned_file_name = str_replace(' ','',$file_name);
+    $targeted_file = $directory . basename($cleaned_file_name);
+    $image_file = "/public/image/course/" . basename($cleaned_file_name);
 
     if(isset($_POST["title"]) && isset($_POST["description"])){
         $uploaded = true;

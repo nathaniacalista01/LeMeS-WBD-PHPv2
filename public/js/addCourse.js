@@ -31,3 +31,27 @@ const handleSubmit = (e) => {
   };
   xhr.send(data);
 };
+
+const handleUpdate = () => {
+  let title = document.getElementById("title-input").value;
+  let description = document.getElementById("description-input").value;
+  let images = document.getElementById("image-input");
+  let image_src = document.getElementById("course-image").getAttribute("src");
+
+  const data = new FormData();
+  data.append("title", title);
+  data.append("description", description);
+  data.append("image_path", images.files[0]);
+  data.append("old_image",image_src);
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST","/api/course/edit.php",true)
+  xhr.onload = function(){
+    console.log(this);
+    if(this.response === 200){
+
+    }else{
+
+    }
+  }
+  xhr.send(data);
+};

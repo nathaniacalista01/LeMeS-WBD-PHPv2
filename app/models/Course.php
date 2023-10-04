@@ -58,5 +58,24 @@ require_once(__DIR__."/Model.php");
             return $this->database->rowCount();
         }
 
+        public function single_course($id){
+            $query = "SELECT * FROM courses WHERE course_id = :course_id";
+            $this->database->query($query);
+            $this->database->bind("course_id",$id);
+            $result = $this->database->single_fetch();
+            return $result;            
+        }
+
+        public function update_course($title,$description,$image_path,$id){
+            $query = "UPDATE courses SET title = :title, description = :description, image_path = :image_path WHERE course_id = :course_id";
+            $this->database->query($query);
+            $this->database->bind("title",$title);
+            $this->database->bind("description",$description);
+            $this->database->bind("image_path",$image_path);
+            $this->database->bind("course_id",$id);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
+
     }
 ?>
