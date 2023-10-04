@@ -1,3 +1,7 @@
+const url = window.location.href;
+const parts = url.split("/");
+const id = parts[parts.length-1]
+
 const checkTitle = () => {
   let title_input = document.getElementById("title-input");
   let title = title_input.value;
@@ -43,14 +47,14 @@ const handleUpdate = () => {
   data.append("description", description);
   data.append("image_path", images.files[0]);
   data.append("old_image",image_src);
+  data.append("course_id",parseInt(id));
   const xhr = new XMLHttpRequest();
   xhr.open("POST","/api/course/edit.php",true)
   xhr.onload = function(){
-    console.log(this);
-    if(this.response === 200){
-
+    if(this.status === 200){
+      window.location.href = "/course";
     }else{
-
+      alert("Something went wrong!");
     }
   }
   xhr.send(data);

@@ -32,14 +32,16 @@
         $course = new Course();
         $title = $_POST["title"];
         $description = $_POST["description"];
-        // $rows = $course->update_course($title,$description,$image_file,$course_id);
-        // if($rows){
-        //     http_response_code(200);
-        //     echo json_encode(array("message" =>"Album sucesfully updated"));
-        // }else{
-        //     http_response_code(500);
-        //     echo json_encode(array("message" => "Something went wrong"));
-        // }
+        $course_id = $_POST["course_id"];
+        $rows = $course->update_course($title,$description,$image_file,$course_id);
+        if($rows){
+            http_response_code(200);
+            $_SESSION["success"] = "Album has sucesfully added";
+            echo json_encode(array("message" =>"Album sucesfully updated"));
+        }else{
+            http_response_code(500);
+            echo json_encode(array("message" => "Something went wrong"));
+        }
     }else{
         http_response_code(400);
         echo json_encode(array("message" => "Bad request."));
