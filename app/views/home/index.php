@@ -150,7 +150,7 @@
 
                     if($start_index > 1){
                         $prev_index = $start_index-1;
-                        echo "<a href='/course/$type/page=$prev_index'><i class='bx bx-chevron-left'></i>PREV</a>";
+                        echo "<a href='/course/$type/page=$prev_index'>PREV</a>";
                     }
                     for($i =$prev_index; $i < $start_index+2;$i++){
                         if($i == $max_page){
@@ -173,7 +173,7 @@
                     }
                     if($start_index < $max_page){
                         $next_index = $start_index + 1;
-                        echo "<a href='/course/$type/page=$next_index'> &nbsp;  NEXT <i class='bx bxs-chevron-right' ></i></a>";
+                        echo "<a href='/course/$type/page=$next_index'> &nbsp;  NEXT</a>";
                     }
                 ?>
             </div>
