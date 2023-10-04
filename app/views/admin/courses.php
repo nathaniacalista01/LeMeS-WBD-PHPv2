@@ -319,6 +319,19 @@
                         </table>
                     <div>
 				</div>
+                <div class="paging">           
+                    <div class="pagination">
+                        <a href=""><i class="fas fa-chevron-left"></i> PREV</a>
+                        <a href="">1</a>
+                        <a href="">2</a>
+                        <a href="">3</a>
+                        <a href="">4</a>
+                        <a href="">...</a>
+                        <a href="">10</a>
+                        <a href=""> &nbsp;NEXT <i class="fas fa-chevron-right"></i></a>
+                        <div class="bottom_bar"></div>
+                    </div>
+			    </div>
 			</div>
 		</div>
     </section>
