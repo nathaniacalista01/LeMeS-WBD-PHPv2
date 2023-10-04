@@ -20,7 +20,6 @@
                         <h1 class="login-title">Create Account</h1>
 
                         <div class="login-box" id="fullname-box">
-                            <i class='bx bx-user login-icon'></i>
                             <input type="text" 
                                 placeholder="Full Name"
                                 name="fullname"
@@ -32,7 +31,6 @@
                         </div>
                         <p id="fullname-alert"></p>
                         <div class="login-box" id="username-box">
-                            <i class='bx bx-user login-icon'></i>
                             <input type="text" 
                                 placeholder="Username" 
                                 id="username-input" 
@@ -44,7 +42,6 @@
                         </div>
                         <p id="username-alert"></p>
                         <div class="login-box" id="password-box">
-                            <i class='bx bx-lock-alt login-icon'></i>
                             <input 
                                 type="password" 
                                 placeholder="Password" 
@@ -64,8 +61,6 @@
                     </form>
                 </div>
             </div>
-        </div>
-
-       
+        </div>       
     </body>
 </html>

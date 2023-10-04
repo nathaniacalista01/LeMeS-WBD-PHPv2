@@ -20,18 +20,43 @@
         <ul class="nav-list">
 
         <!-- PROFILE PICTURE, NAME, ROLE -->
-            <li>
-                <div class="profile-details">
-                    <a href="#">
-                        <img src="../../public/asset/tesprofilepicture.svg" alt="profileImg" class="photo"/>
-                        <div class="name-job">
-                            <div class="name">Nama</div>
-                            <div class="job">Role</div>
-                        </div>
-                    </a>
-                    <span class="tooltip">Profile</span>
-                </div>
-            </li>
+        <?php
+                    if(session_status() === PHP_SESSION_NONE){
+                        session_start();
+                    }
+                    if(isset($_SESSION["user_id"])){
+                        echo " 
+                        <li>
+                            <div class='profile-details'>
+                                <a href='/profile'>
+                                    <img src='../../public/asset/tesprofilepicture.svg' alt='profileImg' class='photo'/>
+                                    <div class='name-job'>
+                                        <div class='name'>Nama</div>
+                                        <div class='job'>Role</div>
+                                    </div>
+                                </a>
+                                <span class='tooltip'>Profile</span>
+                            </div>
+                        </li>
+                        ";
+                    }
+                    else{
+                        echo "
+                        <li>
+                            <div class='profile-details'>
+                                <a href='/login'>
+                                    <img src='../../public/asset/tesprofilepicture.svg' alt='profileImg' class='photo'/>
+                                    <div class='name-job'>
+                                        <div class='name'>Login</div>
+                                    </div>
+                                </a>
+                                <span class='tooltip'>Login</span>
+                            </div>
+                        </li>
+                        ";
+                    }
+                ?>
+            
 
             <!-- HOMEPAGE BUTTON -->
             <li>
@@ -73,9 +98,8 @@
                 </a>
                 <span class="tooltip">Assignments</span>
             </li>
-
-            <!-- SETTING BUTTON -->
             
+            <!-- LOGOUT BUTTON -->
                 <?php
                     if(session_status() === PHP_SESSION_NONE){
                         session_start();
@@ -109,7 +133,6 @@
                         ";
                     }
                 ?>
-                <!-- LOGOUT BUTTON -->
                 
             <div class="footer">
                 <p class="text-xs">
