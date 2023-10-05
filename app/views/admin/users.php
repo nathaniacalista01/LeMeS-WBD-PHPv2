@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Users List</title>
-	<link rel="stylesheet" href="../../public/css/admin/users.css">
+	<link rel="stylesheet" href="../../public/css/admin/lists.css">
 </head>
 
 <body>
@@ -20,255 +20,28 @@
 
 				<div class="report-body">
                     <div class="container">
-                        <table class="data">
-                            <tr>
-                                <th class="tid">UserID</th>
-                                <th class="tusername">Username</th>
-                                <th class="tfullname">Fullname</th>
-                                <th class="tact">Action</th>
-                            </tr>
+                    <!-- POPUP WINDOW FOR DELETE USER -->
+                        <div id="popup">
+                            <div class="window">
+                                <a href="#" class="close-button" title="Close">X</a>
+                                <h2>Are you sure to delete this course?</h2>
+                                <div class="clearfix">
+                                    <button type="button" class="cancelbtn">Cancel</button>
+                                    <button type="button" class="deletebtn">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- TABLE HEADERS  -->
+                    <table class="data">
+                        <tr>
+                            <th class="tid">UserID</th>
+                            <th class="tusername">Username</th>
+                            <th class="tfullname">Fullname</th>
+                            <th class="tact-user">Action</th>
+                        </tr>
 
                     <!-- ITERATE HERE LOOPING DATABASE TO FILL TABLE -->
-                            <tr>
-                                <td>1</td>
-                                <td>kagura01</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>kagura02</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>kagura03</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>kagura04</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>kagura05</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>6</td>
-                                <td>kagura06</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>7</td>
-                                <td>kagura07</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>8</td>
-                                <td>kagura08</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>9</td>
-                                <td>kagura09</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>10</td>
-                                <td>kagura011</td>
-                                <td>Uchiha Naruto</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-user">
-                                            Edit
-                                        </button>
-                                        <div class="delete-user">
-                                        <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
-                                </td>
-                            </tr>
-
                             <tr>
                                 <td>11</td>
                                 <td>kagura11</td>
@@ -280,31 +53,20 @@
                                         </button>
                                         <div class="delete-user">
                                         <a href="#popup">Delete</a></div>
-                                            <div id="popup">
-    	                                        <div class="window">
-        	                                        <a href="#" class="close-button" title="Close">X</a>
-                                                        <h2>Are you sure to delete this user?</h2>
-                                                        <div class="clearfix">
-                                                            <button type="button" class="cancelbtn">Cancel</button>
-                                                            <button type="button" class="deletebtn">Delete</button>
-                                                        </div>
-                                                </div>
-                                            </div>
+                                    </div>
                                 </td>
                             </tr>  
                         </table>
-                    <div>
-				</div> 
                 <div class="paging">           
                     <div class="pagination">
-                        <a href=""><i class="fas fa-chevron-left"></i> PREV</a>
+                        <a href="">PREV</a>
                         <a href="">1</a>
                         <a href="">2</a>
                         <a href="">3</a>
                         <a href="">4</a>
                         <a href="">...</a>
                         <a href="">10</a>
-                        <a href=""> &nbsp;NEXT <i class="fas fa-chevron-right"></i></a>
+                        <a href=""> &nbsp;NEXT</a>
                         <div class="bottom_bar"></div>
                     </div>
 			</div>

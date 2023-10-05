@@ -97,6 +97,18 @@ table {
     width: 15%;
 }
 
+.tusername{
+  width: 8%;
+}
+
+.tfullname{
+  width: 8%;
+}
+
+.tact-user{
+    width: 5%;
+}
+
 th {
     background-color: #5500cb;
     color: white;
@@ -130,6 +142,43 @@ tr:nth-child(even) {
     color: white;
     font-weight: 700px;
     border: 1px solid black;
+}
+
+.edit-user{
+    width: 40%;
+    cursor: pointer;
+    background: #597aff;;
+    color: white;
+    font-weight: 700px;
+    border: 1px solid black;
+}
+
+.edit-user:hover{
+    background: #214dff;
+}
+
+.delete-user{
+    width: 40%;
+    cursor: pointer;
+    background: rgb(255, 61, 61);
+    color: white;
+    font-weight: 700px;
+    border: 1px solid black;
+}
+
+.delete-user a {
+	width: 40%;
+    cursor: pointer;
+    background: rgb(255, 61, 61);
+    color: white;
+    font-weight: 700px;
+    border: none;
+    text-decoration: none;
+    margin-left: 3px;
+}
+
+.delete-user:hover{
+    background: red;
 }
 
 .edit-course:hover{
