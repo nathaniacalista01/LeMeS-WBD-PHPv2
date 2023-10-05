@@ -24,15 +24,18 @@
                     if(session_status() === PHP_SESSION_NONE){
                         session_start();
                     }
+                    // JIKA USER SUDAH LOGIN, PROFILE DIGANTI DENGAN FOTO, NAMA, DAN ROLE
                     if(isset($_SESSION["user_id"])){
+                    // Fetch the user by ID
+                        $thisUser = $user->getUserById($_SESSION["user_id"]);
                         echo " 
                         <li>
                             <div class='profile-details'>
                                 <a href='/profile'>
-                                    <img src='../../public/asset/tesprofilepicture.svg' alt='profileImg' class='photo'/>
+                                    <img src='{$thisUser['image_path']}' alt='profileImg' class='photo'/>
                                     <div class='name-job'>
-                                        <div class='name'>Nama</div>
-                                        <div class='job'>Role</div>
+                                        <div class='name'>{$thisUser['username']}</div>
+                                        <div class='job'>{$thisUser['user_role']}</div>
                                     </div>
                                 </a>
                                 <span class='tooltip'>Profile</span>
@@ -41,11 +44,12 @@
                         ";
                     }
                     else{
+                        // JIKA USER BELUM LOGIN, PROFILE MENGARAHKAN KE PAGE LOGIN
                         echo "
                         <li>
                             <div class='profile-details'>
                                 <a href='/login'>
-                                    <img src='../../public/asset/tesprofilepicture.svg' alt='profileImg' class='photo'/>
+                                    <img src='../../public/image/profile/defaultprofilepicture.jpg' alt='profileImg' class='photo'/>
                                     <div class='name-job'>
                                         <div class='name'>Login</div>
                                     </div>
