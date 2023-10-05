@@ -8,12 +8,16 @@ require_once(__DIR__."/Model.php");
         public function register($fullname,$username,$password){
             $timestamp = time();
             $hashed_pass = password_hash($password,PASSWORD_DEFAULT);
+            
+            // Define a default photo Path
+            $default_photo = '../../public/image/profile/defaultprofilepicture.jpg';
             try {
-                $query = "INSERT INTO users (fullname,username,password) VALUES(:fullname,:username,:password)";
+                $query = "INSERT INTO users (fullname,username,password,image_path) VALUES(:fullname,:username,:password,:profile_photo)";
                 $this->database->query($query);
                 $this->database->bind('fullname',$fullname);
                 $this->database->bind('username',$username);
                 $this->database->bind('password',$hashed_pass);
+                $this->database->bind('profile_photo',$default_photo);
                 $this->database->execute();       
             } catch (PDOException $th) {
                 echo $th->getMessage();
@@ -24,6 +28,14 @@ require_once(__DIR__."/Model.php");
             $query = "SELECT * FROM users where username = :username";
             $this->database->query($query);
             $this->database->bind("username",$username);
+            $result = $this->database->single_fetch();
+            return $result;
+        }
+
+        public function getUserById($userId){
+            $query = "SELECT * FROM users WHERE user_id = :id";
+            $this->database->query($query);
+            $this->database->bind("id", $userId);
             $result = $this->database->single_fetch();
             return $result;
         }
@@ -80,5 +92,26 @@ require_once(__DIR__."/Model.php");
             $this->database->single_fetch();
             return $this->database->rowCount();
         }
+
+        public function update_profile($fullname, $username, $image_path, $id){
+            $query = "UPDATE users SET fullname = :fullname, username = :username, image_path = :image_path WHERE user_id = :user_id";
+            $this->database->query($query);
+            $this->database->bind("fullname",$fullname);
+            $this->database->bind("username",$username);
+            $this->database->bind("image_path",$image_path);
+            $this->database->bind("user_id",$id);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
+
+        public function update_password($hashed_pass, $id){
+            $query = "UPDATE users SET password = :password WHERE user_id = :user_id";
+            $this->database->query($query);
+            $this->database->bind("password",$hashed_pass);
+            $this->database->bind("user_id",$id);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
     }
+
 ?>
