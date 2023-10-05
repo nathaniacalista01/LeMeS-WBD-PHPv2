@@ -15,9 +15,8 @@
         // JIKA USER SUDAH LOGIN, PROFILE DITUNJUKKAN
         if(isset($_SESSION["user_id"])){
         // Fetch the user by ID
-            $user = new User;
-            $thisUser = $user->getUserById($_SESSION["user_id"]);
             include __DIR__ . '/../navbar/navbar.php';
+            $thisUser = $user->getUserById($_SESSION["user_id"]);
             echo " 
                 <section class='home-section'>
                     <div class='profile'>

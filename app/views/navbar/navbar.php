@@ -27,6 +27,7 @@
                     // JIKA USER SUDAH LOGIN, PROFILE DIGANTI DENGAN FOTO, NAMA, DAN ROLE
                     if(isset($_SESSION["user_id"])){
                     // Fetch the user by ID
+                        $user = new User;
                         $thisUser = $user->getUserById($_SESSION["user_id"]);
                         echo " 
                         <li>
@@ -59,7 +60,7 @@
                         </li>
                         ";
                     }
-                ?>
+        ?>
             
 
             <!-- HOMEPAGE BUTTON -->
@@ -121,8 +122,8 @@
                                     <span class='link-name'>Setting</span>
                                 </a>
                                 <span class='tooltip'>Setting</span>
-                            </li>
-                            <li>
+                        </li>
+                        <li>
                             <button class='logbtn' onclick='openModalLogout()'>
                                 <i id='log-out'>
                                     <svg fill='white' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
@@ -158,7 +159,7 @@
     <div id="overlay-logout" onclick="closeDialogLogout()">
         <dialog id="dialog-logout">
             <div class="modal-container-logout">
-                <img src="../../public/asset/logout-warning.png" style="width: 100px; margin-top: 20px;"></i>
+                <img src="../../public/asset/logout-warning.png" style="width: 100px; margin-top: 20px;">
                 <h2>Logout</h2>
                 <p>Are you sure want to logout?</p>
                 <div class="buttons-logout">
