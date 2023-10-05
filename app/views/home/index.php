@@ -151,7 +151,7 @@
                         <p style="display:none" id="course_id"></p>
                     </div>
                     <div class="buttons-enroll" id="button">
-                        <button id="course-detail" class="enroll-btn" style="display:none;">Go to this course</button>
+                        <button id="course-detail" class="enroll-btn" style="display:none;" onclick='visitCourse()'>Go to this course</button>
                         <!-- <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div> -->
                         <button class='enroll-btn' id="enroll-btn" onclick='enrolled()'>Enroll this Course</button>
                     </div>
