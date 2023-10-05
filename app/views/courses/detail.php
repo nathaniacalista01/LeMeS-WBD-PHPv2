@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Course Detail</title>
         <link rel="stylesheet" href="../../public/css/course-detail/course-detail.css">
-        <script src="../../public/js/course-detail.js"></script>
+        <script src="../../public/js/detail.js"></script>
     </head>
     <body>
         <?php
@@ -22,19 +22,23 @@
         <section class="home-section">
             <div class="wrapper">
                 <div class="header">
-                    <h1>Course Detail</h1>
                     <?php
                         $course = $data["course"];
-                        echo "<h3>$course[title]</h3>";
+                        echo "<h1 class='course'>$course[title]</h1>";
                     ?>
                 </div>
                 <div class="course-section">
                     <div class="modules">
                         <ul class="module-list">
                             <li>
-                                <a href="#">
-                                    <span class="module-name">Introduction</span>
-                                </a>
+                                <?php 
+                                    $course = $data["course"];
+
+                                    echo "<a href='/course/preview/$course[course_id]'>
+                                        <span class='module-name'>Introduction</span>
+                                    </a>"
+                                ?>
+                    
                             </li>
 
                             <!-- ITERATE HERE TO  LIST THE MODULES -->
@@ -42,7 +46,7 @@
                                 $modules = $data["modules"];
                                 foreach ($modules as $module) {
                                     # code...
-                                    echo "<li>
+                                    echo "<li onclick='openModule(\"$module[title]\",\"$module[description]\")'>
                                             <a href='#'>
                                                 <span class='module-name'>$module[title]</span>
                                             </a>
@@ -53,14 +57,14 @@
                     </div>
                     <div class="material-box">
                         <div class="titles">
-                            <h3><?php 
+                            <h3 id="course-title"><?php 
                                 $course = $data["course"];
                                 echo $course["title"];
                             ?></h3>
                         </div>
                         <div class="material-content">
                             <div class="material-text">
-                                <p><?php $course = $data["course"]; echo $course["description"]; ?></p>
+                                <p id="course-desc"><?php $course = $data["course"]; echo $course["description"]; ?></p>
                             </div>
                         </div>
                     </div>

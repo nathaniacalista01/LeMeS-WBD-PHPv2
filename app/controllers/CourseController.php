@@ -48,5 +48,9 @@
             $result = $course->single_course($params);
             return $this->view("courses","edit",["course" => $result]);
         }
+
+        public function module($params){
+
+        }
     }
 ?>

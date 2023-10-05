@@ -32,7 +32,13 @@
     max-width: 1250px;
     max-height: 200px;
     position: relative;
-    margin: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.course{
+    font-weight: 600;
+    font-weight: bolder;
 }
 
 .course-section{
