@@ -17,8 +17,7 @@
             $admin = new Admin();
             $users = $admin->getUsers();
             $user_page = $admin->getFewUsers($page_number);
-            $max_page = ceil(count($users)/8);
-            // echo $max_page;
+            $max_page = ceil(count($users)/6);
             return $this->view("admin","users",["page_number" => $page_number,"max_page" =>$max_page,"users"=>$user_page]);
         }
 

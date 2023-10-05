@@ -7,7 +7,7 @@
   font-family: "Poppins", sans-serif;
 }
 :root {
-  --background-color1: #fafaff;
+  --background-color1: #FFEAFF;
   --background-color2: #ffffff;
   --background-color3: #ededed;
   --background-color4: #cad7fda4;
@@ -25,7 +25,7 @@
 }
 
 body {
-  background-color: var(--background-color4);
+  background-color: var(--background-color1);
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -81,10 +81,11 @@ table {
   table-layout: fixed;
   justify-content: center;
   margin-top: 5px;
+  border-collapse: collapse;
 }
 
 .id-column{
-
+  width: 7%;
 }
 
 .tid {
@@ -118,10 +119,12 @@ tr:nth-child(even) {
   background-color: #f8e4ff;
 }
 
+th{
+  padding-block: 12px;
+}
 .data,
-th,
 td {  
-  padding: 4px;
+  padding-inline: 12px;
   border: none;
 }
 

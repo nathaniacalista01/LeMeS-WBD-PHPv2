@@ -23,7 +23,7 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th class="id-column">User Id</th>
+                                    <th class="id-column">Id</th>
                                     <th class="user-attr">Fullname</th>
                                     <th class="user-attr">Username</th>
                                     <th class="user-attr">Role</th>
@@ -41,19 +41,19 @@
 
                                         echo"
                                             <tr>
-                                                <td>
+                                                <td class='id-column'>
                                                     $user_id
                                                 </td>
-                                                <td>
+                                                <td class='user-attr'>
                                                     $fullname
                                                 </td>
-                                                <td>
+                                                <td class='user-attr'>
                                                     $username
                                                 </td>
-                                                <td>
+                                                <td class='user-attr'>
                                                     $role
                                                 </td>
-                                                <td>
+                                                <td class='action'>
                                                     <button>Action</button>
                                                 </td>
                                             </tr>
