@@ -6,6 +6,16 @@
             
         }
 
+        // Page admin untuk register
+        public function register(){
+            return $this->view("admin","register",[]);
+        }
+
+        // Page admin untuk login
+        public function login(){
+            return $this->view("admin","login",[]);
+        }
+
         // Page admin untuk melihat semua students
         public function users(){
             return $this->view("admin","users",[]);
