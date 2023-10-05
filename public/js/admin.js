@@ -10,17 +10,18 @@ const handleClose = ()=>{
     popup.style.visibility = "hidden";
 }
 
-const handleDelete = (id)=>{
+const handleDelete = ()=>{
     const data = new FormData();
-    data.append("id",id);
+    const id = document.getElementById("user_id").innerText;
+    data.append("id",parseInt(id));
     const xml = new XMLHttpRequest();
     xml.open("POST","/api/admin/user/delete.php",true);
     xml.onload = function(){
-        console.log(this);
         if(this.status === 200){
-            console.log("Berhasil")
+            let response = JSON.parse(this.responseText);
+            window.location.href = "/admin/users";
         }else{
-            
+            console.log("gagal");
         }
     }
     xml.send(data);

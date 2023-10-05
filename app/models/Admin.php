@@ -23,7 +23,11 @@ require_once(__DIR__."/Model.php");
         }
 
         public function deleteUserById($id){
-            $query = "DELETE FROM users WHERE user_id= :user_id";
+            $query = "DELETE FROM users WHERE user_id = :user_id";
+            $this->database->query($query);
+            $this->database->bind("user_id",$id);
+            $this->database->execute();
+            return $this->database->rowCount();
         }
     }
 ?>

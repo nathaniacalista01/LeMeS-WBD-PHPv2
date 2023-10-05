@@ -11,7 +11,20 @@
 
 <body>
     <?php include __DIR__ . '/../navbar/navbar.php'?>
-
+    <?php 
+        if(isset($_SESSION["success"])){
+            $message = $_SESSION["success"];
+            $type = "success";
+            include(__DIR__."/../components/alertBox.php");
+            unset($_SESSION["success"]);
+        }
+        if(isset($_SESSION["error"])){
+            $message = $_SESSION["error"];
+            $type = "error";
+            include(__DIR__."/../components/alertBox.php");
+            unset($_SESSION["error"]);
+        }
+    ?>
 	<section class="home-section">
 		<div class="main">
 			<div class="report-container">
@@ -27,7 +40,7 @@
                                 <h2>Delete user with id <span id="user_id"><span></h2>
                                 <div class="clearfix">
                                     <button type="button" class="cancelbtn">Cancel</button>
-                                    <button type="button" class="deletebtn">Delete</button>
+                                    <button type="button" class="deletebtn" onclick="handleDelete()">Delete</button>
                                 </div>
                             </div>
                         </div>
