@@ -17,37 +17,33 @@
 
     if(isset($_POST["title"]) && isset($_POST["description"])){
         $uploaded = true;
+        $message = "";
         $type = strtolower(pathinfo($targeted_file,PATHINFO_EXTENSION));
         if($_FILES["image_path"]["size"] > 10000000){
-            echo "Sorry your file is too large.";
+            $message =  "Sorry your file is too large.";
             $uploaded = false;
         }
         if($type != "png" && $type != "jpeg" && $type !== "jpg"){
-            echo "Only png ,jpg, and jpeg files are allowed";
+            $message = "Only png ,jpg, and jpeg files are allowed";
             $uploaded = false;
         }
 
         if($uploaded){
-            var_dump("Succes upload");
             $response = move_uploaded_file($_FILES["image_path"]["tmp_name"],$targeted_file);
+            $course = new Course();
+            $title = $_POST["title"];
+            $description = $_POST["description"];
+            $rows = $course->add_course($title,$description,$image_file);
+            if($rows){
+                http_response_code(200);
+                $_SESSION["success"] = "Album has sucesfully added";
+                echo json_encode(array("status" => "success","message" =>"Album sucesfully added"));
+            }else{
+                echo json_encode(array("status" => "failed","message" => "Something went wrong"));
+            }
         }else{
-            var_dump("Gagal upload");
-            echo "Your upload failed!";
+            echo json_encode(array("status" => "failed","message" => $message));
         }
-
-        $course = new Course();
-        $title = $_POST["title"];
-        $description = $_POST["description"];
-        $rows = $course->add_course($title,$description,$image_file);
-        if($rows){
-            http_response_code(200);
-            $_SESSION["success"] = "Album has sucesfully added";
-            echo json_encode(array("message" =>"Album sucesfully added"));
-        }else{
-            http_response_code(500);
-            echo json_encode(array("message" => "Something went wrong"));
-        }
-
     }else{
         http_response_code(400);
         echo json_encode(array("message" => "Bad request."));
