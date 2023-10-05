@@ -64,5 +64,13 @@ require_once(__DIR__."/Model.php");
             $result = $this->database->single_fetch();
             return $result;
         }
+
+        public function get_modules($course_id){
+            $query = "SELECT * FROM modules NATURAL JOIN course_module WHERE course_id = :course_id";
+            $this->database->query($query);
+            $this->database->bind("course_id",$course_id);
+            $rows = $this->database->fetchAll();
+            return $rows;
+        }
     }
 ?>

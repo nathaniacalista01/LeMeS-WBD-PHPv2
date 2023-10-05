@@ -34,7 +34,6 @@
                     header("Location: /course/enrolled/page=1");
                     exit;
                 }
-
             }
             call_user_func_array([$this->controllers,$this->methods],$this->params);
         }

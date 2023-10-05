@@ -23,7 +23,10 @@
             <div class="wrapper">
                 <div class="header">
                     <h1>Course Detail</h1>
-                    <h3>Judul Course</h3>
+                    <?php
+                        $course = $data["course"];
+                        echo "<h3>$course[title]</h3>";
+                    ?>
                 </div>
                 <div class="course-section">
                     <div class="modules">
@@ -35,41 +38,29 @@
                             </li>
 
                             <!-- ITERATE HERE TO  LIST THE MODULES -->
-                            <li>
-                                <a href="#">
-                                    <span class="module-name">Module - 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="module-name">Module - 2</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="module-name">Module - 3</span>
-                                </a>
-                            </li>
+                            <?php
+                                $modules = $data["modules"];
+                                foreach ($modules as $module) {
+                                    # code...
+                                    echo "<li>
+                                            <a href='#'>
+                                                <span class='module-name'>$module[title]</span>
+                                            </a>
+                                        </li>";
+                                }
+                            ?>
                         </ul>
                     </div>
                     <div class="material-box">
                         <div class="titles">
-                            <h3>Introduction/Modul X</h3>
+                            <h3><?php 
+                                $course = $data["course"];
+                                echo $course["title"];
+                            ?></h3>
                         </div>
                         <div class="material-content">
-                            <!-- IF EXIST MEDIA (FOTO/VIDEO) -->
-                            <div class="material-media">
-                                <!-- IF EXIST CONTENT VIDEO -->
-                                <video width="320" height="240" controls>
-                                    <source src="movie.mp4" type="video/mp4">
-                                </video>
-
-                                <!-- IF EXIST CONTENT PHOTO
-                                <img src="" alt="content-photo" style="width: 320px; height: 240px;"></img> -->
-                            </div>
-                            
                             <div class="material-text">
-                                <p>Materi ini adalah ini, course ini mengajarkan kalian blablablabla</p>
+                                <p><?php $course = $data["course"]; echo $course["description"]; ?></p>
                             </div>
                         </div>
                     </div>

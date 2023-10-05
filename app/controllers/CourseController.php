@@ -13,6 +13,13 @@
             return $this->view('home','index',["page_number"=>$page_number,"courses" => $courses,"max_page" => $max_page,"type"=>"lists"]);
         }
 
+        public function preview($params){
+            $course = new Course();
+            $result = $course->single_course($params);
+            $modules = $course->get_modules($params);
+            return $this->view('courses','detail',["course" => $result,"modules"=>$modules]);
+        }
+
         public function enrolled($params){
             if(!isset($_SESSION["user_id"])){
                 header("Location: /login");
