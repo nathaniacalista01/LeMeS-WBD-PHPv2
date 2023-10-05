@@ -21,5 +21,9 @@ require_once(__DIR__."/Model.php");
             $result = $this->database->fetchAll();
             return $result;
         }
+
+        public function deleteUserById($id){
+            $query = "DELETE FROM users WHERE user_id= :user_id";
+        }
     }
 ?>

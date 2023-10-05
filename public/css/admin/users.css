@@ -7,7 +7,7 @@
   font-family: "Poppins", sans-serif;
 }
 :root {
-  --background-color1: #FFEAFF;
+  --background-color1: #ffeaff;
   --background-color2: #ffffff;
   --background-color3: #ededed;
   --background-color4: #cad7fda4;
@@ -84,13 +84,12 @@ table {
   border-collapse: collapse;
 }
 
-.id-column{
+.id-column {
   width: 7%;
 }
 
-
 th {
-  background-color: #564C95;
+  background-color: #564c95;
   color: white;
 }
 
@@ -99,16 +98,20 @@ td {
   text-align: center;
   padding: 10px;
 }
-.action{
+.action {
   align-items: center;
   justify-content: center;
-  gap:10px;
+  gap: 10px;
 }
-.edit-icon, .delete-icon{
+.edit-icon,
+.delete-icon {
   cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
 }
 
-.edit-icon:hover, .delete-icon:hover{
+.edit-icon:hover,
+.delete-icon:hover {
   opacity: 0.5;
 }
 
@@ -116,11 +119,11 @@ tr:nth-child(even) {
   background-color: #f8e4ff;
 }
 
-th{
+th {
   padding-block: 12px;
 }
 .data,
-td {  
+td {
   padding-inline: 12px;
   border: none;
 }
@@ -202,17 +205,22 @@ td {
   left: 0;
   z-index: 9999;
   visibility: hidden;
+  padding-block: 10px;
 }
 
 .window {
   width: 500px;
-  height: 120px;
+  height: 300px;
   background: #fff;
   border-radius: 10px;
-  position: relative;
-  padding: 10px;
-  text-align: center;
-  margin: 15% auto;
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
 }
 
 .window h2 {
@@ -220,8 +228,8 @@ td {
 }
 
 .close-button {
-  width: 6%;
-  height: 25%;
+  width: 50px;
+  height: 50px;
   line-height: 23px;
   background: #000;
   border-radius: 50%;
@@ -233,6 +241,10 @@ td {
   position: absolute;
   top: -10px;
   right: -10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #popup:target {
@@ -242,13 +254,17 @@ td {
 .cancelbtn,
 .deletebtn {
   float: center;
-  width: 20%;
   cursor: pointer;
+  padding-block: 10px;
+  padding-inline: 30px;
+  border-radius: 8px;
+  border-width: 0px;
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 .cancelbtn {
   background-color: #ccc;
-  color: black;
 }
 
 .cancelbtn:hover {
@@ -258,11 +274,20 @@ td {
 
 .deletebtn {
   background-color: #f44336;
+  color: white;
 }
 
 .deletebtn:hover {
   background-color: red;
   opacity: 1;
+}
+
+.clearfix {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+  gap: 15px;
 }
 
 .clearfix::after {
@@ -277,7 +302,6 @@ td {
   justify-content: center;
   padding: 0 20px 20px 20px;
   margin-top: 10px;
-
 }
 .pagination {
   background-color: #f2f2f2;
