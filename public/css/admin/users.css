@@ -88,24 +88,9 @@ table {
   width: 7%;
 }
 
-.tid {
-  width: 8%;
-}
-
-.tusername {
-  width: 8%;
-}
-
-.tfullname {
-  width: 8%;
-}
-
-.tact {
-  width: 5%;
-}
 
 th {
-  background-color: #5500cb;
+  background-color: #564C95;
   color: white;
 }
 
@@ -113,6 +98,18 @@ td {
   border: 1px solid black;
   text-align: center;
   padding: 10px;
+}
+.action{
+  align-items: center;
+  justify-content: center;
+  gap:10px;
+}
+.edit-icon, .delete-icon{
+  cursor: pointer;
+}
+
+.edit-icon:hover, .delete-icon:hover{
+  opacity: 0.5;
 }
 
 tr:nth-child(even) {

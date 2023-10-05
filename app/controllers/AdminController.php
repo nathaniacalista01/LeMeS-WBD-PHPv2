@@ -7,7 +7,7 @@
         }
 
         // Page admin untuk melihat semua students
-        public function users($params){
+        public function users($params = "page=1"){
             if(!isset($_SESSION["user_id"])){
                 $_SESSION["error"] = "You have to log in first";
                 header("Location: /login");
