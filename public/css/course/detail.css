@@ -7,6 +7,7 @@
     align-items: center;
     border-radius: 60px;
     padding: 10px 20px;
+    max-height: 100vh;
 }
 
 .home-section .search-field input{
@@ -22,18 +23,27 @@
 *{box-sizing:border-box}
 
 .wrapper{
-    padding: 30px 10px;
+    padding-inline: 30px;
+    padding-top: 20px;
+    max-height: 100vh;
 }
 
 .header{
     max-width: 1250px;
     max-height: 200px;
     position: relative;
-    margin: auto;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.course{
+    font-weight: 600;
+    font-weight: bolder;
 }
 
 .course-section{
     display: flex;
+    max-height: 80vh;
 }
 
 .modules{
@@ -44,7 +54,10 @@
     min-width: 200px;
     background-color: #ffffff;
     padding: 6px 14px;
-    margin: 20px;
+    margin-inline: 20px;
+    margin-top: 40px;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 .module-list li a{
@@ -57,15 +70,11 @@
     text-align: center;
     margin-top: 5px;
     list-style-type: none;
-}
-
-.module-list li:hover{
-    background-color: #214dff;
-    cursor: pointer;
-}
-
-.module-list li a:hover{
-    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: start;
+    padding-bottom: 20px;
+    border-bottom: 0.5px solid gray;
     cursor: pointer;
 }
 
@@ -76,6 +85,29 @@
     margin: 40px;
 }
 
+.titles{
+    margin-top: 20px;
+    margin-inline: 30px;
+    padding-bottom: 20px;
+    border-bottom: 0.2px solid rgb(98, 98, 98);
+}
+.material-content{
+    margin-top: 20px;
+    margin-inline: 30px;
+}
+
 .material-media{
     margin: 20px;
+}
+
+::-webkit-scrollbar{
+    width: 5px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: rgb(108, 110, 124);
+}
+
+::-webkit-scrollbar-track{
+    background: rgba(217, 217, 227, .8);
 }

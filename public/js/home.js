@@ -64,7 +64,7 @@ for (option of sortOptions) {
 
 // ------------------- ENROLLMENT POPUP -----------------------
 
-function openModal(joined,id, title, description, formattedDate) {
+function openModal(joined, id, title, description, formattedDate) {
   var myDialog = document.getElementById("dialog");
   var overlay = document.getElementById("overlay");
   var upload_text = document.getElementById("upload-date");
@@ -79,10 +79,10 @@ function openModal(joined,id, title, description, formattedDate) {
   course_desc.innerText = description;
   upload_text.innerText = formattedDate;
   course_id.innerText = id;
-  if(joined){
+  if (joined) {
     enroll_button.style.display = "none";
-    go_button.style.display="block";
-  }else{
+    go_button.style.display = "block";
+  } else {
   }
 }
 
@@ -123,3 +123,7 @@ function enrolled() {
   };
   xml.send(data);
 }
+const visitCourse = () => {
+  var course_id = document.getElementById("course_id").innerText;
+  window.location.href = "/course/preview/" + course_id;
+};
