@@ -7,8 +7,19 @@
         }
 
         // Page admin untuk melihat semua students
-        public function users(){
-            return $this->view("admin","users",[]);
+        public function users($params){
+            if(!isset($_SESSION["user_id"])){
+                $_SESSION["error"] = "You have to log in first";
+                header("Location: /login");
+            }
+            $components = explode("=",$params);
+            $page_number = $components[1];
+            $admin = new Admin();
+            $users = $admin->getUsers();
+            $user_page = $admin->getFewUsers($page_number);
+            $max_page = ceil(count($users)/8);
+            // echo $max_page;
+            return $this->view("admin","users",["page_number" => $page_number,"max_page" =>$max_page,"users"=>$user_page]);
         }
 
         // Page admin untuk melihat semua teachers
