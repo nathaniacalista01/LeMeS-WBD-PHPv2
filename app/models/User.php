@@ -30,7 +30,7 @@ require_once(__DIR__."/Model.php");
 
         public function enroll($course_id){
             $participant_id = $_SESSION["user_id"];
-            $query = "INSERT INTO course_participant(course_id,participant_id,is_accepted) VALUES (:course_id,:participant_id,false)";
+            $query = "INSERT INTO course_participant(course_id,participant_id) VALUES (:course_id,:participant_id)";
             $this->database->query($query);
             $this->database->bind("participant_id",$participant_id);
             $this->database->bind("course_id",$course_id);
@@ -50,7 +50,7 @@ require_once(__DIR__."/Model.php");
             $participant_id = $_SESSION["user_id"];
             $query = "SELECT *
                 FROM courses NATURAL JOIN course_participant
-                WHERE participant_id = :participant_id AND is_accepted = true LIMIT 4 OFFSET :offset;
+                WHERE participant_id = :participant_id LIMIT 4 OFFSET :offset;
             ";
             $this->database->query($query);
             $this->database->bind('participant_id',$participant_id);
@@ -63,7 +63,7 @@ require_once(__DIR__."/Model.php");
             $query = "
                 SELECT c.course_id,c.title,c.description,c.image_path,c.release_date
                 FROM courses as c NATURAL JOIN course_participant
-                WHERE participant_id = :participant_id AND is_accepted = true;
+                WHERE participant_id = :participant_id;
             ";
             $this->database->query($query);
             $this->database->bind("participant_id",$_SESSION["user_id"]);

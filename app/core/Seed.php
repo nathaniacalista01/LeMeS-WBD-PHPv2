@@ -1,15 +1,16 @@
 <?php
     class Seed{
         private $database;
+        public static $instance;
+        public static function instance(){
+            if(self::$instance === null){
+                self::$instance = new self;
+            }
+            return self::$instance;
+        }
         public function __construct(){
             $this->database = Database::instance();
-            $this->seed_users();
-            $this->seed_courses();
-            $this->seed_modules();
-            $this->seed_materials();
-            $this->seed_course_module();
-            $this->seed_course_participants();
-            $this->seed_module_material();
+           
         }
         public function seed_users(){
             $query = "INSERT INTO users (username,fullname,password) VALUES (:username,:fullname,:password)";
@@ -84,7 +85,7 @@
             }
         }
         public function seed_course_participants(){
-            $query = "INSERT INTO course_participant(course_id,participant_id,is_accepted) VALUES (:course,:users,:is_accepted);";
+            $query = "INSERT INTO course_participant(course_id,participant_id) VALUES (:course,:users);";
             $query_teacher = "INSERT INTO course_participant(course_id,participant_id) VALUES (:course,:users);";
             for($i = 0; $i < 30; $i++){
                 $course = rand(1,30);
@@ -93,7 +94,6 @@
                     $this->database->query($query_teacher);
                 }else{
                     $this->database->query($query);
-                    $this->database->bind("is_accepted",false);
                 }
                 $this->database->bind("course",$course);
                 $this->database->bind("users",$users);
@@ -105,7 +105,7 @@
             $this->database->query($query);
             for($i = 0; $i <30;$i++){
                 $course = rand(1,30);
-                $module = rand(1,31);
+                $module = rand(1,30);
                 $this->database->bind("course",$course);
                 $this->database->bind("module",$module);
                 $this->database->execute();
