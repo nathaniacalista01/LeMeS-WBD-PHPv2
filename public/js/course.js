@@ -15,7 +15,7 @@ const checkTitle = () => {
   }
 };
 
-const handleSubmit = (e) => {
+const handleSubmit = () => {
   let title = document.getElementById("title-input").value;
   let description = document.getElementById("description-input").value;
   let images = document.getElementById("image-input");
@@ -24,13 +24,18 @@ const handleSubmit = (e) => {
   data.append("description", description);
   data.append("image_path", images.files[0]);
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "/api/course/addCourse.php", true);
+  xhr.open("POST", "/api/course/add.php", true);
   xhr.onload = function () {
-    let response = this.responseText;
+    console.log(this)
+    let response = JSON.parse(this.responseText);
     if (this.status == 200) {
-      window.location.href = "/";
+      if(response.status == "success"){
+        window.location.href = "/";
+      }else{
+        alert(response.message);
+      }
     } else {
-      alert(response);
+      console.log(response.message);
     }
   };
   xhr.send(data);
@@ -54,6 +59,7 @@ const handleUpdate = () => {
     if(this.status === 200){
       window.location.href = "/course";
     }else{
+      console.log(this);
       alert("Something went wrong!");
     }
   }
