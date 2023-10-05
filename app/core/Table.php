@@ -34,15 +34,15 @@
             title varchar(256) NOT NULL,
             description VARCHAR(256),
             image_path VARCHAR(256),
+            course_password VARCHAR(256),
             release_date TIMESTAMP DEFAULT NOW()
         )';
 
         public const COURSE_PARTICIPANT_TABLE = 
         'CREATE TABLE IF NOT EXISTS course_participant(
             course_participant_id SERIAL PRIMARY KEY,
-            course_id INT REFERENCES courses(course_id) NOT NULL,
-            participant_id INT REFERENCES users(user_id) NOT NULL,
-            is_accepted boolean
+            course_id INT REFERENCES courses(course_id) ON DELETE CASCADE NOT NULL,
+            participant_id INT REFERENCES users(user_id) ON DELETE CASCADE NOT NULL
         )';
        
         public const MODULE_TABLE = 
@@ -54,8 +54,8 @@
        public const COURSE_MODULE_TABLE = 
        ' CREATE TABLE IF NOT EXISTS course_module(
            course_module_id SERIAL PRIMARY KEY,
-           course_id INT REFERENCES courses(course_id),
-           module_id INT REFERENCES modules(module_id) 
+           course_id INT REFERENCES courses(course_id) ON DELETE CASCADE NOT NULL,
+           module_id INT REFERENCES modules(module_id) ON DELETE CASCADE NOT NULL
        )';
        public const MATERIAL_TABLE = 
        "CREATE TABLE IF NOT EXISTS materials(
@@ -67,8 +67,8 @@
         public const MODULE_MATERIAL_TABLE =
         ' CREATE TABLE IF NOT EXISTS module_material(
             module_material_id SERIAL PRIMARY KEY,
-            module_id INT REFERENCES modules(module_id),
-            material_id INT REFERENCES materials(material_id)
+            module_id INT REFERENCES modules(module_id) ON DELETE CASCADE NOT NULL,
+            material_id INT REFERENCES materials(material_id) ON DELETE CASCADE NOT NULL
         )';
     }
     
