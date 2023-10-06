@@ -48,5 +48,14 @@ require_once(__DIR__."/Model.php");
             $this->database->execute();
             return $this->database->rowCount();
         }
+        public function delete_course($course_id){
+            $query = "DELETE FROM courses WHERE course_id = :course_id" ;
+            $this->database->query($query);
+            $this->database->bind("course_id",$course_id);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
+
+        
     }
 ?>
