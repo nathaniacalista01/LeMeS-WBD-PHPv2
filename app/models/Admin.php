@@ -29,5 +29,23 @@ require_once(__DIR__."/Model.php");
             $this->database->execute();
             return $this->database->rowCount();
         }
+
+        public function getUserById($id){
+            $query = "SELECT * FROM users where user_id = :user_id";
+            $this->database->query($query);
+            $this->database->bind("user_id",$id);
+            $user = $this->database->single_fetch();
+            return $user;
+        }
+
+        public function updateUser($username,$fullname,$id){
+            $query = "UPDATE users SET username = :username, fullname = :fullname WHERE user_id = :user_id";
+            $this->database->query($query);
+            $this->database->bind("username",$username);
+            $this->database->bind("fullname",$fullname);
+            $this->database->bind("user_id",$id);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
     }
 ?>
