@@ -44,16 +44,7 @@ require_once(__DIR__."/Model.php");
             return $result;            
         }
 
-        public function update_course($title,$description,$image_path,$id){
-            $query = "UPDATE courses SET title = :title, description = :description, image_path = :image_path WHERE course_id = :course_id";
-            $this->database->query($query);
-            $this->database->bind("title",$title);
-            $this->database->bind("description",$description);
-            $this->database->bind("image_path",$image_path);
-            $this->database->bind("course_id",$id);
-            $this->database->execute();
-            return $this->database->rowCount();
-        }
+        
 
         public function search_participant($course_id,){
             $query = "SELECT c.course_id FROM courses as c NATURAL JOIN course_participant 

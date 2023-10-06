@@ -63,6 +63,17 @@ require_once(__DIR__."/Model.php");
             $course = $this->database->single_fetch();
             return $course;
         }
+        public function update_course($title,$description,$course_password,$image_path,$id){
+            $query = "UPDATE courses SET title = :title, description = :description, image_path = :image_path, course_password = :course_password WHERE course_id = :course_id";
+            $this->database->query($query);
+            $this->database->bind("title",$title);
+            $this->database->bind("description",$description);
+            $this->database->bind("image_path",$image_path);
+            $this->database->bind("course_id",$id);
+            $this->database->bind("course_password",$course_password);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
         
     }
 ?>

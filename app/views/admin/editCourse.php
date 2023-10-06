@@ -28,12 +28,13 @@
         </div>
     </div>
     <div class="form-container">
-        <form method="POST" id="update-form" action="/api/admin/user/edit.php">
-            <input type="hidden" name="user_id" value = <?php echo $data["course"]["course_id"] ?> />
+        <form method="POST" id="update-form" action="/api/admin/course/edit.php" enctype="multipart/form-data">
+            <input type="hidden" name="course_id" value = <?php echo $data["course"]["course_id"] ?> />
             <input type="hidden" id="old-title" value = <?php echo $data["course"]["title"] ?> />
             <input type="hidden" id="old-description" value = <?php echo $data["course"]["description"] ?> />
+            <input type ="hidden" id="old-password" name="old_password" value = <?php echo $data["course"]["course_password"] ?> />
             <div class="image-container">
-                <input type="hidden" id="oldPicture"  value=<?php echo $data["course"]["image_path"] ?> />
+                <input type="hidden" id="oldPicture" name="old_image" value=<?php echo $data["course"]["image_path"] ?> />
                 <img class="picture" src=<?php echo $data["course"]["image_path"] ?> id="course-image" />
             </div>
             <div class="login-box" id="username-box">
@@ -63,7 +64,7 @@
             <div class="login-box" id="fullname-box">
                 <input type="text" 
                     placeholder="Course Password"
-                    name="course-password"
+                    name="course_password"
                     id="password-input" 
                     class="login-input"
                     required
