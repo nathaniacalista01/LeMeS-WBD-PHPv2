@@ -161,3 +161,21 @@ body {
   flex-direction: column;
   padding-bottom: 20px;
 }
+
+.fullname-input{
+  border-color: green;
+}
+
+.username-input{
+  border-color: green;
+}
+
+.select-button{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #e6c5e6;
+  border-width: 0px;
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+  color: var(--first-color-dark);
+} 

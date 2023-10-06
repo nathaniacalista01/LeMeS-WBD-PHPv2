@@ -38,12 +38,13 @@ require_once(__DIR__."/Model.php");
             return $user;
         }
 
-        public function updateUser($username,$fullname,$id){
-            $query = "UPDATE users SET username = :username, fullname = :fullname WHERE user_id = :user_id";
+        public function updateUser($username,$fullname,$role,$id){
+            $query = "UPDATE users SET username = :username, fullname = :fullname, user_role = :role WHERE user_id = :user_id";
             $this->database->query($query);
             $this->database->bind("username",$username);
             $this->database->bind("fullname",$fullname);
             $this->database->bind("user_id",$id);
+            $this->database->bind("role",$role);
             $this->database->execute();
             return $this->database->rowCount();
         }

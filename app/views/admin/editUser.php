@@ -30,6 +30,9 @@
         <form method="POST" id="update-form" action="/api/admin/user/edit.php">
             <h1 id="form-title">Edit user with id <?php echo $data["user"]["user_id"] ?></h1>
             <input type="hidden" name="user_id" value = <?php echo $data["user"]["user_id"] ?> />
+            <input type="hidden" id="old-username" value = <?php echo $data["user"]["username"] ?> />
+            <input type="hidden" id="old-fullname" value = <?php echo $data["user"]["fullname"] ?> />
+
             <div class="login-box" id="fullname-box">
                 <input type="text" 
                     placeholder="Full Name"
@@ -53,10 +56,17 @@
                     onkeyup="check_username()"
                 />
             </div>
+            <div class="login-box" id="role-box">
+                <select name="role" class="select-button" value=<?php echo $data["user"]["user_role"] ?>>
+                    <option value="STUDENT" <?php echo ($data["user"]["user_role"] === "STUDENT" ?  "selected" : "") ?>>STUDENT</option>
+                    <option value="TEACHER" <?php echo ($data["user"]["user_role"] === "TEACHER" ?  "selected" : "") ?> >TEACHER</option>
+                    <option value="ADMIN" <?php echo ($data["user"]["user_role"] === "ADMIN" ?  "selected" : "") ?>>ADMIN</option>
+                </select>
+            </div>
             <p id="username-alert"></p>
             <div class="button-container">
                 <button id = "back-button" class="back-btn">Back</button>
-                <button type="submit" class="update-btn" id="update-button" disabled>Update</button>
+                <button type="submit" class="update-btn" id="update-button">Update</button>
             </div>
         </form>
     </div>

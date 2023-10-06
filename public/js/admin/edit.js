@@ -4,7 +4,8 @@ let confirmButton = document.getElementById("confirm-btn");
 let popup = document.getElementById("popup-container");
 let form = document.getElementById("update-form");
 let backButton = document.getElementById("back-button");
-
+let oldUsername = document.getElementById("old-username");
+let oldFullname = document.getElementById("old-fullname");
 updateButton &&
   updateButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -30,7 +31,12 @@ const check_button = () => {
   ) {
     submit_button.disabled = false;
   } else {
-    submit_button.disabled = true;
+    if (
+      username_input.style.borderColor === "green" &&
+      fullname_input.value === oldFullname.value
+    ) {
+      submit_button.disabled = false;
+    }
   }
 };
 const reset = (component) => {
@@ -73,11 +79,13 @@ const check_username = () => {
           reset(username_alert);
           username_input.style.borderColor = "green";
         } else {
-          // Kalau tidak succes, berarti username sudah dimiliki pengguna lain
-          username_alert.className = "alert-show";
-          username_alert.innerText = response.message;
-          username_input.style.borderColor = "red";
-          check_button();
+          if (username_input.value !== oldUsername.value) {
+            // Kalau tidak succes, berarti username sudah dimiliki pengguna lain
+            username_alert.className = "alert-show";
+            username_alert.innerText = response.message;
+            username_input.style.borderColor = "red";
+            check_button();
+          }
         }
       }
     };
@@ -86,7 +94,7 @@ const check_username = () => {
   }
   check_button();
 };
-backButton.addEventListener("click",(e)=>{
+backButton.addEventListener("click", (e) => {
   e.preventDefault();
-  window.location.href="/admin/users";
-})
+  window.location.href = "/admin/users";
+});
