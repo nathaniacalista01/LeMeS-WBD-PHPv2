@@ -1,15 +1,6 @@
-
-const handleOpen = (type, id) => {
-  console.log(type);
-  let element_id = "delete-popup";
-  let user_id_place = "delete_user_id";
-  if (type === "edit") {
-    element_id = "edit-popup";
-    user_id_place = "edit_user_id";
-  }
-  console.log(element_id);
-  const popup = document.getElementById(element_id);
-  const user_id = document.getElementById(user_id_place);
+const handleOpen = (id) => {
+  const popup = document.getElementById("delete-popup");
+  const user_id = document.getElementById("id");
   user_id.innerText = id;
   popup.style.visibility = "visible";
 };
@@ -19,16 +10,19 @@ const handleDeleteClose = () => {
   popup.style.visibility = "hidden";
 };
 
-const handleDelete = () => {
+const handleDelete = (type) => {
   const data = new FormData();
-  const id = document.getElementById("user_id").innerText;
+  const id = document.getElementById("id").innerText;
   data.append("id", parseInt(id));
   const xml = new XMLHttpRequest();
-  xml.open("POST", "/api/admin/user/delete.php", true);
+  xml.open("POST", "/api/admin/" + type + "/delete.php", true);
   xml.onload = function () {
     if (this.status === 200) {
-      let response = JSON.parse(this.responseText);
-      window.location.href = "/admin/users";
+      if (type === "user") {
+        window.location.href = "/admin/users";
+      } else {
+        window.location.href = "/admin/courses";
+      }
     } else {
       console.log("gagal");
     }

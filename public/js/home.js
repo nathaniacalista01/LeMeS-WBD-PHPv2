@@ -64,7 +64,14 @@ for (option of sortOptions) {
 
 // ------------------- ENROLLMENT POPUP -----------------------
 
-function openModal(joined, id, title, description, formattedDate) {
+function openModal(
+  joined,
+  id,
+  title,
+  description,
+  formattedDate,
+  course_password
+) {
   var myDialog = document.getElementById("dialog");
   var overlay = document.getElementById("overlay");
   var upload_text = document.getElementById("upload-date");
@@ -80,9 +87,17 @@ function openModal(joined, id, title, description, formattedDate) {
   upload_text.innerText = formattedDate;
   course_id.innerText = id;
   if (joined) {
+    // Kalau sudah bergabung
     enroll_button.style.display = "none";
-    go_button.style.display = "block";
+    go_button.style.visibility = "visible";
   } else {
+    // Kalau belum berabung
+    enroll_button.style.display = "block";
+    go_button.style.visibility = "hidden";
+    if (course_password) {
+      var input_button = document.getElementById("password-input");
+      input_button.type = "text";
+    }
   }
 }
 
@@ -102,14 +117,22 @@ closeModalBtn.addEventListener("click", () => {
 function closeDialog() {
   var dialog = document.getElementById("dialog");
   var overlay = document.getElementById("overlay");
+  var input = document.getElementById("password-input");
+  var enroll = document.getElementById("course-detail");
+  enroll.style.visibility = "hidden";
+  input.value = "";
+  input.type = "hidden";
   dialog.close();
   overlay.style.display = "none";
 }
 
 function enrolled() {
+  var password_input = document.getElementById("password-input");
   const course_id = document.getElementById("course_id").innerText;
+  var course_password = password_input.value;
   const data = new FormData();
   data.append("course_id", course_id);
+  data.append("course_password", course_password);
   const xml = new XMLHttpRequest();
   xml.open("POST", "/api/course/enroll.php");
   xml.onload = function () {

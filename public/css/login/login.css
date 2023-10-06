@@ -309,3 +309,71 @@ img {
     bottom: -5.5rem;
   }
 }
+
+/* Gaya label */
+.label {
+  font-weight: bold;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+  color: var(--first-color-dark);
+  font-family: var(--body-font);
+}
+
+/* Gaya kolom input/select */
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: var(--body-font);
+}
+
+/* Gaya kotak seleksi */
+.select-box {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: var(--body-font);
+}
+
+/* Gaya tombol pilihan dalam kotak seleksi */
+.select-box option {
+  padding: 5px;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+  color: var(--first-color-dark);
+  font-family: var(--body-font);
+}
+
+/* Gaya kontainer form */
+.form-group {
+  margin-bottom: 15px;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+  color: var(--first-color-dark);
+  font-family: var(--body-font);
+}
+
+/* Gaya label dalam kolom input/select */
+.control-label {
+  font-weight: bold;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  font-weight: 700;
+  color: var(--first-color-dark);
+  font-family: var(--body-font);
+}

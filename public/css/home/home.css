@@ -300,6 +300,17 @@
     background-color: #c180ff;
 }
 
+.wrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.wrapper input{
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
 @media screen and (max-width: 753px) {
     div.header{
       display: none;

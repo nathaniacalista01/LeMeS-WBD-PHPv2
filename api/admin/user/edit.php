@@ -10,12 +10,12 @@
         session_start();
     }
     if(isset($_POST["username"]) && isset($_POST["fullname"]) && isset($_POST["user_id"])){
-        var_dump("Masuk ke sini ");
         $admin = new Admin();
         $user_id = $_POST["user_id"];
         $fullname = $_POST["fullname"];
         $username = $_POST["username"];
-        $rows = $admin->updateUser($username,$fullname,$user_id);
+        $role = $_POST["role"];
+        $rows = $admin->updateUser($username,$fullname,$role,$user_id);
         if($rows){
             $_SESSION["success"] = "Users has been updated!";
         }else{

@@ -38,12 +38,51 @@ require_once(__DIR__."/Model.php");
             return $user;
         }
 
-        public function updateUser($username,$fullname,$id){
-            $query = "UPDATE users SET username = :username, fullname = :fullname WHERE user_id = :user_id";
+        public function updateUser($username,$fullname,$role,$id){
+            $query = "UPDATE users SET username = :username, fullname = :fullname, user_role = :role WHERE user_id = :user_id";
             $this->database->query($query);
             $this->database->bind("username",$username);
             $this->database->bind("fullname",$fullname);
             $this->database->bind("user_id",$id);
+            $this->database->bind("role",$role);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
+        public function delete_course($course_id){
+            $query = "DELETE FROM courses WHERE course_id = :course_id" ;
+            $this->database->query($query);
+            $this->database->bind("course_id",$course_id);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
+
+        public function get_course_by_id($course_id){
+            $query = "SELECT * FROM courses where course_id = :course_id";
+            $this->database->query($query);
+            $this->database->bind("course_id",$course_id);
+            $course = $this->database->single_fetch();
+            return $course;
+        }
+        public function update_course($title,$description,$course_password,$image_path,$id){
+            $query = "UPDATE courses SET title = :title, description = :description, image_path = :image_path, course_password = :course_password WHERE course_id = :course_id";
+            $this->database->query($query);
+            $this->database->bind("title",$title);
+            $this->database->bind("description",$description);
+            $this->database->bind("image_path",$image_path);
+            $this->database->bind("course_id",$id);
+            $this->database->bind("course_password",$course_password);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
+
+        public function register_user($fullname, $username, $password, $user_role){
+            $hashed_pass = password_hash($password,PASSWORD_DEFAULT);
+            $query = "INSERT INTO users (fullname, username, password, user_role) VALUES (:fullname, :username, :password, :user_role)";
+            $this->database->query($query);
+            $this->database->bind("fullname",$fullname);
+            $this->database->bind("username",$username);
+            $this->database->bind("password",$hashed_pass);
+            $this->database->bind("user_role",$user_role);
             $this->database->execute();
             return $this->database->rowCount();
         }
