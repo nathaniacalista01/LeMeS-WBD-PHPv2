@@ -20,7 +20,11 @@
             $max_page = ceil(count($users)/6);
             return $this->view("admin","users",["page_number" => $page_number,"max_page" =>$max_page,"users"=>$user_page]);
         }
-
+        public function editUser($params = "2"){
+            $admin = new Admin();
+            $user = $admin->getUserById($params);
+            return $this->view("admin","editUser",["user"=>$user]);        
+        }
         // Page admin untuk melihat semua teachers
         public function teachers(){
             return $this->view("admin","teachers",[]);
