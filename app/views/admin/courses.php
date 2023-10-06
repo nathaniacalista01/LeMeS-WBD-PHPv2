@@ -6,11 +6,25 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Courses List</title>
 	<link rel="stylesheet" href="../../public/css/admin/lists.css">
+    <script src="../../public/js/admin.js"></script>
 </head>
 
 <body>
     <?php include __DIR__ . '/../navbar/navbar.php'?>
-
+    <?php 
+        if(isset($_SESSION["success"])){
+            $message = $_SESSION["success"];
+            $type = "success";
+            include(__DIR__."/../components/alertBox.php");
+            unset($_SESSION["success"]);
+        }
+        if(isset($_SESSION["error"])){
+            $message = $_SESSION["error"];
+            $type = "error";
+            include(__DIR__."/../components/alertBox.php");
+            unset($_SESSION["error"]);
+        }
+    ?>
 	<section class="home-section">
 		<div class="main">
 			<div class="report-container">
@@ -21,13 +35,13 @@
 				<div class="report-body">
                     <div class="container">
                     <!-- POPUP WINDOW FOR DELETE COURSE -->
-                        <div id="popup">
+                        <div id="delete-popup">
     	                    <div class="window">
-        	                    <a href="#" class="close-button" title="Close">X</a>
-                                <h2>Are you sure to delete this course?</h2>
+        	                    <a class="close-button" onclick="handleDeleteClose()" title="Close">X</a>
+                                <h2>Are you sure to delete course with id <span id="id"></span></h2>
                                 <div class="clearfix">
                                     <button type="button" class="cancelbtn">Cancel</button>
-                                    <button type="button" class="deletebtn">Delete</button>
+                                    <button type="button" class="deletebtn" onclick="handleDelete('course')">Delete</button>
                                 </div>
                             </div>
                         </div>
@@ -36,44 +50,39 @@
                         <table class="data">
                             <tr>
                                 <th class="tid">CourseID</th>
-                                <th class="timg">Image</th>
-                                <th class="ttitle">Title</th>
-                                <th class="tlecturer">Lecturer</th>
+                                <th class="title">Title</th>
+                                <th class="description">Description</th>
+                                <th class="enroll-code">Code</th>
                                 <th class="tdate">Release Date</th>
                                 <th class="tact">Action</th>
                             </tr>
 
                     <!-- ITERATE HERE LOOPING DATABASE TO FILL TABLE -->
-                            <tr>
-                                <td>1</td>
-                                <td><img src="" alt="course image"></td>
-                                <td>jasd ajsda ndjas dkjasdk ajsd naksjdn aksd kajsnd kajndjka ndjknas kjdnqwajk ndbajkse</td>
-                                <td>Bapak</td>
-                                <td>25-12-2003</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-course">
-                                            Edit
-                                        </button>
-                                        <div class="delete-course">
-                                        <a href="#popup">Delete</a></div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                        
-                <div class="paging">           
-                    <div class="pagination">
-                        <a href="">PREV</a>
-                        <a href="">1</a>
-                        <a href="">2</a>
-                        <a href="">3</a>
-                        <a href="">4</a>
-                        <a href="">...</a>
-                        <a href="">10</a>
-                        <a href=""> &nbsp;NEXT</a>
-                        <div class="bottom_bar"></div>
-                    </div>
+                            <?php
+                                $courses = $data["courses"];
+                                foreach ($courses as $course ) {
+                                    $formattedDate = date('d-m-y', strtotime($course['release_date']));
+                                ?>
+                                <tr>
+                                    <td><?php echo $course['course_id'] ?></td>
+                                    <td><?php echo $course['title'] ?></td>
+                                    <td><?php echo $course['description'] ?></td>
+                                    <td><?php echo $course['course_password'] ?></td>
+                                    <td><?php echo $formattedDate ?></td>
+                                    <?php  
+                                        $href = "editcourse";
+                                        $id = $course["course_id"];
+                                        include __DIR__. '/../components/actionButton.php' 
+                                    ?>
+                                </tr>   
+                                <?php } ?>
+                            
+                        </table>                        
+                        <?php 
+                            $href = "courses";
+                            include __DIR__ . '/../components/pagination.php'
+                        ?>
+
 			    </div>
 			</div>
 		</div>
