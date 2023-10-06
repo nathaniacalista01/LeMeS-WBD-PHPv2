@@ -1,0 +1,76 @@
+.overlay-module{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+
+.addModule-container{
+    position: absolute;
+    top: -150%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.15);
+    background: #f5f5f5;
+    width: 300px;
+    height: 440px;
+    z-index: 2;
+    opacity: 0;
+    box-shadow: 5px 5px 3px rgba(0,0,0,0.2);
+    transition: transform 300ms ease-in-out, opacity 300ms ease-in-out;
+}
+
+body.showModuleForm .overlay-module{
+    display: block;
+}
+
+body.showModuleForm .addModule-container{
+    top: 50%;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.addModule-container .addForm .addForm-header{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+    margin: 20px 0px;
+}
+
+.addModule-container .addForm .addForm-element{
+    padding: 8px 20px;
+}
+
+.addModule-container .addForm .addForm-element label{
+    display: block;
+    font-size: 14px;
+    color: #222;
+    margin-bottom: 5px;
+}
+
+.addModule-container .addForm .addForm-element input{
+    width: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+.addModule-container .addForm .addForm-element button{
+    margin-top: 5px;
+    width: 100%;
+    padding: 10px 0px;
+    text-transform: uppercase;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #4889da;
+    color: #f5f5f5f5;
+}
