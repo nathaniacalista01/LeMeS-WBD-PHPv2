@@ -75,6 +75,19 @@ require_once(__DIR__."/Model.php");
             return $this->database->rowCount();
         }
 
+        public function add_course($title,$description,$course_password,$release_date,$image_path,$id) {
+            $query = "INSERT INTO courses (title, description, course_password, release_date, image_path, course_id) VALUES (:title, :description, :course_password, :release_date, :image_path, :course_id)";
+            $this->database->query($query);
+            $this->database->bind("title",$title);
+            $this->database->bind("description",$description);
+            $this->database->bind("course_password",$course_password);
+            $this->database->bind("release_date",$release_date);
+            $this->database->bind("image_path",$image_path);
+            $this->database->bind("course_id",$id);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
+
         public function register_user($fullname, $username, $password, $user_role){
             $hashed_pass = password_hash($password,PASSWORD_DEFAULT);
             $query = "INSERT INTO users (fullname, username, password, user_role) VALUES (:fullname, :username, :password, :user_role)";
