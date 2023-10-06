@@ -17,10 +17,11 @@ require_once(__DIR__."/Model.php");
             $courses = count( $this->getAllCourses());
             return ceil($courses/$course_per_page);
         }
-        public function getFewCourses($page){
-            $query = "SELECT * from courses ORDER BY release_date DESC LIMIT 4 OFFSET :offset";
+        public function get_few_courses($limit,$page){
+            $query = "SELECT * from courses ORDER BY release_date DESC LIMIT :limit OFFSET :offset";
             $this->database->query($query);
-            $this->database->bind('offset',($page-1)*4);
+            $this->database->bind('offset',($page-1)*$limit);
+            $this->database->bind('limit',$limit);
             $result = $this->database->fetchAll();
             return $result;
         }

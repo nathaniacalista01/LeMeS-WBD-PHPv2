@@ -39,8 +39,16 @@
             return $this->view("admin","index",[]);
         }
         // Page admin untuk melihat courses
-        public function courses(){
-            return $this->view("admin","courses",[]);
+        public function courses($params = "page=1"){
+            $components = explode("=",$params);
+            $page_number = $components[1];
+            $course = new Course();
+            $course_per_page = 6;
+            $all_courses = $course->getAllCourses();
+            $courses = $course->get_few_courses($course_per_page,$page_number);
+            $max_page = ceil(count($all_courses)/$course_per_page);
+            // print_r($courses);
+            return $this->view("admin","courses",["page_number" => $page_number,"max_page" => $max_page,"courses" => $courses]);
         }
     }
 ?>
