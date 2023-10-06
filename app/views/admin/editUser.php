@@ -37,6 +37,8 @@
                     id="fullname-input" 
                     class="login-input"
                     required
+                    value = <?php echo $data["user"]["fullname"] ?>
+                    onkeyup="check_fullname()"
                 />
             </div>
             <p id="fullname-alert"></p>
@@ -46,12 +48,15 @@
                     id="username-input" 
                     name="username" 
                     class="login-input" 
+                    value = <?php echo $data["user"]["username"] ?>
                     required
+                    onkeyup="check_username()"
                 />
             </div>
             <p id="username-alert"></p>
             <div class="button-container">
-                <button type="submit" class="update-btn" id="update-button">Update</button>
+                <button id = "back-button" class="back-btn">Back</button>
+                <button type="submit" class="update-btn" id="update-button" disabled>Update</button>
             </div>
         </form>
     </div>

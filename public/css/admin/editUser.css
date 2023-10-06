@@ -52,42 +52,69 @@ body {
   width: 100%;
 }
 
-.button-container{
+.button-container {
   display: flex;
   flex-direction: row;
   padding: 1.125rem 1rem;
-  width: 100%;  
+  width: 100%;
   gap: 10px;
   align-items: center;
   justify-content: center;
 }
 
-.popup-content h1{
+.popup-content h1 {
   text-align: center;
 }
-.cancel-btn, .update-btn{
+.alert-hidden p {
+  text-align: left;
+  color: red;
+  font-size: 12px;
+  padding-left: 0.3rem;
+  margin-top: 0;
+}
+
+.alert-show {
+  display: block;
+  color: red;
+  text-align: left;
+  font-size: 12px;
+  padding-left: 0.3rem;
+  margin-top: 0;
+}
+.cancel-btn,
+.update-btn, .back-btn {
   padding-block: 10px;
   padding-inline: 30px;
   border-radius: 8px;
   border-width: 0px;
   font-size: 16px;
   font-weight: bolder;
+  cursor: pointer;
 }
 
-.update-btn{
+.back-btn{
+  background-color: #e6c5e6;
+}
+
+.update-btn {
   background-color: #564c95;
   color: white;
 }
 
-.update-btn:hover{
+.update-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.update-btn:hover {
   opacity: 0.8;
 }
 
-.cancel-btn{
+.cancel-btn {
   background-color: #ccc;
 }
 
-.cancel-btn:hover{
+.cancel-btn:hover {
   opacity: 0.8;
 }
 
