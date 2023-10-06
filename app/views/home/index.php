@@ -110,7 +110,7 @@
                         $image_path = isset($course["image_path"]) ? $course["image_path"]:"../../public/asset/banner1.png";
                         $formattedDate = date('d-m-y', strtotime($course['release_date']));
                         echo"
-                        <div class='card' onclick='openModal(\"$joined\",\"$course[course_id]\",\"$course[title]\",\"$course[description]\",\"$formattedDate\")' style='cursor: pointer;'>
+                        <div class='card' onclick='openModal(\"$joined\",\"$course[course_id]\",\"$course[title]\",\"$course[description]\",\"$formattedDate\",\"$course[course_password]\")' style='cursor: pointer;'>
                             <div class='card-top'>
                                 <img src='$image_path' alt='Blog Name'>
                             </div>
@@ -130,12 +130,12 @@
             </div>
         </div>
 
-        <div id="overlay" onclick="closeDialog()">
+        <div id="overlay">
             <dialog id="dialog">
                 <div class="modal-container">
                     <div class="flex">
                         <p id="upload-date"></p>
-                        <button class="close-btn">
+                        <button class="close-btn" onclick="closeDialog()">
                             <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"/>
@@ -151,9 +151,13 @@
                         <p style="display:none" id="course_id"></p>
                     </div>
                     <div class="buttons-enroll" id="button">
-                        <button id="course-detail" class="enroll-btn" style="display:none;" onclick='visitCourse()'>Go to this course</button>
+                        <button id="course-detail" class="enroll-btn" style="visibiility:hidden;" onclick='visitCourse()'>Go to this course</button>
                         <!-- <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div> -->
-                        <button class='enroll-btn' id="enroll-btn" onclick='enrolled()'>Enroll this Course</button>
+                        <div class="wrapper">
+                            <input placeholder="Enter course password" id="password-input" type="hidden" />
+                            <button class='enroll-btn' id="enroll-btn" onclick='enrolled()'>Enroll this Course</button>
+                        </div>
+                        
                     </div>
                 </div>
             </dialog>
