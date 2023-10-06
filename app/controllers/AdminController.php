@@ -25,6 +25,17 @@
             $user = $admin->getUserById($params);
             return $this->view("admin","editUser",["user"=>$user]);        
         }
+
+        public function editCourse($params = ""){
+            if(!$params){
+                // Ini nanti ganti jadi notfound/error
+                header("Location: /login");
+            }else{
+                $admin = new Admin();
+                $course = $admin->get_course_by_id($params);
+                return $this->view("admin","editCourse",["course" => $course]);
+            }
+        }
         // Page admin untuk melihat semua teachers
         public function teachers(){
             return $this->view("admin","teachers",[]);

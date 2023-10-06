@@ -70,7 +70,7 @@
                                     <td><?php echo $course['course_password'] ?></td>
                                     <td><?php echo $formattedDate ?></td>
                                     <?php  
-                                        $href = "courses";
+                                        $href = "editcourse";
                                         $id = $course["course_id"];
                                         include __DIR__. '/../components/actionButton.php' 
                                     ?>

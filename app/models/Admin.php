@@ -56,6 +56,13 @@ require_once(__DIR__."/Model.php");
             return $this->database->rowCount();
         }
 
+        public function get_course_by_id($course_id){
+            $query = "SELECT * FROM courses where course_id = :course_id";
+            $this->database->query($query);
+            $this->database->bind("course_id",$course_id);
+            $course = $this->database->single_fetch();
+            return $course;
+        }
         
     }
 ?>
