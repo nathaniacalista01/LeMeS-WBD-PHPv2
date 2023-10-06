@@ -21,7 +21,7 @@
 				<div class="report-body">
                     <div class="container">
                     <!-- POPUP WINDOW FOR DELETE COURSE -->
-                        <div id="popup">
+                        <div id="delete-popup">
     	                    <div class="window">
         	                    <a href="#" class="close-button" title="Close">X</a>
                                 <h2>Are you sure to delete this course?</h2>
@@ -36,44 +36,80 @@
                         <table class="data">
                             <tr>
                                 <th class="tid">CourseID</th>
-                                <th class="timg">Image</th>
-                                <th class="ttitle">Title</th>
-                                <th class="tlecturer">Lecturer</th>
+                                <th class="title">Title</th>
+                                <th class="description">Description</th>
+                                <th class="enroll-code">Code</th>
                                 <th class="tdate">Release Date</th>
                                 <th class="tact">Action</th>
                             </tr>
 
                     <!-- ITERATE HERE LOOPING DATABASE TO FILL TABLE -->
-                            <tr>
-                                <td>1</td>
-                                <td><img src="" alt="course image"></td>
-                                <td>jasd ajsda ndjas dkjasdk ajsd naksjdn aksd kajsnd kajndjka ndjknas kjdnqwajk ndbajkse</td>
-                                <td>Bapak</td>
-                                <td>25-12-2003</td>
-                                <td>
-                                    <div class="action">
-                                        <button class="edit-course">
-                                            Edit
-                                        </button>
-                                        <div class="delete-course">
-                                        <a href="#popup">Delete</a></div>
-                                    </div>
-                                </td>
-                            </tr>
+                            <?php
+                                $courses = $data["courses"];
+                                foreach ($courses as $course ) {
+                                    $formattedDate = date('d-m-y', strtotime($course['release_date']));
+                                    echo "
+                                    <tr>
+                                    <td>$course[course_id]</td>
+                                    <td>$course[title]</td>
+                                    <td>$course[description]</td>
+                                    <td>$course[course_password]</td>
+                                    <td>$formattedDate</td>
+                                    <td class='action'>
+                                        <span class='edit-icon'>
+                                            <a href=''>
+                                                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: rgba(0, 0, 0, 1);transform: ;msFilter:;'>
+                                                    <path fill='#564C95' d='m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z'></path>
+                                                    <path fill='#564C95' d='M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z'></path>
+                                                </svg>
+                                            </a>
+                                        </span>
+                                        <span class='delete-icon'>
+                                            <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: #564C95 ;transform: ;msFilter:;'><path d='M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm10.618-3L15 2H9L7.382 4H3v2h18V4z'></path></svg>
+                                        </span>
+                                    </td>
+                                </tr>   
+                                    ";
+                                }
+                            ?>
+                            
                         </table>
                         
-                <div class="paging">           
+                        <div class="paging">           
                     <div class="pagination">
-                        <a href="">PREV</a>
-                        <a href="">1</a>
-                        <a href="">2</a>
-                        <a href="">3</a>
-                        <a href="">4</a>
-                        <a href="">...</a>
-                        <a href="">10</a>
-                        <a href=""> &nbsp;NEXT</a>
-                        <div class="bottom_bar"></div>
+                        <?php 
+                            $start_index = $data["page_number"];
+                            $max_page = $data["max_page"];
+                            $prev_index = $start_index <= 1 ? 1 : $start_index-1;
+                            if($start_index > 1){
+                                $prev_index = $start_index-1;
+                                echo "<a href='/admin/courses/page=$prev_index'>PREV</a>";
+                            }
+                            for($i = $prev_index; $i < $start_index+2;$i++){
+                                if($i == $max_page){
+                                    break;
+                                }
+                                if($i == $start_index){
+                                    echo "<a class='pagination-active' style='background-color:#9e51d8;color:white;' id='pagination-active'>$i</a>";
+                                }else{
+                                    echo "<a href='/admin/courses/page=$i' id='pagination-number'>$i</a>";
+                                }
+                            }
+                            if($start_index < $max_page-2){
+                                echo "<a>...</a>";
+                            }
+                            if($start_index == $max_page){
+                                echo "<a style='background-color:#9e51d8;color:white;' href='/admin/users/page=$max_page'>$max_page</a>";
+                            }else{
+                                echo "<a href='/admin/courses/page=$max_page'>$max_page</a>";
+                            }
+                            if($start_index < $max_page){
+                                $next_index = $start_index + 1;
+                                echo "<a href='/admin/courses/page=$next_index'> &nbsp;  NEXT</a>";
+                            }
+                        ?>
                     </div>
+			    </div>
 			    </div>
 			</div>
 		</div>

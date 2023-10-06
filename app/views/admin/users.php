@@ -130,8 +130,8 @@
                             }
                         ?>
                     </div>
-			</div>
-		</div>
-    </section>
-</body>
+			    </div>
+		    </div>
+        </section>
+    </body>
 </html>
