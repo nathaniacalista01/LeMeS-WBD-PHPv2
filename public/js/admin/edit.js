@@ -98,3 +98,58 @@ backButton.addEventListener("click", (e) => {
   e.preventDefault();
   window.location.href = "/admin/users";
 });
+
+const handleUpload = () => {
+  var image = document.getElementById("course-image");
+  var new_image = document.getElementById("image-input");
+  var old_image = document.getElementById("oldPicture");
+  if (new_image.files && new_image.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      image.src = e.target.result;
+    };
+    reader.readAsDataURL(new_image.files[0]);
+  }
+};
+
+const check_title = () => {
+  var title_input = document.getElementById("title-input");
+  var title = title_input.value;
+  var title_alert = document.getElementById("title-alert");
+  if (title.length < 3) {
+    title_alert.className = "alert-show";
+    title_alert.innerText = "Title's minimum length is 3";
+  } else {
+    title_alert.className = "";
+    title_alert.innerText = "";
+    title_input.style.borderColor = "green";
+  }
+  check_update_button();
+};
+
+const check_desc = ()=>{
+  var desc_input = document.getElementById("desc-input");
+  var desc = desc_input.value;
+  var desc_alert = document.getElementById("desc-alert");
+  if(desc.length < 5){
+    desc_alert.className = "alert-show";
+    desc_alert.innerText = "Description's minimum length is 5";
+  }else{
+    desc_alert.className = "";
+    desc_alert.innerText = "";
+    desc_input.style.borderColor = "green";
+  }
+  check_update_button();
+}
+
+const check_update_button = () =>{
+  var title = document.getElementById("title-input").value;
+  var desc = document.getElementById("desc-input").value;
+  var update_button = document.getElementById("update-button");
+
+  if(title.length < 3 || desc.length < 5){
+      update_button.disabled = true;
+  }else{
+    update_button.disabled = false;
+  }
+}

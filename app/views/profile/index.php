@@ -27,7 +27,6 @@
                                     <h1 class='profile-title profile-toggle-change'>Change Profile</h1>
 
                                     <input type='hidden' id='oldPicture' value='{$thisUser['image_path']}'>
-                                    <script>console.log({$thisUser['image_path']});</script>
                                     <div style='display: block;'>
                                         <img src='{$thisUser['image_path']}' id='profilePicture' alt='profile picture' style='width: 80px; height: 80px; object-fit: contain'>
                                     </div>
@@ -97,7 +96,8 @@
             ";
             }
             else{
-                // JIKA USER BELUM LOGIN, PAGE PROFILE TIDAK BISA DIBUKA 
+                // JIKA USER BELUM LOGIN, PAGE PROFILE TIDAK BISA 
+                 
                 exit;
             }    
         ?>
