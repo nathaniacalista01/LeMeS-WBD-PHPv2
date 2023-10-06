@@ -3,7 +3,17 @@
     class AdminController extends Controller{
         // Landing page admin, menampilkan semua courses
         public function index(){
-            
+            header("Location: /admin/courses");
+        }
+
+        // Page admin untuk register
+        public function register(){
+            return $this->view("admin","register",[]);
+        }
+
+        // Page admin untuk login
+        public function login(){
+            return $this->view("admin","login",[]);
         }
 
         // Page admin untuk melihat semua students

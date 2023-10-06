@@ -50,6 +50,29 @@ body {
   border-bottom: 2px solid rgba(0, 20, 151, 0.59);
 }
 
+.add-user {
+  padding-block: 10px;
+  border-width: 0px;
+  border-radius: 13px;
+  padding-inline: 25px;
+  background-color: #564c95;
+
+  cursor: pointer;
+}
+
+.add-user a {
+  font-weight: bold;
+  color: white;
+}
+
+.add-user:hover {
+  opacity: 0.8;
+}
+
+.header-button {
+  margin-right: 10px;
+}
+
 .recent-Articles {
   font-size: 30px;
   font-weight: 600;

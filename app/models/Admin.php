@@ -74,6 +74,17 @@ require_once(__DIR__."/Model.php");
             $this->database->execute();
             return $this->database->rowCount();
         }
-        
+
+        public function register_user($fullname, $username, $password, $user_role){
+            $hashed_pass = password_hash($password,PASSWORD_DEFAULT);
+            $query = "INSERT INTO users (fullname, username, password, user_role) VALUES (:fullname, :username, :password, :user_role)";
+            $this->database->query($query);
+            $this->database->bind("fullname",$fullname);
+            $this->database->bind("username",$username);
+            $this->database->bind("password",$hashed_pass);
+            $this->database->bind("user_role",$user_role);
+            $this->database->execute();
+            return $this->database->rowCount();
+        }
     }
 ?>

@@ -30,8 +30,11 @@
 			<div class="report-container">
 				<div class="report-header">
 					<h1 class="recent-Articles">Users List</h1>
+                    <div class="header-button">
+                        <button class="add-user"><a href="/admin/register">Add User</a></button>
+                    </div>
 				</div>
-
+                
 				<div class="report-body">
                     <div class="container">
                         <div id="delete-popup">
