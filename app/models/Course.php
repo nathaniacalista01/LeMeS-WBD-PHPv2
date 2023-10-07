@@ -63,19 +63,55 @@ require_once(__DIR__."/Model.php");
             return $rows;
         }
 
-        public function searchFewCourses($page,$title){
-            $query = "SELECT * FROM courses WHERE LOWER(title) LIKE :title OR LOWER(description) LIKE :title LIMIT 4 OFFSET :offset";
+        public function searchCourses($data){
+            $query = "SELECT * FROM courses ";
+            $search = false;
+            if(isset($data["title"])){
+                $query.= "WHERE LOWER(title) LIKE :title OR LOWER(description) LIKE :title";
+                $search = true;
+            }
+            // if(isset($data["filter"])){
+            //     if($search){
+                    
+            //     }
+            // }
             $this->database->query($query);
-            $this->database->bind("title",'%'.$title.'%');
-            $this->database->bind("offset",($page-1)*4);
+
+            if($search){
+                $this->database->bind("title",'%'.$data["title"].'%');
+            }
             $results = $this->database->fetchAll();
             return $results;
         }
 
-        public function searchCourses($title){
-            $query = "SELECT * FROM courses WHERE LOWER(title) LIKE :title";
+        public function searchFewCourses($page,$params){
+            $query = "SELECT * FROM courses ";
+            $where = false;
+            $search = false;
+            $sort = false;
+            if(isset($params["title"])){
+                $query.= "WHERE LOWER(title) LIKE :title OR LOWER(description) LIKE :title ";
+                $where = true;
+                $search = true;
+            }
+
+            if(isset($params["sort"])){
+                $components = explode("+",$params["sort"]);
+                $rules = $components[1];
+                if($components[0] === "title"){
+                    $query .= "ORDER BY title ".$rules;
+                }else{
+                    $query .= "ORDER BY release_date " . $rules;
+                }
+                $sort = true;
+            }
+            $query .= "LIMIT 4 OFFSET :offset";
             $this->database->query($query);
-            $this->database->bind("title", '%'.$title.'%');
+            $this->database->bind("offset",($page-1)*4);
+            if($search){
+                $this->database->bind("title", '%'.$params["title"].'%');
+            }
+            
             $results = $this->database->fetchAll();
             return $results;
         }
