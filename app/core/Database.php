@@ -28,10 +28,8 @@
                 $this->connection->exec(Table::USER_TABLE);
                 $this->connection->exec(Table::COURSE_TABLE);
                 $this->connection->exec(Table::COURSE_PARTICIPANT_TABLE);
-                $this->connection->exec(Table::MODULE_TABLE);
-                $this->connection->exec(Table::COURSE_MODULE_TABLE);               
+                $this->connection->exec(Table::MODULE_TABLE);            
                 $this->connection->exec(Table::MATERIAL_TABLE);
-                $this->connection->exec(Table::MODULE_MATERIAL_TABLE);
             } catch (PDOException $e) {
                 die($e->getMessage());
             }

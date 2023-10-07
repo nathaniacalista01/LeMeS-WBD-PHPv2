@@ -17,6 +17,4 @@
     // $seed->seed_modules();
     // $seed->seed_materials();
     // $seed->seed_course_participants();
-    // $seed->seed_course_module();
-    // $seed->seed_module_material();
 ?>
