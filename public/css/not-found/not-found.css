@@ -42,10 +42,12 @@ header {
 .scarecrow-img img {
   width: 90%;
   height: auto;
+  margin: auto;
 }
 
 .error-text {
   width: 70%;
+  margin: auto;
 }
 
 .error-text h2 {
