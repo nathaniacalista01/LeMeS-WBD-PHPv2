@@ -1,15 +1,22 @@
+const getNewUrl = (added_url) =>{
+  return "/search/"+added_url;
+}
+
 const searchCourse = (page_number = 1) => {
   let request_url = "/api/course/search.php?";
+  let added_url = "";
   try {
     const title = document.getElementById("search").value;
     if (title.length > 0) {
-      request_url += "title=" + title;
+      added_url += "title=" + title;
     }
   } catch (error) {
     console.log(error);
   }
   let page = "&page=" + page_number;
-  let final_url = (request_url += page);
+  added_url += page;
+  let final_url = (request_url += added_url);
+  window.history.pushState({path : getNewUrl(added_url)},'',getNewUrl(added_url));
   const xhr = new XMLHttpRequest();
   xhr.open("GET", final_url, true);
   xhr.onload = function () {
@@ -54,7 +61,6 @@ const searchCourse = (page_number = 1) => {
           pagination.innerHTML += `<a id='pagination-number' onclick='searchCourse(${i})'>${i}</a>`;
         }
       }
-      console.log(pagination.innerHTML);
       if (page_number < max_page - 2) {
         pagination.innerHTML += "<a>...</a>";
       }
