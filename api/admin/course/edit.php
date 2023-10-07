@@ -15,7 +15,7 @@
         $description = $_POST["description"];
         $image_file = $_POST["old_image"];
         $course_password =  isset($_POST["course_password"]) ? $_POST["course_password"] : $_POST["old_password"];
-        if(isset($_FILES["image"])){
+        if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] !== ""){
             // Kasus kalau imagenya mau diganti
             $directory = "../../../public/image/course/";
             $file_name = $_FILES["image"]["name"];

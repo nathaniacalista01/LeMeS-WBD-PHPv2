@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Add Course</title>
         <link rel="stylesheet" href="../../public/css/admin/addCourse.css">
-        <script src="../../public/js/admin/add.js" defer></script>
+        <script src="../../public/js/admin.js" defer></script>
     </head>
     <body>
     <?php include __DIR__ . '/../navbar/navbar.php'?>
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="form-container">
-            <form method="POST" id="add-form" action="/api/admin/course/add.php" enctype="multipart/form-data">
+            <form method="POST" id="form" action="/api/admin/course/add.php" enctype="multipart/form-data">
                 <div class="image-container">
                     <img class="picture" src="" id="course-image" />
                 </div>
@@ -76,7 +76,7 @@
             </div>
             <div class="button-container">
                 <button id = "back-button" class="back-btn">Back</button>
-                <button type="submit" class="add-btn" id="add-button">Add</button>
+                <button type="submit" class="add-btn" id="action-button">Add</button>
             </div>
             </form>
         </div>

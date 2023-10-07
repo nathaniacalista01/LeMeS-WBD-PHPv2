@@ -16,11 +16,7 @@
         $uploaded = true;
         $saved_image = "";
         $course_password = "";
-        // if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] !== ""){
-        //     echo "Masuk sini";
-        // }else{
-        //     echo "Kok bs";
-        // }
+    
         if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] !== ""){
             var_dump("Masuk ke sini");
             $directory = "../../../public/image/course/";
