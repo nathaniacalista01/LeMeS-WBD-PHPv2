@@ -15,7 +15,12 @@
 
         public function preview($params){
             $course = new Course();
+            $middleware = $this->middleware("LoginMiddleware");
+            $middleware->hasLoggedIn();
             $result = $course->single_course($params);
+            if(!$result){   
+                header("Location: /notfound");
+            }
             $modules = $course->get_modules($params);
             return $this->view('courses','detail',["course" => $result,"modules"=>$modules]);
         }
