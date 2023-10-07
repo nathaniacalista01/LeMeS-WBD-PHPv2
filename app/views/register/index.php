@@ -36,7 +36,7 @@
                                 id="username-input" 
                                 name="username" 
                                 class="login-input" 
-                                onkeyup="check_username()"
+                                onkeyup="check_username_debounce()"
                                 required
                                 />
                         </div>

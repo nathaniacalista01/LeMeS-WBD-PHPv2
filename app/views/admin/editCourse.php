@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../public/css/admin/editUser.css">
-    <script src="../../public/js/admin/edit.js" defer></script>
+    <link rel="stylesheet" href="../../public/css/admin/forms.css">
+    <script src="../../public/js/admin.js" defer></script>
 
 </head>
 <body>
@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="form-container">
-        <form method="POST" id="update-form" action="/api/admin/course/edit.php" enctype="multipart/form-data">
+        <form method="POST" id="form" action="/api/admin/course/edit.php" enctype="multipart/form-data">
             <input type="hidden" name="course_id" value = <?php echo $data["course"]["course_id"] ?> />
             <input type="hidden" id="old-title" value = <?php echo $data["course"]["title"] ?> />
             <input type="hidden" id="old-description" value = <?php echo $data["course"]["description"] ?> />
@@ -68,8 +68,8 @@
                     id="password-input" 
                     class="login-input"
                     required
-                    value = <?php echo ($data["course"]["course_password"] ?  $data["course"]["course_password"] : "") ?>
-                />
+                    value = <?php echo ($data["course"]["course_password"] && $data["course"]["course_password"]) ?>
+                ></input>
             </div>
             <div class="login-box">
                 <label for="image" class="img-label">                 
@@ -85,7 +85,7 @@
             </div>
             <div class="button-container">
                 <button id = "back-button" class="back-btn">Back</button>
-                <button type="submit" class="update-btn" id="update-button">Update</button>
+                <button type="submit" class="update-btn" id="action-button">Update</button>
             </div>
         </form>
     </div>

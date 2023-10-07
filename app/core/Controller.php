@@ -8,5 +8,10 @@
                 echo "File not found";
             }
         }
+
+        public function middleware($name){
+            require_once("app/middlewares/".$name . '.php');
+            return new $name;
+        }
     }
 ?>

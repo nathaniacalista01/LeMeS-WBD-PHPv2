@@ -5,7 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Courses List</title>
-	<link rel="stylesheet" href="../../public/css/admin/lists.css">
+    <link rel="stylesheet" href="../../public/css/components/button.css">
+	<link rel="stylesheet" href="../../public/css/admin/admin.css">
     <script src="../../public/js/admin.js"></script>
 </head>
 
@@ -30,8 +31,11 @@
 			<div class="report-container">
 				<div class="report-header">
 					<h1 class="recent-Articles">Courses List</h1>
+                    <div class="header-button">
+                        <button class="add-user"><a href="/admin/addcourse">Add Course</a></button>
+                    </div>
 				</div>
-
+                
 				<div class="report-body">
                     <div class="container">
                     <!-- POPUP WINDOW FOR DELETE COURSE -->
@@ -79,6 +83,7 @@
                             
                         </table>                        
                         <?php 
+                            $parent = "admin";
                             $href = "courses";
                             include __DIR__ . '/../components/pagination.php'
                         ?>

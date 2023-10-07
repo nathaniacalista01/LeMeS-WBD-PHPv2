@@ -6,6 +6,7 @@
     <title>HomePage</title>
     <link href="../../public/css/home/home.css" rel="stylesheet">
     <script src="../../public/js/home.js" defer></script>
+    <script src="../../public/js/search.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -53,43 +54,6 @@
             </div>
         </div>
 
-    <!-- SEARCH BAR -->
-
-        <div class="search-sort">
-            <div class="search-bar">
-                <div id="select">
-                    <p id="selectText">All Courses</p>
-                    <i>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"/>
-                        </svg>
-                    </i>
-                    <ul id="list">
-                        <li class="options">All Courses</li>
-                        <li class="options">Art and Design</li>
-                        <li class="options">Business</li>
-                        <li class="options">Math and Science</li>
-                        <li class="options">Programming</li>
-                    </ul>
-                </div>
-                <input type="text" id="inputField" placeholder="Search In All Courses">
-            </div>
-            <div id="sort">
-                <p id="sortText">Sort By</p>
-                <i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"/>
-                    </svg>
-                </i>
-                <ul id="sortList">
-                    <li class="sort-options">Course Ascending</li>
-                    <li class="sort-options">Course Descending</li>
-                    <li class="sort-options">Lecturer Ascending</li>
-                    <li class="sort-options">Lecturer Descending</li>
-                </ul>
-            </div>
-        </div>
-
     <!-- COURSES CARDS -->
         
         <div class="card-container">
@@ -110,7 +74,7 @@
                         $image_path = isset($course["image_path"]) ? $course["image_path"]:"../../public/asset/banner1.png";
                         $formattedDate = date('d-m-y', strtotime($course['release_date']));
                         echo"
-                        <div class='card' onclick='openModal(\"$joined\",\"$course[course_id]\",\"$course[title]\",\"$course[description]\",\"$formattedDate\")' style='cursor: pointer;'>
+                        <div class='card' onclick='openModal(\"$joined\",\"$course[course_id]\",\"$course[title]\",\"$course[description]\",\"$formattedDate\",\"$course[course_password]\")' style='cursor: pointer;'>
                             <div class='card-top'>
                                 <img src='$image_path' alt='Blog Name'>
                             </div>
@@ -130,12 +94,12 @@
             </div>
         </div>
 
-        <div id="overlay" onclick="closeDialog()">
+        <div id="overlay">
             <dialog id="dialog">
                 <div class="modal-container">
                     <div class="flex">
                         <p id="upload-date"></p>
-                        <button class="close-btn">
+                        <button class="close-btn" onclick="closeDialog()">
                             <i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"/>
@@ -151,52 +115,23 @@
                         <p style="display:none" id="course_id"></p>
                     </div>
                     <div class="buttons-enroll" id="button">
-                        <button id="course-detail" class="enroll-btn" style="display:none;" onclick='visitCourse()'>Go to this course</button>
+                        <button id="course-detail" class="enroll-btn" style="visibiility:hidden;" onclick='visitCourse()'>Go to this course</button>
                         <!-- <div class="lecturer"><h4>Lecturer: Bapak saya, kakek, nenek, pak dosen</h4></div> -->
-                        <button class='enroll-btn' id="enroll-btn" onclick='enrolled()'>Enroll this Course</button>
+                        <div class="wrapper">
+                            <input placeholder="Enter course password" id="password-input" type="hidden" />
+                            <button class='enroll-btn' id="enroll-btn" onclick='enrolled()'>Enroll this Course</button>
+                        </div>
+                        
                     </div>
                 </div>
             </dialog>
         </div>
 
-        <div class="paging">
-            <div class="pagination">
-                <?php 
-                    $start_index = $data["page_number"]; 
-                    $max_page = $data["max_page"];
-                    $type = $data["type"];
-                    $prev_index = $start_index <= 1 ? 1 : $start_index-1;
-
-                    if($start_index > 1){
-                        $prev_index = $start_index-1;
-                        echo "<a href='/course/$type/page=$prev_index'>PREV</a>";
-                    }
-                    for($i =$prev_index; $i < $start_index+2;$i++){
-                        if($i == $max_page){
-                            break;
-                        }
-                        $classname = '';
-                        if($i == $start_index){
-                            echo "<a class='pagination-active' style='background-color:#5271e9;color:white;' id='pagination-active'>$i</a>";
-                        }else{
-                            echo "<a href='/course/$type/page=$i'id='pagination-number'>$i</a>";
-                        }
-                    }
-                    if($start_index < $max_page-2){
-                        echo "<a>...</a>";
-                    }
-                    if($start_index == $max_page){
-                        echo "<a style='background-color:#5271e9;color:white;' href='/course/$type/page=$max_page'>$max_page</a>";
-                    }else{
-                        echo "<a href='/course/$type/page=$max_page'>$max_page</a>";
-                    }
-                    if($start_index < $max_page){
-                        $next_index = $start_index + 1;
-                        echo "<a href='/course/$type/page=$next_index'> &nbsp;  NEXT</a>";
-                    }
-                ?>
-            </div>
-        </div>
+        <?php 
+            $parent = "course";
+            $href = $data["type"];
+            include __DIR__ . '/../components/pagination.php'
+        ?>
     </section>
 </body>
 </html>

@@ -5,7 +5,8 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Users List</title>
-	<link rel="stylesheet" href="../../public/css/admin/lists.css">
+    <link rel="stylesheet" href="../../public/css/components/button.css">
+	<link rel="stylesheet" href="../../public/css/admin/admin.css">
     <script src="../../public/js/admin.js"></script>
 </head>
 
@@ -77,6 +78,7 @@
                             </tbody>
                         </table>
                         <?php 
+                            $parent = "admin";
                             $href = "users";
                             include __DIR__ . '/../components/pagination.php'
                         ?>

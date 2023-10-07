@@ -1,0 +1,143 @@
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: #e6c5e6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    padding-left: 10em;
+    padding-right: 30px;
+    overflow-y: auto;
+}
+.search-box{
+    width: 100%;
+    display: flex;
+}
+
+.search-input{
+    width: 80%;
+    padding-inline: 10px;
+    padding-block: 12px;
+    border-radius: 20px;
+    border-width: 0px;
+}
+
+/* Header */
+.home-section .search-field{
+    width: 100%;
+    max-width: 700px;
+    background: rgba(255, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    border-radius: 60px;
+    padding: 10px 20px;
+}
+
+.home-section .search-field input{
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 14px 20px;
+    font-size: 20px;
+    color: #cac7ff;
+}
+
+*{box-sizing:border-box}
+
+.header{
+    padding: 30px 10px;
+}
+
+.slideshow-container{
+    max-width: 1250px;
+    max-height: 200px;
+    position: relative;
+    margin: auto;
+}
+
+.mySlides{
+    display: none;
+}
+
+.prev, .next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next{
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover{
+    background-color: rgba(0,0,0,0.8);
+}
+
+.dot{
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover{
+    background-color: #717171;
+}
+
+.fade{
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade{
+    from{opacity: .4}
+    to{opacity: 1}
+}
+
+/* Search Bar */
+.search-sort{
+    display: flex;
+    margin: auto;
+    padding: 0px 10px;
+}
+
+.sort-filter-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    margin-top: 10px;
+    gap: 10px;
+}
+.sort, .filter{
+    padding: 10px;
+    border-radius: 10px;
+    border-width: 0px;
+    width: 20%;
+}
+
+.search-btn{
+    background-color: transparent;
+    border-width: 0px;
+}
+  
+#pagination a{
+    cursor: pointer;
+}

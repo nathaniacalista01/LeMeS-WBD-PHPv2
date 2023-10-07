@@ -14,14 +14,34 @@
     }else{
         if($_POST["course_id"]){
             $user = new User();
+            $course = new Course();
             $course_id = $_POST["course_id"];
-            $rows = $user->enroll($course_id);
-            if($rows){
-                http_response_code(200);
-                $_SESSION["success"] = "You have succesfully enrolled this course!";
+            $course_enrolled = $course->single_course($_POST["course_id"]);
+            if($course_enrolled["course_password"] !== NULL){
+                if(isset($_POST["course_password"])){
+                    $course_password = $_POST["course_password"];
+                    if($course_password === $course_enrolled["course_password"]){
+                        // Kalau berhasil enroll 
+                        $rows = $user->enroll($course_id);
+                        if($rows){
+                            $_SESSION["success"] = "You have sucesfully enrolled!";
+                            http_response_code(200);
+                            echo json_encode(array("status" => "success"));
+                        }else{
+                            $_SESSION["error"] = "Enrolled failed!";
+                            echo json_encode(array("status" => "fail"));
+                        }
+                    }else{
+                        $_SESSION["error"] = "Wrong password!";
+                        echo json_encode(array("status" => "fail"));
+                    }
+                }
             }else{
-                http_response_code(501);
-                $_SESSION["error"] = "Something went wrong!";
+                $rows = $user->enroll($course_id);
+                if($rows){
+                    $_SESSION["success"] = "You have sucesfully enrolled";
+                    echo json_encode(array("status" => "success"));
+                }
             }
         }
     }

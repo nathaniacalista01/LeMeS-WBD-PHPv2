@@ -29,8 +29,9 @@
             $hashed_pass = $result["password"];
             if(password_verify($password,$hashed_pass)){
                 $_SESSION['success'] = "Log in succesful!";
-                $_SESSION['username'] = $username;
                 $_SESSION["user_id"] = $result["user_id"];
+                $courses = $user->getAllCoursesEnrolled();
+                $_SESSION["courses_enrolled"] = $courses;
                 header('Location: /');
                 exit;
             }else{
