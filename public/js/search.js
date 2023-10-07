@@ -1,41 +1,6 @@
 const getNewUrl = (added_url) => {
   return "/search/" + added_url;
 };
-// function openModalTesting(
-//   id,
-//   title,
-//   description,
-//   formattedDate,
-//   course_password
-// ) {
-//   var myDialog = document.getElementById("dialog");
-//   var overlay = document.getElementById("overlay");
-//   var upload_text = document.getElementById("upload-date");
-//   var course_title = document.getElementById("course-title");
-//   var course_desc = document.getElementById("course-desc");
-//   var course_id = document.getElementById("course_id");
-//   var enroll_button = document.getElementById("enroll-btn");
-//   var go_button = document.getElementById("course-detail");
-//   myDialog.showModal();
-//   overlay.style.display = "block";
-//   course_title.innerText = title;
-//   course_desc.innerText = description;
-//   upload_text.innerText = formattedDate;
-//   course_id.innerText = id;
-//   if (joined) {
-//     // Kalau sudah bergabung
-//     enroll_button.style.display = "none";
-//     go_button.style.visibility = "visible";
-//   } else {
-//     // Kalau belum berabung
-//     enroll_button.style.display = "block";
-//     go_button.style.visibility = "hidden";
-//     if (course_password) {
-//       var input_button = document.getElementById("password-input");
-//       input_button.type = "text";
-//     }
-//   }
-// }
 
 const searchCourse = (page_number = 1) => {
   let request_url = "/api/course/search.php?";
@@ -150,3 +115,5 @@ const searchCourse = (page_number = 1) => {
   };
   xhr.send();
 };
+
+const searchWithDebounce = debounce(searchCourse);
