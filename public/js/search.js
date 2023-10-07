@@ -9,7 +9,7 @@ const searchCourse = (page_number = 1) => {
     const title = document.getElementById("search").value;
     const sort = document.getElementById("sort").value;
     const password = document.getElementById("course_password").value;
-
+    const release_year = document.getElementById("release_year").value;
     if (title.length > 0) {
       added_url += "title=" + title;
     }
@@ -23,7 +23,9 @@ const searchCourse = (page_number = 1) => {
         added_url += ("&password=false");
       }
     }
-    
+    if(release_year){
+      added_url+=("&release_year=" + release_year);
+    }
   } catch (error) {
     console.log(error);
   }

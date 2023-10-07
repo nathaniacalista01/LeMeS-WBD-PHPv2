@@ -78,11 +78,29 @@ require_once(__DIR__."/Model.php");
                 }else{
                     $query .= " NOT NULL)";
                 }
+                $search = true;
+            }
+            if(isset($data["release_year"])){
+                $components = explode("-",$data["release_year"]);
+                if(count($components) === 1){
+                    $year = "< :smaller_year";
+                    $smaller_year = $components[0];
+                }else{
+                    $year = "BETWEEN :smaller_year AND :bigger_year";
+                    $smaller_year = $components[0];
+                    $bigger_year =$components[1];
+                }
+                $query .= ($search ? " AND date_part('year',release_date) " .$year: "WHERE date_part('year',release_date) ". $year);
             }
             $this->database->query($query);
-
             if($search){
                 $this->database->bind("title",'%'.$data["title"].'%');
+            }
+            if(isset($data["release_year"])){
+                $this->database->bind("smaller_year",$smaller_year);
+                if(isset($bigger_year)){
+                    $this->database->bind("bigger_year",$bigger_year);
+                }
             }
             $results = $this->database->fetchAll();
             return $results;
@@ -103,10 +121,23 @@ require_once(__DIR__."/Model.php");
             if(isset($params["password"])){
                 $query .= ($search ? " AND (course_password IS " : " WHERE (course_password IS");
                 if($params["password"] === "false"){
-                    $query.= "NULL)";
+                    $query.= " NULL)";
                 }else{
-                    $query .= "NOT NULL)";
+                    $query .= " NOT NULL)";
                 }
+            }
+
+            if(isset($params["release_year"])){
+                $components = explode("-",$params["release_year"]);
+                if(count($components) === 1){
+                    $year = "< :smaller_year";
+                    $smaller_year = $components[0];
+                }else{
+                    $year = "BETWEEN :smaller_year AND :bigger_year";
+                    $smaller_year = $components[0];
+                    $bigger_year =$components[1];
+                }
+                $query .= ($search ? " AND date_part('year',release_date) ".$year  : " WHERE date_part('year',release_date) ". $year);
             }
             
             if(isset($params["sort"])){
@@ -119,7 +150,6 @@ require_once(__DIR__."/Model.php");
                 }
                 $sort = true;
             }
-
             
             $query .= " LIMIT 4 OFFSET :offset";
             $this->database->query($query);
@@ -127,7 +157,12 @@ require_once(__DIR__."/Model.php");
             if($search){
                 $this->database->bind("title", '%'.$params["title"].'%');
             }
-            
+            if(isset($params["release_year"])){
+                $this->database->bind("smaller_year",$smaller_year);
+                if(isset($bigger_year)){
+                    $this->database->bind("bigger_year",$bigger_year);
+                }
+            }
             $results = $this->database->fetchAll();
             return $results;
         }

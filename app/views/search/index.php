@@ -30,10 +30,12 @@
                 <option value="free">Free</option>
                 <option value="required">Need Password</option>
             </select>
-            <select name="course_enrollment" id="course_enrollment">
-                <option value="" selected>Filter by Enrollment</option>
-                <option value="rolled">Enrolled</option>
-                <option value="unenrolled">Not Enrolled</option>
+            <select name="release_year" id="release_year" onchange="searchCourse()">
+                <option selected value="">Filter By Year</option>
+                <option value="2021-now">2021 - Now</option>
+                <option value="2019-2021">2019 - 2021</option>
+                <option value="2016 - 2018">2016 - 2018</option>
+                <option value="<2016">Before 2016</option>
             </select>
         </div> 
         <div class="card-container">
