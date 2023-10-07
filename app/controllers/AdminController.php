@@ -11,11 +11,6 @@
             return $this->view("admin","register",[]);
         }
 
-        // Page admin untuk login
-        public function login(){
-            return $this->view("admin","login",[]);
-        }
-
         // Page admin untuk melihat semua students
         public function users($params = "page=1"){
             if(!isset($_SESSION["user_id"])){
@@ -45,19 +40,6 @@
                 $course = $admin->get_course_by_id($params);
                 return $this->view("admin","editCourse",["course" => $course]);
             }
-        }
-        // Page admin untuk melihat semua teachers
-        public function teachers(){
-            return $this->view("admin","teachers",[]);
-        }
-
-        // Page admin untuk add teacher
-        public function addTeacher(){
-            return $this->view("admin","index",[]);
-        }
-        // Page admin untuk edit teacher
-        public function editTeacher(){
-            return $this->view("admin","index",[]);
         }
         // Page admin untuk melihat courses
         public function courses($params = "page=1"){

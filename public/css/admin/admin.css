@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+:root {
+  --background-color1: #ffeaff;
+  --background-color2: #ffffff;
+  --background-color3: #ededed;
+  --background-color4: #cad7fda4;
+  --primary-color: #4b49ac;
+  --secondary-color: #0c007d;
+  --Border-color: #3f0097;
+  --one-use-color: #3f0097;
+  --two-use-color: #5500cb;
+}
+
+.main {
+  margin: auto;
+  padding: auto 20px;
+  padding-top: 60px;
+}
+
+body {
+  background-color: var(--background-color1);
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.report-container {
+  max-height: 80vh;
+  max-width: 80vw;
+  margin: auto;
+  background-color: #ffffff;
+  border-radius: 30px;
+  box-shadow: 3px 3px 10px rgb(188, 188, 188);
+  padding: 0px 20px 20px 20px;
+}
+
+.report-header {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px 10px 20px;
+  border-bottom: 2px solid rgba(0, 20, 151, 0.59);
+}
+
+.recent-Articles {
+  font-size: 30px;
+  font-weight: 600;
+  color: #5500cb;
+}
+
+.report-body {
+  width: 100%;
+  padding: 15px;
+}
+
+.label-tag {
+  width: 100px;
+  text-align: center;
+  border-radius: 4px;
+}
+
+.report-body .container {
+  max-height: 80%;
+  width: 100%;
+}
+
+table {
+  word-break: break-word;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 14px;
+  width: 100%;
+  table-layout: fixed;
+  justify-content: center;
+  margin-top: 5px;
+  border-collapse: collapse;
+}
+
+.id-column {
+  width: 7%;
+}
+
+th {
+  background-color: #564c95;
+  color: white;
+}
+
+td {
+  border: 1px solid black;
+  text-align: center;
+  padding: 10px;
+}
+.action {
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.edit-icon:hover,
+.delete-icon:hover {
+  opacity: 0.5;
+}
+
+tr:nth-child(even) {
+  background-color: #f8e4ff;
+}
+
+th {
+  padding-block: 12px;
+}
+.data,
+td {
+  padding-inline: 12px;
+  border: none;
+}
+
+.action {
+  margin: 0;
+  display: flex;
+}
+
+.edit-user {
+  width: 40%;
+  cursor: pointer;
+  background: #597aff;
+  color: white;
+  font-weight: 700px;
+  border: 1px solid black;
+}
+
+.edit-user:hover {
+  background: #214dff;
+}
+
+.delete-user {
+  width: 40%;
+  cursor: pointer;
+  background: rgb(255, 61, 61);
+  color: white;
+  font-weight: 700px;
+  border: 1px solid black;
+}
+
+.delete-user:hover {
+  background: red;
+}
+.add-user {
+  padding-block: 10px;
+  border-width: 0px;
+  border-radius: 13px;
+  padding-inline: 25px;
+  background-color: #564c95;
+  cursor: pointer;
+}
+
+.add-user a {
+  font-weight: bold;
+  color: white;
+}
+
+.add-user:hover {
+  opacity: 0.8;
+}
+@media screen and (max-width: 490px) {
+  .recent-Articles {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .report-header {
+    height: 60px;
+    padding: 10px 10px 5px 10px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .recent-Articles {
+    font-size: 12px;
+  }
+  .report-header {
+    height: 60px;
+    padding: 10px 5px 5px 5px;
+  }
+  .report-body {
+    padding: 10px;
+  }
+}
+
+.delete-user a {
+  width: 40%;
+  cursor: pointer;
+  background: rgb(255, 61, 61);
+  color: white;
+  font-weight: 700px;
+  border: none;
+  text-decoration: none;
+  margin-left: 3px;
+}
+
+#edit-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  visibility: hidden;
+  padding-block: 10px;
+}
+
+#delete-popup {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.7);
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  visibility: hidden;
+  padding-block: 10px;
+}
+
+.window {
+  width: 500px;
+  height: 300px;
+  background: #fff;
+  border-radius: 10px;
+  position: absolute;
+  left: 35%;
+  top: 25%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.window h2 {
+  margin: 30px 0 0 0;
+}
+
+.close-button {
+  width: 50px;
+  height: 50px;
+  line-height: 23px;
+  background: #000;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  display: block;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#popup:target {
+  visibility: visible;
+}
+
+.clearfix {
+  display: flex;
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+  gap: 15px;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}

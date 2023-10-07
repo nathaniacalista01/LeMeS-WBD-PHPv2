@@ -56,7 +56,7 @@ require_once(__DIR__."/Model.php");
         }
 
         public function get_modules($course_id){
-            $query = "SELECT * FROM modules NATURAL JOIN course_module WHERE course_id = :course_id";
+            $query = "SELECT * FROM modules WHERE course_id = :course_id";
             $this->database->query($query);
             $this->database->bind("course_id",$course_id);
             $rows = $this->database->fetchAll();

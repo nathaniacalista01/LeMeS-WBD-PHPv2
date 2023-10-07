@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../public/css/components/pagination.css" rel="stylesheet">
+    <link href="../../public/css/home/home.css" rel="stylesheet">
     <link href="../../public/css/search/search.css" rel="stylesheet">
+
     <script src="../../public/js/debounce.js"></script>
     <script src="../../public/js/home.js"></script>
     <script src="../../public/js/search.js"></script>
