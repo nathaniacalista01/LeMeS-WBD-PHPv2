@@ -1,34 +1,30 @@
-/* Header */
-.home-section .search-field{
-    width: 100%;
-    max-width: 700px;
-    background: rgba(255, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    border-radius: 60px;
-    padding: 10px 20px;
-    max-height: 100vh;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
+
+:root {
+  --first-color: #564C95;
+  --first-color-semi: #9d4bff;
+  --first-color-dark: #23004d;
+  --first-color-light: #a49eac;
+  --first-color-lighter: #f2f2f2;
+  --red-color: #ff0000;
+
+  --body-font: "Open Sans", sans-verif;
+  --h1-font-size: 1.5rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
 }
 
-.home-section .search-field input{
-    background: transparent;
-    flex: 1;
-    border: 0;
-    outline: none;
-    padding: 14px 20px;
-    font-size: 20px;
-    color: #cac7ff;
+* {
+    box-sizing: border-box
 }
 
-*{box-sizing:border-box}
-
-.wrapper{
+.wrapper {
     padding-inline: 30px;
     padding-top: 20px;
     max-height: 100vh;
 }
 
-.header{
+.header {
     max-width: 1250px;
     max-height: 200px;
     position: relative;
@@ -36,78 +32,272 @@
     margin-top: 20px;
 }
 
-.course{
+.course {
     font-weight: 600;
     font-weight: bolder;
 }
 
-.course-section{
+.course-section {
     display: flex;
-    max-height: 80vh;
+    height: 85vh;
 }
 
-.modules{
+.modules {
     left: 0;
     top: 0;
     height: 100%;
-    width: 150px;
+    width: 25%;
     min-width: 200px;
     background-color: #ffffff;
     padding: 6px 14px;
     margin-inline: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
     max-height: 80vh;
-    overflow-y: auto;
-}
-
-.module-list li a{
-    text-decoration: none;
-    color: black;
-}
-
-.module-list li{
-    background-color: rgb(255, 255, 255);
     text-align: center;
-    margin-top: 5px;
-    list-style-type: none;
-    padding: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-intro {
+    height: 30px;
+    width: 100%;
+    padding-top: 4px;
+    vertical-align: center;
+    margin-bottom: 10px;
+}
+
+.header-intro:hover {
+    background-color: var(--first-color-lighter);
+}
+
+.table-container {
+    width: 100%;
+    overflow: auto;
+    max-height: 85%;
+}
+
+.table-module {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+td {
+    width: 100%;
     display: flex;
-    align-items: start;
-    padding-bottom: 20px;
-    border-bottom: 0.5px solid gray;
+    font-size: 12px;
+    border-bottom: 1px solid #cecece;
+    padding: 5px;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.row-container {
+    width: 100%;
+    display: flex;
+}
+
+.module-title {
+    padding: 4px;
+    width: 80%;
     cursor: pointer;
 }
 
-.material-box{
+.module-title:hover {
+    padding: 4px;
+    background-color: var(--first-color-lighter);
+}
+
+.actions {
+    padding: 1px;
+    width: 20%'
+
+}
+
+.add-module-section {
+    height: 30px;
+    width: 100%;
+    padding-top: 4px;
+    vertical-align: center;
+    font-size: 13px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 1px solid var(--first-color-lighter);
+}
+
+.add-module-section:hover {
+    background-color: var(--first-color-lighter);
+}
+
+.material-box {
     background: white;
     width: 100%;
     padding: 20px;
     margin: 40px;
 }
 
-.titles{
+.titles {
     margin-top: 20px;
     margin-inline: 30px;
     padding-bottom: 20px;
     border-bottom: 0.2px solid rgb(98, 98, 98);
 }
-.material-content{
+
+.material-content {
     margin-top: 20px;
     margin-inline: 30px;
 }
 
-.material-media{
+.material-media {
     margin: 20px;
 }
 
-::-webkit-scrollbar{
-    width: 5px;
+::-webkit-scrollbar {
+    width: 2px;
 }
 
-::-webkit-scrollbar-thumb{
-    background: rgb(108, 110, 124);
+::-webkit-scrollbar-thumb {
+    background: rgb(206, 207, 211);
 }
 
-::-webkit-scrollbar-track{
-    background: rgba(217, 217, 227, .8);
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.8);
 }
+
+.popup-section {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: transparent;
+    display: none;
+    z-index: 101;
+}
+
+.popup-overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+    pointer-events: auto;
+    z-index: 102;
+}
+
+.popup-box {
+    position: fixed;
+    flex-direction: column;
+    align-items: center;
+    min-width: 300px;
+    width: 40%;
+    height: 65vh;
+    padding: 30px 20px;
+    border-radius: 24px;
+    background-color: #fff;
+    display: none;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%) scale(1.2);
+    margin-top: 25px;
+    font-size: 14px;
+    padding: 25px;
+    margin: 0 10px;
+    z-index: 103;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.popup-section.active .popup-box {
+    display: block;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-buttons {
+    display: flex;
+    margin: 3px;
+}
+
+.cancel-save,
+.confirm-save {
+    padding: 10px;
+    margin: auto;
+    background-color: var(--first-color);
+    color: #fff;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 0.5rem;
+    transition: 0.3s;
+    width: 40%;
+    border: none;
+    cursor: pointer;
+}
+
+.cancel-save {
+    border: 1px solid var(--first-color);
+    background-color: #ffffff;
+    color: var(--first-color);
+}
+
+.cancel-save:hover {
+    background-color: var(--first-color-dark);
+    color: #fff;
+}
+
+.confirm-save:hover {
+    background-color: var(--first-color-dark);
+}
+
+.addForm-header {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+    margin: 20px 0px;
+}
+
+.addForm-element {
+    padding: 8px 20px;
+}
+
+.addForm-element label {
+    display: block;
+    color: #222;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.addForm-element input {
+    width: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+}
+
+.name-area {
+    height: 8vh;
+}
+
+.desc-area {
+    height: 16vh;
+}
+
+.desc-area,
+.name-area {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    resize: none;
+}
+
+.confirm-save:disabled {
+    opacity: 0.2;
+    cursor: not-allowed;
+  }

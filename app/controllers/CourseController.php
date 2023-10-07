@@ -52,5 +52,11 @@
         public function module($params){
 
         }
+
+        public function addmodule($params){
+            $course = new Course();
+            $result = $course->single_course($params);
+            return $this->view('module','add',["course" => $result]);
+        }
     }
 ?>
