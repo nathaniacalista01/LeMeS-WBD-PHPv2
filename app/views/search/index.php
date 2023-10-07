@@ -25,10 +25,10 @@
                 <option value="course+desc">Newest Course</option>
                 <option value="course+asc">Latest Course</option>
             </select>
-            <select name="course_password" id="course_password">
+            <select name="course_password" id="course_password" onchange="searchCourse()">
                 <option selected value="">Filter By Password</option>
-                <option value="">Free</option>
-                <option value="">Need Password</option>
+                <option value="free">Free</option>
+                <option value="required">Need Password</option>
             </select>
             <select name="course_enrollment" id="course_enrollment">
                 <option value="" selected>Filter by Enrollment</option>

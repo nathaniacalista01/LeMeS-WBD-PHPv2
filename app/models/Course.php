@@ -66,15 +66,19 @@ require_once(__DIR__."/Model.php");
         public function searchCourses($data){
             $query = "SELECT * FROM courses ";
             $search = false;
+            
             if(isset($data["title"])){
-                $query.= "WHERE LOWER(title) LIKE :title OR LOWER(description) LIKE :title";
+                $query.= "WHERE (LOWER(title) LIKE :title OR LOWER(description) LIKE :title)";
                 $search = true;
             }
-            // if(isset($data["filter"])){
-            //     if($search){
-                    
-            //     }
-            // }
+            if(isset($data["password"])){
+                $query .= ($search ? " AND (course_password IS " : " WHERE (course_password IS");
+                if($data["password"] === "false"){
+                    $query.= " NULL)";
+                }else{
+                    $query .= " NOT NULL)";
+                }
+            }
             $this->database->query($query);
 
             if($search){
@@ -88,13 +92,23 @@ require_once(__DIR__."/Model.php");
             $query = "SELECT * FROM courses";
             $where = false;
             $search = false;
-            $sort = false;
+            $password = false;
+        
             if(isset($params["title"])){
-                $query.= " WHERE LOWER(title) LIKE :title OR LOWER(description) LIKE :title";
+                $query.= " WHERE (LOWER(title) LIKE :title OR LOWER(description) LIKE :title)";
                 $where = true;
                 $search = true;
             }
 
+            if(isset($params["password"])){
+                $query .= ($search ? " AND (course_password IS " : " WHERE (course_password IS");
+                if($params["password"] === "false"){
+                    $query.= "NULL)";
+                }else{
+                    $query .= "NOT NULL)";
+                }
+            }
+            
             if(isset($params["sort"])){
                 $components = explode(" ",$params["sort"]);
                 $rules = $components[1];
@@ -105,6 +119,8 @@ require_once(__DIR__."/Model.php");
                 }
                 $sort = true;
             }
+
+            
             $query .= " LIMIT 4 OFFSET :offset";
             $this->database->query($query);
             $this->database->bind("offset",($page-1)*4);

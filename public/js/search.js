@@ -17,7 +17,11 @@ const searchCourse = (page_number = 1) => {
       added_url += ("&sort=" + sort);
     }
     if(password){
-      added_url += ("&filter=")
+      if(password === "required"){
+        added_url += ("&password=true");
+      }else{
+        added_url += ("&password=false");
+      }
     }
     
   } catch (error) {
@@ -35,6 +39,7 @@ const searchCourse = (page_number = 1) => {
   const xhr = new XMLHttpRequest();
   xhr.open("GET", final_url, true);
   xhr.onload = function () {
+    console.log(this);
     if (this.status === 200) {
       let data = JSON.parse(this.responseText);
       let courses = data["courses"];

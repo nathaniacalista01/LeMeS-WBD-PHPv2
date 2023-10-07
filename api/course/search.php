@@ -11,8 +11,8 @@
     if(isset($_GET["sort"])){
         $data["sort"] = $_GET["sort"];
     }
-    if(isset($_GET["filter"])){
-        $data["filter"] = $_GET["filter"];
+    if(isset($_GET["password"])){
+        $data["password"] = $_GET["password"];
     }
     $course = new Course();
     $max_page = ceil(count($course->searchCourses($data))/4);
