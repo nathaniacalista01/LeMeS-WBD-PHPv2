@@ -62,14 +62,14 @@ const check_username = () => {
           // Kalau response success, berarti username unique
           reset(username_alert);
           username_input.style.borderColor = "green";
-        }else{
+        } else {
           // Kalau tidak succes, berarti username sudah dimiliki pengguna lain
-          username_alert.className = "alert-show"
+          username_alert.className = "alert-show";
           username_alert.innerText = response.message;
           username_input.style.borderColor = "red";
-          check_button()
+          check_button();
         }
-      } 
+      }
     };
     check_button();
     xmr.send(JSON.stringify({ username: username }));
@@ -99,3 +99,14 @@ const check_password = () => {
   }
   check_button();
 };
+const debounce = (fn, delay = 1000) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      fn(...args);
+    }, delay);
+  };
+};
+
+const check_username_debounce = debounce(check_username);

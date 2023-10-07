@@ -86,132 +86,6 @@
     to{opacity: 1}
 }
 
-/* Search Bar */
-.search-sort{
-    display: flex;
-    margin: auto;
-    padding: 0px 10px;
-}
-
-.search-bar{
-    background: #fff;
-    width: 90%;
-    max-width: 600px;
-    display: flex;
-    padding: 5px;
-    border-radius: 4px;
-    height: 40px;
-    margin: auto;
-    margin-right: 20px;
-}
-
-#select{
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #1c1c1c;
-    width: 33%;
-    padding: 10px 2px 10px 10px;
-    font-size: 13px;
-    cursor: pointer;
-    border: 1px solid #dadada;
-    display: inline-flex;
-    min-width: fit-content;
-}
-
-#select:hover{
-    background-color: #dadada;
-}
-
-#select ul{
-    position: absolute;
-    margin-top: 198px;
-    list-style: none;
-    background: #fff;
-    color: #555;
-    width: 10.329%;
-    min-width: fit-content;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s;
-    transform: translateX(-11px);
-    justify-content: space-between;
-}
-
-#select ul li{
-    padding: 8px 10px;
-    cursor: pointer;
-}
-
-#select ul li:hover{
-    background-color: #dadada;
-}
-
-.search-bar input{
-    padding: 10px 25px;
-    width: 100%;
-    border: none;
-    outline: none;
-    font-size: 13px;
-    border-radius: 4px;
-}
-
-#select ul.open{
-    max-height: 300px;
-    border: 1px solid #dadada;
-}
-
-#sort{
-    margin: auto;
-    margin-left: 0px;
-    background: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #1c1c1c;
-    width: 12%;
-    padding: 10px;
-    font-size: 13px;
-    cursor: pointer;
-    display: inline-flex;
-    min-width: fit-content;
-    border-radius: 4px;
-}
-
-#sort:hover{
-    background-color: #dadada;
-}
-
-#sort ul{
-    position: absolute;
-    margin-top: 174px;
-    list-style: none;
-    background: #fff;
-    color: #555;
-    width: 10.329%;
-    min-width: fit-content;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s;
-    transform: translateX(-11px);
-    justify-content: space-between;
-}
-
-#sort ul li{
-    padding: 8px 10px;
-    cursor: pointer;
-}
-
-#sort ul li:hover{
-    background-color: #dadada;
-}
-
-#sort ul.open{
-    max-height: 300px;
-    border: 1px solid #dadada;
-}
-
 /* Courses */
 .grid-row{
     display: grid;
@@ -300,6 +174,17 @@
     background-color: #c180ff;
 }
 
+.wrapper{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.wrapper input{
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
 @media screen and (max-width: 753px) {
     div.header{
       display: none;
@@ -309,82 +194,6 @@
     }
 }
 
-/* PAGINATION */
-.paging{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px 20px 20px;
-}
-
-.pagination{
-    background-color: #ffffff;
-    display: flex;
-    position: relative;
-    overflow: hidden;
-    border-radius: 50px;
-}
-  
-.pagination a{
-    width: 60px;
-    height: 35px;
-    line-height: 35px;
-    text-align: center;
-    color: #333;
-    font-size: 12px;
-    font-weight: 700;
-    transition: .3s linear;
-    text-decoration: none;
-}
-
-.pagination a:hover{
-    color: #fff;
-    background-color: #5271e9;
-}
-  
-.pagination a:nth-child(1):hover ~ .bottom_bar{
-    left: 0;
-}
-  
-.pagination a:nth-child(2):hover ~ .bottom_bar{
-    left: 101px;
-}
-  
-.pagination a:nth-child(3):hover ~ .bottom_bar{
-    left: 201px;
-}
-  
-.pagination a:nth-child(4):hover ~ .bottom_bar{
-    left: 301px;
-}
-  
-.pagination a:nth-child(5):hover ~ .bottom_bar{
-    left: 401px;
-}
-  
-.pagination a:nth-child(6):hover ~ .bottom_bar{
-    left: 501px;
-}
-  
-.pagination a:nth-child(7):hover ~ .bottom_bar{
-    left: 601px;
-}
-  
-.pagination a:nth-child(8):hover ~ .bottom_bar{
-    left: 701px;
-}
-  
-@media (max-width:600px)
-  {
-    .pagination a:nth-child(4){
-      display: none;
-    }
-  
-    .pagination a:nth-child(5){
-      display: none;
-    }
-  }
-  
 .modal-container .flex{
     display: flex;
     align-items: center;

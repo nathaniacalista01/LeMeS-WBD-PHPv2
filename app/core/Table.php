@@ -49,27 +49,18 @@
         ' CREATE TABLE IF NOT EXISTS modules(
             module_id SERIAL PRIMARY KEY,
             title VARCHAR(256) UNIQUE NOT NULL,
-            description VARCHAR(256)    
+            description VARCHAR(256),
+            course_id INT REFERENCES courses(course_id) ON DELETE CASCADE NOT NULL
         )';
-       public const COURSE_MODULE_TABLE = 
-       ' CREATE TABLE IF NOT EXISTS course_module(
-           course_module_id SERIAL PRIMARY KEY,
-           course_id INT REFERENCES courses(course_id) ON DELETE CASCADE NOT NULL,
-           module_id INT REFERENCES modules(module_id) ON DELETE CASCADE NOT NULL
-       )';
+
        public const MATERIAL_TABLE = 
        "CREATE TABLE IF NOT EXISTS materials(
         material_id SERIAL PRIMARY KEY,
         title VARCHAR(256) NOT NULL,
         description VARCHAR(256),
+        module_id INT REFERENCES modules(module_id) ON DELETE CASCADE NOT NULL,
         material_type source
         )";
-        public const MODULE_MATERIAL_TABLE =
-        ' CREATE TABLE IF NOT EXISTS module_material(
-            module_material_id SERIAL PRIMARY KEY,
-            module_id INT REFERENCES modules(module_id) ON DELETE CASCADE NOT NULL,
-            material_id INT REFERENCES materials(material_id) ON DELETE CASCADE NOT NULL
-        )';
     }
     
 ?>

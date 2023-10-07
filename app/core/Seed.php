@@ -53,24 +53,27 @@
             }
         }
         public function seed_modules(){
-            $query = "INSERT INTO modules(title,description) VALUES (:title,:description);";
+            $query = "INSERT INTO modules(title,description,course_id) VALUES (:title,:description,:course_id);";
             $title = "title";
             $desc = "desc";
             $this->database->query($query);
             for($i = 0; $i < 30; $i++){
+                $course_id = rand(1,30);
                 $new_title = $title.$i;
                 $new_desc = $desc.$i;
                 $this->database->bind("title",$new_title);
                 $this->database->bind("description",$new_desc);
+                $this->database->bind("course_id",$course_id);
                 $this->database->execute();
             }
         }
         public function seed_materials(){
-            $query = "INSERT INTO materials(title,description,material_type) VALUES(:title,:description,:material_type);";
+            $query = "INSERT INTO materials(title,description,material_type,module_id) VALUES(:title,:description,:material_type,:module_id);";
             $title = "title";
             $desc = "desc";
             $this->database->query($query);
             for($i = 0; $i < 30; $i++){
+                $module_id = rand(1,30);
                 $new_title = $title.$i;
                 $new_desc = $desc.$i;
                 if($i%3 == 0){
@@ -81,6 +84,7 @@
                 $this->database->bind("title",$new_title);
                 $this->database->bind("description",$new_desc);
                 $this->database->bind("material_type",$type);
+                $this->database->bind("module_id",$module_id);
                 $this->database->execute();
             }
         }
@@ -97,28 +101,6 @@
                 }
                 $this->database->bind("course",$course);
                 $this->database->bind("users",$users);
-                $this->database->execute();
-            }
-        }
-        public function seed_course_module(){
-            $query = "INSERT INTO course_module(course_id,module_id) VALUES (:course,:module);";
-            $this->database->query($query);
-            for($i = 0; $i <30;$i++){
-                $course = rand(1,30);
-                $module = rand(1,30);
-                $this->database->bind("course",$course);
-                $this->database->bind("module",$module);
-                $this->database->execute();
-            }
-        }
-        public function seed_module_material(){
-            $query = "INSERT INTO module_material(module_id,material_id) VALUES (:module,:material);";
-            $this->database->query($query);
-            for($i = 0; $i < 30; $i++){
-                $module = rand(1,30);
-                $material = rand(1,30);
-                $this->database->bind("module",$module);
-                $this->database->bind("material",$material);
                 $this->database->execute();
             }
         }

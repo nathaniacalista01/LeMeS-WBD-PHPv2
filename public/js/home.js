@@ -1,6 +1,9 @@
 // -------------- HEADER SLIDESHOW ----------------------
 let slideIndex = 1;
-showSlides(slideIndex);
+
+if (!window.location.href.includes("search")) {
+  showSlides(slideIndex);
+}
 
 function plusSlides(n) {
   showSlides((slideIndex += n));
@@ -30,41 +33,17 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 }
 
-// -------------- SEARCH BAR WITH FILTER ----------------------
-let select = document.getElementById("select");
-let list = document.getElementById("list");
-let selectText = document.getElementById("selectText");
-let inputField = document.getElementById("inputField");
-let options = document.getElementsByClassName("options");
-
-select.onclick = function () {
-  list.classList.toggle("open");
-};
-
-for (option of options) {
-  option.onclick = function () {
-    selectText.innerHTML = this.innerHTML;
-    inputField.placeholder = "Search In " + selectText.innerHTML;
-  };
-}
-
-// ---------------------- SORT --------------------------
-let sort = document.getElementById("sort");
-let sortOptions = document.getElementsByClassName("sort-options");
-
-sort.onclick = function () {
-  sortList.classList.toggle("open");
-};
-
-for (option of sortOptions) {
-  option.onclick = function () {
-    sortText.innerHTML = this.innerHTML;
-  };
-}
-
 // ------------------- ENROLLMENT POPUP -----------------------
 
-function openModal(joined, id, title, description, formattedDate) {
+function openModal(
+  joined,
+  id,
+  title,
+  description,
+  formattedDate,
+  course_password
+) {
+  console.log(joined,id,title,description,formattedDate,course_password);
   var myDialog = document.getElementById("dialog");
   var overlay = document.getElementById("overlay");
   var upload_text = document.getElementById("upload-date");
@@ -80,36 +59,39 @@ function openModal(joined, id, title, description, formattedDate) {
   upload_text.innerText = formattedDate;
   course_id.innerText = id;
   if (joined) {
+    // Kalau sudah bergabung
     enroll_button.style.display = "none";
-    go_button.style.display = "block";
+    go_button.style.visibility = "visible";
   } else {
+    // Kalau belum berabung
+    enroll_button.style.display = "block";
+    go_button.style.visibility = "hidden";
+    if (course_password && course_password !== "null") {
+      var input_button = document.getElementById("password-input");
+      input_button.type = "text";
+    }
   }
 }
-
-const closeModalBtn = document.querySelector(".close-btn");
-
-// close modal when the Esc key is pressed
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-    closeModal();
-  }
-});
-
-closeModalBtn.addEventListener("click", () => {
-  dialog.close();
-});
 
 function closeDialog() {
   var dialog = document.getElementById("dialog");
   var overlay = document.getElementById("overlay");
+  var input = document.getElementById("password-input");
+  var enroll = document.getElementById("course-detail");
+  enroll.style.visibility = "hidden";
+  input.value = "";
+  input.type = "hidden";
   dialog.close();
   overlay.style.display = "none";
 }
 
 function enrolled() {
+  var password_input = document.getElementById("password-input");
   const course_id = document.getElementById("course_id").innerText;
+  var course_password = password_input.value;
   const data = new FormData();
   data.append("course_id", course_id);
+  data.append("course_password", course_password);
   const xml = new XMLHttpRequest();
   xml.open("POST", "/api/course/enroll.php");
   xml.onload = function () {
