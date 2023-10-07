@@ -85,27 +85,27 @@ require_once(__DIR__."/Model.php");
         }
 
         public function searchFewCourses($page,$params){
-            $query = "SELECT * FROM courses ";
+            $query = "SELECT * FROM courses";
             $where = false;
             $search = false;
             $sort = false;
             if(isset($params["title"])){
-                $query.= "WHERE LOWER(title) LIKE :title OR LOWER(description) LIKE :title ";
+                $query.= " WHERE LOWER(title) LIKE :title OR LOWER(description) LIKE :title";
                 $where = true;
                 $search = true;
             }
 
             if(isset($params["sort"])){
-                $components = explode("+",$params["sort"]);
+                $components = explode(" ",$params["sort"]);
                 $rules = $components[1];
                 if($components[0] === "title"){
-                    $query .= "ORDER BY title ".$rules;
+                    $query .= " ORDER BY title ".$rules;
                 }else{
-                    $query .= "ORDER BY release_date " . $rules;
+                    $query .= " ORDER BY release_date " . $rules;
                 }
                 $sort = true;
             }
-            $query .= "LIMIT 4 OFFSET :offset";
+            $query .= " LIMIT 4 OFFSET :offset";
             $this->database->query($query);
             $this->database->bind("offset",($page-1)*4);
             if($search){

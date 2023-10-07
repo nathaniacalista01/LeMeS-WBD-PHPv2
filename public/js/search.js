@@ -30,7 +30,6 @@ const searchCourse = (page_number = 1) => {
   const xhr = new XMLHttpRequest();
   xhr.open("GET", final_url, true);
   xhr.onload = function () {
-    console.log(this);
     if (this.status === 200) {
       let data = JSON.parse(this.responseText);
       let courses = data["courses"];
