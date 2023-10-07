@@ -8,11 +8,16 @@ const searchCourse = (page_number = 1) => {
   try {
     const title = document.getElementById("search").value;
     const sort = document.getElementById("sort").value;
+    const password = document.getElementById("course_password").value;
+
     if (title.length > 0) {
       added_url += "title=" + title;
     }
     if(sort){
       added_url += ("&sort=" + sort);
+    }
+    if(password){
+      added_url += ("&filter=")
     }
     
   } catch (error) {

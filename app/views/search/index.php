@@ -22,14 +22,18 @@
                 <option selected value="">Sort By</option>
                 <option value="title+asc">Title Asc</option>
                 <option value="title+desc">Title Desc </option>
-                <option value="course+asc">Newest Course</option>
-                <option value="course+desc">Latest Course</option>
-                <!-- <option value="participant+desc">Total Participant Desc</option>
-                <option value="participant+asc">Total Participant Asc</option> -->
+                <option value="course+desc">Newest Course</option>
+                <option value="course+asc">Latest Course</option>
             </select>
-            <select name="filter">
+            <select name="course_password" id="course_password">
+                <option selected value="">Filter By Password</option>
                 <option value="">Free</option>
                 <option value="">Need Password</option>
+            </select>
+            <select name="course_enrollment" id="course_enrollment">
+                <option value="" selected>Filter by Enrollment</option>
+                <option value="rolled">Enrolled</option>
+                <option value="unenrolled">Not Enrolled</option>
             </select>
         </div> 
         <div class="card-container">
