@@ -6,6 +6,7 @@
     <title>HomePage</title>
     <link href="../../public/css/home/home.css" rel="stylesheet">
     <script src="../../public/js/home.js" defer></script>
+    <script src="../../public/js/search.js"></script>
     <title>Document</title>
 </head>
 <body>
