@@ -5,6 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Courses List</title>
+    <link rel="stylesheet" href="../../public/css/components/button.css">
 	<link rel="stylesheet" href="../../public/css/admin/lists.css">
     <script src="../../public/js/admin.js"></script>
 </head>
@@ -79,6 +80,7 @@
                             
                         </table>                        
                         <?php 
+                            $parent = "admin";
                             $href = "courses";
                             include __DIR__ . '/../components/pagination.php'
                         ?>

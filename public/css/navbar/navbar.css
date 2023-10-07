@@ -1,31 +1,31 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap");
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans" , sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-.sidebar{
+.sidebar {
   position: fixed;
   left: 0;
   top: 0;
   height: 100%;
   width: 78px;
-  background: #564C95;
+  background: #564c95;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
 }
 
-.sidebar.open{
+.sidebar.open {
   width: 250px;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
 
-.sidebar .logo-details{
+.sidebar .logo-details {
   height: 70px;
   width: 100;
   display: flex;
@@ -33,19 +33,19 @@
   position: relative;
 }
 
-.sidebar .logo-details .logo-img{
-    opacity: 0;
-    width: 130px;
-    height: auto;
-    transition: all 0.25s ease;
+.sidebar .logo-details .logo-img {
+  opacity: 0;
+  width: 130px;
+  height: auto;
+  transition: all 0.25s ease;
 }
-  
-.sidebar.open .logo-details .logo-img{
+
+.sidebar.open .logo-details .logo-img {
   transition: all 0.8s ease;
   opacity: 1;
 }
 
-.sidebar .logo-details #btn{
+.sidebar .logo-details #btn {
   position: absolute;
   top: 50%;
   right: 13px;
@@ -58,12 +58,12 @@
   transition: all 0.5s ease;
 }
 
-.sidebar.open .logo-details #btn{
+.sidebar.open .logo-details #btn {
   text-align: right;
   right: -10px;
 }
 
-.sidebar .nav-list .profile-details .photo{
+.sidebar .nav-list .profile-details .photo {
   width: 50px;
   height: 50px;
   object-fit: contain;
@@ -76,7 +76,7 @@
 }
 
 .sidebar .nav-list .profile-details .name,
-.sidebar .nav-list .profile-details .job{
+.sidebar .nav-list .profile-details .job {
   font-size: 15px;
   font-weight: 400;
   color: white;
@@ -86,17 +86,17 @@
   margin-left: 10px;
 }
 
-.sidebar .nav-list .profile-details .job{
+.sidebar .nav-list .profile-details .job {
   font-size: 12px;
 }
 
 .sidebar.open .nav-list .profile-details .name,
-.sidebar.open .nav-list .profile-details .job{
+.sidebar.open .nav-list .profile-details .job {
   display: flex;
   opacity: 1;
 }
 
-.sidebar .nav-list i{
+.sidebar .nav-list i {
   color: #000000;
   min-width: 50px;
   font-size: 32px;
@@ -104,19 +104,19 @@
   line-height: 50px;
 }
 
-.sidebar .nav-list{
+.sidebar .nav-list {
   margin-top: 20px;
   height: 100%;
   width: 100%;
 }
 
-.sidebar li{
+.sidebar li {
   position: relative;
   margin: 8px 0;
   list-style: none;
 }
 
-.sidebar li .tooltip{
+.sidebar li .tooltip {
   position: absolute;
   top: -20px;
   left: calc(100% + 15px);
@@ -132,7 +132,7 @@
   transition: 0s;
 }
 
-.sidebar li:hover .tooltip{
+.sidebar li:hover .tooltip {
   opacity: 1;
   pointer-events: auto;
   transition: all 0.4s ease;
@@ -140,11 +140,12 @@
   transform: translateY(-50%);
 }
 
-.sidebar.open li .tooltip{
+.sidebar.open li .tooltip {
   display: none;
 }
 
-.sidebar li a, .sidebar li .logbtn{
+.sidebar li a,
+.sidebar li .logbtn {
   display: flex;
   height: 100%;
   width: 100%;
@@ -154,13 +155,15 @@
   transition: all 0.4s ease;
 }
 
-.sidebar li a:hover, .sidebar li .logbtn:hover{
+.sidebar li a:hover,
+.sidebar li .logbtn:hover {
   background: #dbdbdb;
 }
-.name-job .name{
+.name-job .name {
   color: white;
 }
-.sidebar li a .link-name, .sidebar li .logbtn .link-name{
+.sidebar li a .link-name,
+.sidebar li .logbtn .link-name {
   color: #ffffff;
   font-size: 15px;
   font-weight: 400;
@@ -171,7 +174,8 @@
   margin-left: 8px;
 }
 
-.sidebar.open li a .link-name, .sidebar.open li .logbtn .link-name{
+.sidebar.open li a .link-name,
+.sidebar.open li .logbtn .link-name {
   opacity: 1;
   pointer-events: auto;
   color: white;
@@ -180,37 +184,38 @@
 .sidebar li a:hover .link-name,
 .sidebar li a:hover i,
 .sidebar li .logbtn:hover .link-name,
-.sidebar li .logbtn:hover i{
+.sidebar li .logbtn:hover i {
   transition: all 0.5s ease;
   color: #b700ff;
 }
 
-.sidebar li .logbtn{
+.sidebar li .logbtn {
   border: none;
   cursor: pointer;
   background-color: transparent;
 }
 
-.sidebar .footer{
+.sidebar .footer {
   position: absolute;
   left: 0;
   bottom: 0;
-  background: #564C95;
+  background: #564c95;
   width: 78px;
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
   font-size: 8px;
   text-align: center;
+  color: white;
 }
 
-.sidebar.open .footer{
-  width:200px;
+.sidebar.open .footer {
+  width: 200px;
 }
 
-.home-section{
+.home-section {
   position: relative;
-  background: #E4E9F7;
+  background: #e4e9f7;
   min-height: 100vh;
   top: 0;
   left: 78px;
@@ -219,71 +224,79 @@
   z-index: 2;
 }
 
-.sidebar.open ~ .home-section{
+.sidebar.open ~ .home-section {
   left: 180px;
   width: calc(100% - 180px);
 }
 
-.home-section .text{
+.home-section .text {
   display: inline-block;
   color: #11101d;
   font-size: 25px;
   font-weight: 500;
-  margin: 18px
+  margin: 18px;
 }
 
 @media (max-width: 420px) {
-  .sidebar li .tooltip{
+  .sidebar li .tooltip {
     display: none;
   }
 }
 
-.modal-container-logout .buttons-logout{
+.modal-container-logout .buttons-logout {
   margin-top: 40px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-self: center;
+  justify-content: center;
 }
 
 .modal-container-logout .close-btn-logout,
-.modal-container-logout .confirm-logout{
+.modal-container-logout .confirm-logout {
   cursor: pointer;
-    border: none;
-    font-size: 16px;
-    color: white;
-    background: #597aff;
-    padding: 5px 15px;
-    border-radius: 4px;
-    font-weight: 700px;
-    left: 100px;
+  border: none;
+  font-size: 16px;
+  color: white;
+  background-color: #ccc;
+  padding: 5px 15px;
+  border-radius: 4px;
+  font-weight: 700px;
+  left: 100px;
 }
 
-.modal-container-logout .close-btn-logout:hover{
+.modal-container-logout .close-btn-logout:hover {
   background: #214dff;
 }
 
-.modal-container-logout .confirm-logout:hover{
+.modal-container-logout .confirm-logout:hover {
   background: red;
 }
 
-.modal-container-logout .confirm-logout{
-  background: rgb(255, 61, 61);
+.modal-container-logout .confirm-logout {
+  background-color: #f44336;
   margin-left: 25px;
 }
 
-.modal-container-logout{
+.modal-container-logout {
   margin-left: 20%;
   margin-right: 20%;
   width: 60%;
-    text-align: center;
+  text-align: center;
 }
 
-.modal-container-logout i{
+.modal-container-logout i {
   font-size: 100px;
   color: red;
   margin-top: 20px;
 }
 
-#dialog-logout{
-  width: 350px;
+#dialog-logout {
+  width: 500px;
   height: 300px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
   min-width: 300px;
   min-height: 300px;
   border: none;
@@ -291,9 +304,13 @@
   padding: auto;
 }
 
-#overlay-logout{
+#overlay-logout {
   width: 100%;
   background-color: transparent;
   display: none;
   position: fixed;
+}
+
+.text-xs {
+  color: white;
 }
