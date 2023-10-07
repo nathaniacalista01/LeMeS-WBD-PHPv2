@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Add Course</title>
-        <link rel="stylesheet" href="../../public/css/admin/addCourse.css">
+        <link rel="stylesheet" href="../../public/css/admin/forms.css">
         <script src="../../public/js/admin.js" defer></script>
     </head>
     <body>

@@ -18,7 +18,6 @@
         $course_password = "";
     
         if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] !== ""){
-            var_dump("Masuk ke sini");
             $directory = "../../../public/image/course/";
             $file_name = $_FILES["image"]["name"];
             $cleaned_file_name = str_replace(' ','',$file_name);
