@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="../../public/css/search/search.css" rel="stylesheet">
+    <script src="../../public/js/home.js"></script>
     <script src="../../public/js/search.js"></script>
-
     <title>Document</title>
 </head>
 <body>
@@ -40,9 +40,9 @@
         </div> 
         <div class="card-container">
             <div class="cards grid-row" id="result-container">
-
             </div>
         </div>
+        <?php include __DIR__ . "/../components/courseModal.php" ?>
         <div class="paging">
             <div class="pagination" id="pagination">
 

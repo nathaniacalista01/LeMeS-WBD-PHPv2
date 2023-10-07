@@ -54,43 +54,6 @@
             </div>
         </div>
 
-    <!-- SEARCH BAR -->
-
-        <div class="search-sort">
-            <div class="search-bar">
-                <div id="select">
-                    <p id="selectText">All Courses</p>
-                    <i>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"/>
-                        </svg>
-                    </i>
-                    <ul id="list">
-                        <li class="options">All Courses</li>
-                        <li class="options">Art and Design</li>
-                        <li class="options">Business</li>
-                        <li class="options">Math and Science</li>
-                        <li class="options">Programming</li>
-                    </ul>
-                </div>
-                <input type="text" id="inputField" placeholder="Search In All Courses">
-            </div>
-            <div id="sort">
-                <p id="sortText">Sort By</p>
-                <i>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"/>
-                    </svg>
-                </i>
-                <ul id="sortList">
-                    <li class="sort-options">Course Ascending</li>
-                    <li class="sort-options">Course Descending</li>
-                    <li class="sort-options">Lecturer Ascending</li>
-                    <li class="sort-options">Lecturer Descending</li>
-                </ul>
-            </div>
-        </div>
-
     <!-- COURSES CARDS -->
         
         <div class="card-container">
