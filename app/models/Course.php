@@ -44,8 +44,6 @@ require_once(__DIR__."/Model.php");
             return $result;            
         }
 
-        
-
         public function search_participant($course_id,){
             $query = "SELECT c.course_id FROM courses as c NATURAL JOIN course_participant 
                 WHERE c.course_id = :course_id AND participant_id = :user_id;
@@ -64,5 +62,23 @@ require_once(__DIR__."/Model.php");
             $rows = $this->database->fetchAll();
             return $rows;
         }
+
+        public function searchFewCourses($page,$title){
+            $query = "SELECT * FROM courses WHERE LOWER(title) LIKE :title LIMIT 4 OFFSET :offset";
+            $this->database->query($query);
+            $this->database->bind("title",'%'.$title.'%');
+            $this->database->bind("offset",($page-1)*4);
+            $results = $this->database->fetchAll();
+            return $results;
+        }
+
+        public function searchCourses($title){
+            $query = "SELECT * FROM courses WHERE LOWER(title) LIKE :title";
+            $this->database->query($query);
+            $this->database->bind("title", '%'.$title.'%');
+            $results = $this->database->fetchAll();
+            return $results;
+        }
+
     }
 ?>
