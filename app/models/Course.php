@@ -64,7 +64,7 @@ require_once(__DIR__."/Model.php");
         }
 
         public function searchFewCourses($page,$title){
-            $query = "SELECT * FROM courses WHERE LOWER(title) LIKE :title LIMIT 4 OFFSET :offset";
+            $query = "SELECT * FROM courses WHERE LOWER(title) LIKE :title OR LOWER(description) LIKE :title LIMIT 4 OFFSET :offset";
             $this->database->query($query);
             $this->database->bind("title",'%'.$title.'%');
             $this->database->bind("offset",($page-1)*4);
