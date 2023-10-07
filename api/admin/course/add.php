@@ -9,42 +9,51 @@
     if(session_status() === PHP_SESSION_NONE) {
         session_start();
     }
-    if(isset($_POST["course_id"]) && isset($_POST["title"]) && isset($_POST["description"])) {
-        $course_id = $_POST["course_id"];
+    if(isset($_POST['title']) && isset($_POST["description"])){
+        $admin = new Admin();
         $title = $_POST["title"];
         $description = $_POST["description"];
-        $image_file = $_POST["old-image"];
-        $course_password = isset($_POST["course_password"]) ? $_POST["course_password"] : $_POST["old_password"];
-        if(isset($_FILES["image"])){
-            // Kasus kalau imagenya mau diganti
+        $uploaded = true;
+        $saved_image = "";
+        $course_password = "";
+        // if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] !== ""){
+        //     echo "Masuk sini";
+        // }else{
+        //     echo "Kok bs";
+        // }
+        if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] !== ""){
+            var_dump("Masuk ke sini");
             $directory = "../../../public/image/course/";
             $file_name = $_FILES["image"]["name"];
             $cleaned_file_name = str_replace(' ','',$file_name);
             $targeted_file = $directory . basename($cleaned_file_name);
             $image_file = "/public/image/course/" . basename($cleaned_file_name);
+            $message = "";
             $type = strtolower(pathinfo($targeted_file,PATHINFO_EXTENSION));
-            $uploaded = true;
             if($_FILES["image"]["size"] > 10000000){
-                $_SESSION["error"] = "Your image's size is too large";
-                $uploaded = false;
+                $message = "Sorry your file is too large";
+                header("Location: /admin/addcourse");
             }
             if($type != "png" && $type != "jpeg" && $type != "jpg"){
                 $_SESSION["error"] = "Only png, jpeg, and jpg file is allowed!";
-                $uploaded = false;
+                header("Location: /admin/addcourse");
             }
-            if($uploaded){
-                $response = move_uploaded_file($_FILES["image"]["tmp_name"],$targeted_file);
-            }else{
-                header("Location: /admin/courses");
-            }
+            
+            $response = move_uploaded_file($_FILES["image"]["tmp_name"],$targeted_file);
+            $saved_image = $image_file;
+            
         }
-        $admin = new Admin();
-        $rows = $admin->add_course($title,$description,$course_password,$release_date,$image_file,$id);
+        if(isset($_POST["course_password"])){
+            $course_password = $_POST["course_password"];
+        }
+        $rows = $admin->add_course($title,$description,$saved_image,$course_password);
         if($rows){
-            $_SESSION["success"] = "Your edit has been saved!";
+            http_response_code(200);
+            $_SESSION["success"] = "Course has sucesfully added";
             header("Location: /admin/courses");
         }else{
-            $_SESSION["error"] = "Something went wrong!";
+            http_response_code(500);
+            $_SESSION["error"] = "Course can't be added";
             header("Location: /admin/courses");
         }
     }

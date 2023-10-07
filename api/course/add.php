@@ -2,7 +2,7 @@
     if(session_status() === PHP_SESSION_NONE){
         session_start();
     }
-     require_once("../../app/models/Course.php");
+     require_once("../../app/models/Admin.php");
      require_once("../../app/core/App.php");
      require_once("../../app/core/Database.php");
      require_once("../../app/models/User.php");
@@ -30,10 +30,10 @@
 
         if($uploaded){
             $response = move_uploaded_file($_FILES["image_path"]["tmp_name"],$targeted_file);
-            $course = new Course();
+            $admin = new Admin();
             $title = $_POST["title"];
             $description = $_POST["description"];
-            $rows = $course->add_course($title,$description,$image_file);
+            $rows = $admin->add_course($title,$description,$image_file);
             if($rows){
                 http_response_code(200);
                 $_SESSION["success"] = "Album has sucesfully added";

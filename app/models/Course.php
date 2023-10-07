@@ -26,16 +26,6 @@ require_once(__DIR__."/Model.php");
             return $result;
         }
 
-        public function add_course($title,$description,$image_path){
-            $query = "INSERT INTO courses(title,description,image_path) VALUES (:title,:description,:image_path)";
-            $this->database->query($query);
-            $this->database->bind("title",$title);
-            $this->database->bind("description",$description);
-            $this->database->bind("image_path",$image_path);
-            $this->database->execute();
-            return $this->database->rowCount();
-        }
-
         public function single_course($id){
             $query = "SELECT * FROM courses WHERE course_id = :course_id";
             $this->database->query($query);

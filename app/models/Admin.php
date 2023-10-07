@@ -75,15 +75,13 @@ require_once(__DIR__."/Model.php");
             return $this->database->rowCount();
         }
 
-        public function add_course($title,$description,$course_password,$release_date,$image_path,$id) {
-            $query = "INSERT INTO courses (title, description, course_password, release_date, image_path, course_id) VALUES (:title, :description, :course_password, :release_date, :image_path, :course_id)";
+        public function add_course($title,$description,$image_path,$course_password){
+            $query = "INSERT INTO courses(title,description,image_path,course_password) VALUES (:title,:description,:image_path,:course_password)";
             $this->database->query($query);
             $this->database->bind("title",$title);
             $this->database->bind("description",$description);
-            $this->database->bind("course_password",$course_password);
-            $this->database->bind("release_date",$release_date);
             $this->database->bind("image_path",$image_path);
-            $this->database->bind("course_id",$id);
+            $this->database->bind("course_password",$course_password);
             $this->database->execute();
             return $this->database->rowCount();
         }

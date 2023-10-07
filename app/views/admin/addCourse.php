@@ -28,13 +28,8 @@
         </div>
         <div class="form-container">
             <form method="POST" id="add-form" action="/api/admin/course/add.php" enctype="multipart/form-data">
-                <input type="hidden" name="course_id" value = <?php echo $data["course"]["course_id"] ?> />
-                <input type="hidden" id="old-title" value = <?php echo $data["course"]["title"] ?> />
-                <input type="hidden" id="old-description" value = <?php echo $data["course"]["description"] ?> />
-                <input type ="hidden" id="old-password" name="old_password" value = <?php echo $data["course"]["course_password"] ?> />
                 <div class="image-container">
-                    <input type="hidden" id="oldPicture" name="old_image" value=<?php echo $data["course"]["image_path"] ?> />
-                    <img class="picture" src=<?php echo $data["course"]["image_path"] ?> id="course-image" />
+                    <img class="picture" src="" id="course-image" />
                 </div>
                 <div class="login-box" id="username-box">
                 <input type="text" 
@@ -42,7 +37,6 @@
                     id="title-input" 
                     name="title" 
                     class="login-input" 
-                    value = <?php echo $data["course"]["title"] ?>
                     required
                     onkeyup="check_title()"
                 />
@@ -55,7 +49,6 @@
                     id="desc-input" 
                     class="login-input"
                     required
-                    value = <?php echo $data["course"]["description"] ?>
                     onkeyup="check_desc()"
                 />
                 <p id="desc-alert"></p>
@@ -67,7 +60,6 @@
                     id="password-input" 
                     class="login-input"
                     required
-                    value = <?php echo ($data["course"]["course_password"] ?  $data["course"]["course_password"] : "") ?>
                 />
             </div>
             <div class="login-box">

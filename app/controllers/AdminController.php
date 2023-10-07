@@ -30,7 +30,10 @@
             $user = $admin->getUserById($params);
             return $this->view("admin","editUser",["user"=>$user]);        
         }
-
+        public function addCourse(){
+            
+            return $this->view("admin","addCourse");
+        }
         public function editCourse($params = ""){
             if(!$params){
                 // Ini nanti ganti jadi notfound/error
