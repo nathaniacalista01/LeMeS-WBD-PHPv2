@@ -80,11 +80,9 @@
             </div>
             <div class="course-section">
                 <div class="modules">
-                    <a href="/course">
-                        <div class="header-intro">
-                            <p>Introduction</p>
-                        </div>
-                    </a>
+                    <div class="header-intro">
+                        <p>Modules</p>
+                    </div>
                     <div class="table-container">
                         <table class="table-module">
                             <tbody>
@@ -93,11 +91,12 @@
                                 $course = $data["course"];
                                 foreach ($modules as $module) {
                                     # code...
+                    // <!-- HIDE THE ACTION BUTTON IF USER ROLE IS STUDENT -->
                                     echo "
                                             <tr>
                                                 <td>
-                                                    <div class='row-container'>
-                                                        <div class='module-title' onclick='openModule(\"$module[title]\",\"$module[description]\")'>
+                                                    <div class='row-container' onclick='openModule(\"$module[title]\",\"$module[description]\")'>
+                                                        <div class='module-title'>
                                                             <span>$module[title]</span>
                                                         </div>
                                                         <div class='actions'>
@@ -122,6 +121,8 @@
                             </tbody>
                         </table>
                     </div>
+
+            <!-- HIDE THIS ADD MODULE SECTION IF USER ROLE IS STUDENT  -->
                     <span>
                         <div class='add-module-section' onclick='openForm()'>
                             <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24'>
@@ -131,161 +132,39 @@
                         </div>
                     </span>
                 </div>
-                <div class="material-box">
-                    <div class="titles">
-                        <h3 id="course-title">
-                            Introduction
-                        </h3>
+                <div class="module-material-container">
+                    <div class="material-box">
+                        <div class="titles">
+                            <?php
+                            $course = $data["course"];
+                            echo "<h3 id='course-title'>$course[title]</h3>";
+                            ?>
+                        </div>
+                        <div class="material-content">
+                            <div class="material-text">
+                                <p id="course-desc">
+                                    Welcome to this course!
+                                </p>
+                            </div>
+                            <div class="accordion">
+                                <div class="accordion-content">
+                                    <header>
+                                        <span class="title">What do you mean by Accordion?</span>
+                                        <i class="fa-solid fa-plus"></i>
+                                    </header>
+                                    <p class="description">
+                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="material-content">
-                        <div class="material-text">
-                            <p id="course-desc">
-                                Welcome to this course!
-                            </p>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
-                        <div class="accordion">
-                            <div class="accordion-content">
-                                <header>
-                                    <span class="title">What do you mean by Accordion?</span>
-                                    <i class="fa-solid fa-plus"></i>
-                                </header>
-                                <p class="description">
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                </p>
-                            </div>
-                        </div>
+
+            <!-- HIDE THIS ADD BUTTON IF USER ROLE IS STUDENT -->
+                    <div class="button-container">
+                        <button class="addMaterial">
+                            Add Material
+                        </button>
                     </div>
                 </div>
             </div>
