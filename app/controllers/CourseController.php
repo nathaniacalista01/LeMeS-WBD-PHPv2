@@ -22,7 +22,7 @@
                 header("Location: /notfound");
             }
             $modules = $course->get_modules($params);
-            return $this->view('courses','detail',["course" => $result,"modules"=>$modules]);
+            return $this->view('courses','detailCourse',["course" => $result,"modules"=>$modules]);
         }
 
         public function enrolled($params){
@@ -55,7 +55,19 @@
         }
 
         public function module($params){
-
+            $course = new Course();
+            $module = new Module();
+            $middleware = $this->middleware("LoginMiddleware");
+            $middleware->hasLoggedIn();
+            $result = $module->single_module($params);
+            if(!$result){
+                header("Location: /notfound");
+            }
+            $course_id = $result['course_id'];
+            $materials = $module->get_materials($params);
+            $result2 = $course->single_course($course_id);
+            $modules = $course->get_modules($course_id);
+            return $this->view('courses','detailmodule',["course"=>$result2, "module" => $result,"materials"=>$materials,"modules"=>$modules]);
         }
 
         public function addmodule($params){

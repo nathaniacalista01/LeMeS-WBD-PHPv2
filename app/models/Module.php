@@ -32,6 +32,14 @@ require_once(__DIR__."/Model.php");
             return $this->database->rowCount();
         }
 
+        public function single_module($id){
+            $query = "SELECT * FROM modules WHERE module_id = :module_id";
+            $this->database->query($query);
+            $this->database->bind("module_id",$id);
+            $result = $this->database->single_fetch();
+            return $result;
+        }
+
         public function get_materials($module_id){
             $query = "SELECT * FROM materials WHERE module_id = :module_id";
             $this->database->query($query);

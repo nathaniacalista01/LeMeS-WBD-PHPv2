@@ -8,6 +8,7 @@
     <title>Course Detail</title>
     <link rel="stylesheet" href="../../public/css/course/detail.css">
     <script src="../../public/js/details.js" defer></script>
+    <script src="../../public/js/detailsModule.js" defer></script>
 </head>
 
 <body>
@@ -29,6 +30,7 @@
             <?php
             // Add Module Form
             $course = $data["course"];
+            $module = $data["module"];
             echo "
                 <form class='addForm' action='javascript:'>
                     <div class='addForm-header'>
@@ -45,7 +47,7 @@
                     <div class='addForm-element'>
                         <div class='popup-buttons'>
                             <button type='button' class='cancel-save' id='cancel-save'>Cancel</button>
-                            <button type='submit' class='confirm-save' id='confirm-save' disabled onclick='handleAddModule($course[course_id])'>Add</button>
+                            <button type='submit' class='confirm-save' id='confirm-save' disabled onclick='handleAddModule($course[course_id], $module[module_id])'>Add</button>
                         </div>
                     </div>
                 </form>
@@ -93,12 +95,17 @@
                 </div>
                 <div class='addForm-element'>
                     <label for='materialFile'>Upload File</label>
-                    <input type="file" id="materialFile" required  name="material_path" accept=".pdf, video/*" onchange="check_area('confirm-save3', 'materialName', 'materialDescription')">
+                    <input type="file" id="materialFile" required name="material_path" accept=".pdf, video/*" onchange="check_area('confirm-save3', 'materialName', 'materialDescription')">
                 </div>
                 <div class='addForm-element'>
                     <div class='popup-buttons'>
                         <button type='reset' class='cancel-save3' id='cancel-save3'>Cancel</button>
-                        <button type='submit' class='confirm-save3' id='confirm-save3' disabled onclick='handleAddMaterial()'>Add</button>
+                        <?php
+                        $module = $data["module"];
+                        echo "
+                            <button type='submit' class='confirm-save3' id='confirm-save3' disabled onclick='handleAddMaterial($module[module_id])'>Add</button>
+                            ";
+                        ?>
                     </div>
                 </div>
             </form>
@@ -131,12 +138,12 @@
                                     echo "
                                             <tr>
                                                 <td>
-                                                    <div class='row-container' onclick='openModule(\"$course[course_id]\", \"$module[module_id]\", \"$module[title]\",\"$module[description]\")'>
-                                                        <div class='module-title'>
+                                                    <div class='row-container')>
+                                                        <div class='module-title' onclick=navigateToMaterials($module[module_id]>
                                                             <span>$module[title]</span>
                                                         </div>
                                                         <div class='actions'>
-                                                            <i onclick='openFormEditModule(\"$course[course_id]\", \"$module[module_id]\", \"$module[title]\", \"$module[description]\")'>
+                                                            <i onclick='openFormEditModule(\"$module[module_id]\", \"$module[title]\", \"$module[description]\")'>
                                                                 <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' style='fill: rgba(0, 0, 0, 1);'>
                                                                     <path fill='#564C95' d='m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z'></path>
                                                                     <path fill='#564C95' d='M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z'></path>
@@ -182,13 +189,13 @@
                                     Welcome to this course!
                                 </p>
                             </div>
-                            <div class="accordion">
-                                <div class="accordion-content">
+                            <div class='accordion'>
+                                <div class='accordion-content'>
                                     <header>
-                                        <span class="title">What do you mean by Accordion?</span>
-                                        <i class="fa-solid fa-plus"></i>
+                                        <span class='title'>What do you mean by Accordion?</span>
+                                        <i class='fa-solid fa-plus'></i>
                                     </header>
-                                    <p class="description">
+                                    <p class='description'>
                                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
                                     </p>
                                 </div>
@@ -198,9 +205,14 @@
 
                     <!-- HIDE THIS ADD BUTTON IF USER ROLE IS STUDENT -->
                     <div class="button-container">
-                        <button class="addMaterial" id="addMaterialBtn" onclick='openFormAddMaterial()' style='display:none;'>
+                        <?php
+                        $module = $data["module"];
+                        echo "
+                        <button class='addMaterial' id='addMaterialBtn' onclick='openFormAddMaterial(\"$module[module_id]\")'>
                             Add Material
                         </button>
+                        ";
+                        ?>
                     </div>
                 </div>
             </div>
