@@ -139,7 +139,7 @@
                                             <tr>
                                                 <td>
                                                     <div class='row-container')>
-                                                        <div class='module-title' onclick=navigateToMaterials($module[module_id]>
+                                                        <div class='module-title' onclick='navigateToMaterials($module[module_id])'>
                                                             <span>$module[title]</span>
                                                         </div>
                                                         <div class='actions'>
@@ -179,27 +179,60 @@
                     <div class="material-box">
                         <div class="titles">
                             <?php
-                            $course = $data["course"];
-                            echo "<h3 id='course-title'>$course[title]</h3>";
+                            $module = $data["module"];
+                            echo "<h3 id='course-title'>$module[title]</h3>";
                             ?>
                         </div>
                         <div class="material-content">
                             <div class="material-text">
                                 <p id="course-desc">
-                                    Welcome to this course!
+                                <?php
+                                    $module = $data["module"];
+                                    echo "<h3 id='course-title'>$module[description]</h3>";
+                                ?>
                                 </p>
                             </div>
+
+                            <?php
+                            $materials = $data["materials"];
+                            foreach ($materials as $material) {
+                            echo"
                             <div class='accordion'>
                                 <div class='accordion-content'>
                                     <header>
-                                        <span class='title'>What do you mean by Accordion?</span>
+                                        <span class='title'>$material[title]</span>
                                         <i class='fa-solid fa-plus'></i>
                                     </header>
-                                    <p class='description'>
-                                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus nobis ut perspiciatis minima quidem nisi, obcaecati, delectus consequatur fuga nostrum iusto ipsam ducimus quibusdam possimus. Maiores non enim numquam voluptatem?
-                                    </p>
+                                    ";
+                                    if ($material['material_type'] == "pdf"){
+                                        echo "
+                                    <div class='description'>
+                                        <span>$material[description]<span>
+                                        <br>
+                                        <br>
+                                        <object data='$material[material_path]' type='application/pdf' width='100%' height='800'>
+                                            <p>It appears your web browser doesn't support embedding PDFs.</p>
+                                        </object>
+                                    </div>
                                 </div>
                             </div>
+                                ";
+                            } else{
+                                echo "
+                                    <div class='description'>
+                                        <span>$material[description]<span>
+                                        <br>
+                                        <br>
+                                        <video width='100%' height=auto controls>
+                                            <source src='$material[material_path]' type='video/mp4'>
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </div>
+                                </div>
+                            </div>
+                                ";}
+                            }
+                            ?>
                         </div>
                     </div>
 
