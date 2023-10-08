@@ -1,8 +1,13 @@
-const openModule = (title, description) => {
+var global_module_id = null;
+
+const openModule = (id, title, description) => {
+  let button = document.getElementById("addMaterialBtn");
   let title_place = document.getElementById("course-title");
   let desc_place = document.getElementById("course-desc");
   title_place.innerText = title;
   desc_place.innerText = description;
+  global_module_id = id;
+  button.style.display = 'block';
 };
 
 function reset(){
@@ -71,19 +76,23 @@ const openFormEditModule = (course_id, module_id, title, description) => {
 
 function openFormAddMaterial() {
   openForm(".popup-section3", ".cancel-save3", ".popup-overlay3");
+  button.onclick = function() {
+    handleAddMaterial();
+  };
 }
 
-const check_area = () => {
-  var submit_button = document.getElementById("confirm-save");
-  var name_input = document.getElementById("moduleName");
-  var desc_input = document.getElementById("moduleDescription");
-
+const check_area = (savebtn, titlebtn, descbtn) => {
+  var submit_button = document.getElementById(savebtn);
+  var name_input = document.getElementById(titlebtn);
+  var desc_input = document.getElementById(descbtn);
+  var materialFile = document.getElementById('materialFile').value;
+  
   // Get the values of the textareas
   var name_value = name_input.value.trim();
   var desc_value = desc_input.value.trim();
-
+  
   // Check if the values are blank
-  if (name_value === "" || desc_value === "") {
+  if (name_value === "" || desc_value === "" || materialFile === "") {
     submit_button.disabled = true;
   } else {
     submit_button.disabled = false;
@@ -183,6 +192,29 @@ const handleDeleteModule = (course_id, module_id) => {
   xhr.onload = function () {
     if (this.status === 200) {
       window.location.href = "/course/preview/" + course_id;
+    } else {
+      console.log(this);
+      alert("Something went wrong!");
+    }
+  }
+  xhr.send(data);
+};
+
+const handleAddMaterial = () => {
+  let title = document.getElementById('materialName').value;
+  let description = document.getElementById('materialDescription').value;
+  let material = document.getElementById("materialFile");
+  const data = new FormData();
+  data.append("module_id", parseInt(global_module_id));
+  data.append("title", title);
+  data.append("description", description);
+  data.append("material_path", material.files[0]);
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "/api/material/add.php", true)
+  xhr.onload = function () {
+    if (this.status === 200) {
+      console.log(this);
+      // window.location.href = "/course/preview/" + id;
     } else {
       console.log(this);
       alert("Something went wrong!");

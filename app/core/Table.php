@@ -59,7 +59,8 @@
         title VARCHAR(256) NOT NULL,
         description VARCHAR(256),
         module_id INT REFERENCES modules(module_id) ON DELETE CASCADE NOT NULL,
-        material_type source
+        material_type source,
+        material_path VARCHAR(256)
         )";
     }
     

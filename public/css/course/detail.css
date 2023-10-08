@@ -277,7 +277,7 @@ td {
     padding: 10px;
     margin: auto;
     background-color: var(--first-color);
-    color: #fff;
+    color: #ffffff;
     font-weight: 600;
     text-align: center;
     border-radius: 0.5rem;
@@ -352,7 +352,8 @@ td {
     resize: none;
 }
 
-.confirm-save:disabled {
+.confirm-save:disabled,
+.confirm-save3:disabled {
     opacity: 0.2;
     cursor: not-allowed;
 }

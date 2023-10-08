@@ -36,11 +36,11 @@
                     </div>
                     <div class='addForm-element'>
                         <label for='moduleName'>Module Name (Max 100 char)</label>
-                        <textarea class='name-area' id='moduleName' maxlength='100' onkeyup='check_area()'></textarea>
+                        <textarea class='name-area' id='moduleName' maxlength='100' onkeyup='check_area(\"confirm-save\", \"moduleName\", \"moduleDescription\")'></textarea>
                     </div>
                     <div class='addForm-element'>
                         <label for='moduleDescription'>Description (Max 256 char)</label>
-                        <textarea class='desc-area' id='moduleDescription' maxlength='256' onkeyup='check_area()'></textarea>
+                        <textarea class='desc-area' id='moduleDescription' maxlength='256' onkeyup='check_area(\"confirm-save\", \"moduleName\", \"moduleDescription\")'></textarea>
                     </div>
                     <div class='addForm-element'>
                         <div class='popup-buttons'>
@@ -85,20 +85,20 @@
                 </div>
                 <div class='addForm-element'>
                     <label for='materialName'>Material Title (Max 100 char)</label>
-                    <textarea class='name-area' id='materialName' maxlength='100' onkeyup='check_area()'></textarea>
+                    <textarea class='name-area' id='materialName' maxlength='100' onkeyup="check_area('confirm-save3', 'materialName', 'materialDescription')"></textarea>
                 </div>
                 <div class='addForm-element'>
-                    <label for='materialDescription'>Description</label>
-                    <textarea class='desc-area' id='materialDescription' maxlength='256' onkeyup='check_area()'></textarea>
+                    <label for='materialDescription'>Description (Max 256 char)</label>
+                    <textarea class='desc-area' id='materialDescription' maxlength='256' onkeyup="check_area('confirm-save3', 'materialName', 'materialDescription')"></textarea>
                 </div>
                 <div class='addForm-element'>
-                    <label for='material-file'>Upload File</label>
-                    <input type="file" id="materialFile">
+                    <label for='materialFile'>Upload File</label>
+                    <input type="file" id="materialFile" required  name="material_path" accept=".pdf, video/*" onchange="check_area('confirm-save3', 'materialName', 'materialDescription')">
                 </div>
                 <div class='addForm-element'>
                     <div class='popup-buttons'>
-                        <button type='reset' class='cancel-save'>Cancel</button>
-                        <button type='submit' class='confirm-save' disabled>Add</button>
+                        <button type='reset' class='cancel-save3' id='cancel-save3'>Cancel</button>
+                        <button type='submit' class='confirm-save3' id='confirm-save3' disabled onclick='handleAddMaterial()'>Add</button>
                     </div>
                 </div>
             </form>
@@ -131,7 +131,7 @@
                                     echo "
                                             <tr>
                                                 <td>
-                                                    <div class='row-container' onclick='openModule(\"$module[title]\",\"$module[description]\")'>
+                                                    <div class='row-container' onclick='openModule(\"$module[module_id]\", \"$module[title]\",\"$module[description]\")'>
                                                         <div class='module-title'>
                                                             <span>$module[title]</span>
                                                         </div>
@@ -198,7 +198,7 @@
 
                     <!-- HIDE THIS ADD BUTTON IF USER ROLE IS STUDENT -->
                     <div class="button-container">
-                        <button class="addMaterial" onclick='openFormAddMaterial()'>
+                        <button class="addMaterial" id="addMaterialBtn" onclick='openFormAddMaterial()' style='display:none;'>
                             Add Material
                         </button>
                     </div>
