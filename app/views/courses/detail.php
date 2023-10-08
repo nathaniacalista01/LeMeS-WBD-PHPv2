@@ -85,11 +85,11 @@
                 </div>
                 <div class='addForm-element'>
                     <label for='materialName'>Material Title (Max 100 char)</label>
-                    <textarea class='name-area' id='materialName' maxlength='100' onkeyup="check_area('confirm-save3', 'materialName', 'materialDescription')"></textarea>
+                    <textarea class='name-area' id='materialName' maxlength='100' onkeyup="check_area2('confirm-save3', 'materialName', 'materialDescription')"></textarea>
                 </div>
                 <div class='addForm-element'>
                     <label for='materialDescription'>Description (Max 256 char)</label>
-                    <textarea class='desc-area' id='materialDescription' maxlength='256' onkeyup="check_area('confirm-save3', 'materialName', 'materialDescription')"></textarea>
+                    <textarea class='desc-area' id='materialDescription' maxlength='256' onkeyup="check_area2('confirm-save3', 'materialName', 'materialDescription')"></textarea>
                 </div>
                 <div class='addForm-element'>
                     <label for='materialFile'>Upload File</label>

@@ -87,6 +87,23 @@ const check_area = (savebtn, titlebtn, descbtn) => {
   var submit_button = document.getElementById(savebtn);
   var name_input = document.getElementById(titlebtn);
   var desc_input = document.getElementById(descbtn);
+  
+  // Get the values of the textareas
+  var name_value = name_input.value.trim();
+  var desc_value = desc_input.value.trim();
+  
+  // Check if the values are blank
+  if (name_value === "" || desc_value === "") {
+    submit_button.disabled = true;
+  } else {
+    submit_button.disabled = false;
+  }
+};
+
+const check_area2 = (savebtn, titlebtn, descbtn) => {
+  var submit_button = document.getElementById(savebtn);
+  var name_input = document.getElementById(titlebtn);
+  var desc_input = document.getElementById(descbtn);
   var materialFile = document.getElementById('materialFile').value;
   
   // Get the values of the textareas

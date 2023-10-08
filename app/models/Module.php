@@ -31,5 +31,13 @@ require_once(__DIR__."/Model.php");
             $this->database->execute();
             return $this->database->rowCount();
         }
+
+        public function get_materials($module_id){
+            $query = "SELECT * FROM materials WHERE module_id = :module_id";
+            $this->database->query($query);
+            $this->database->bind("module_id",$module_id);
+            $rows = $this->database->fetchAll();
+            return $rows;
+        }
     }
 ?>
