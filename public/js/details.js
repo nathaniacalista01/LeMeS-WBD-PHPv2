@@ -1,12 +1,14 @@
 var global_module_id = null;
+var global_course_id = null;
 
-const openModule = (id, title, description) => {
+const openModule = (course_id, module_id, title, description) => {
   let button = document.getElementById("addMaterialBtn");
   let title_place = document.getElementById("course-title");
   let desc_place = document.getElementById("course-desc");
   title_place.innerText = title;
   desc_place.innerText = description;
-  global_module_id = id;
+  global_course_id = course_id;
+  global_module_id = module_id;
   button.style.display = 'block';
 };
 
@@ -214,7 +216,7 @@ const handleAddMaterial = () => {
   xhr.onload = function () {
     if (this.status === 200) {
       console.log(this);
-      // window.location.href = "/course/preview/" + id;
+      window.location.href = "/course/preview/" + global_course_id;
     } else {
       console.log(this);
       alert("Something went wrong!");

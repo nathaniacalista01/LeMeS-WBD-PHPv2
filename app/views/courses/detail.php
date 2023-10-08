@@ -131,7 +131,7 @@
                                     echo "
                                             <tr>
                                                 <td>
-                                                    <div class='row-container' onclick='openModule(\"$module[module_id]\", \"$module[title]\",\"$module[description]\")'>
+                                                    <div class='row-container' onclick='openModule(\"$course[course_id]\", \"$module[module_id]\", \"$module[title]\",\"$module[description]\")'>
                                                         <div class='module-title'>
                                                             <span>$module[title]</span>
                                                         </div>
