@@ -5,20 +5,32 @@ const openModule = (title, description) => {
   desc_place.innerText = description;
 };
 
-function openFormDelete(course_id, module_id, title) {
-  var popupSection = document.querySelector(".popup-section2");
-  var popupOverlay = document.querySelector(".popup-overlay2");
-  var closePopup = document.querySelector(".cancel-save2");
+function reset(){
+  var nameArea = document.getElementById('moduleName');
+  var descArea = document.getElementById('moduleDescription');
+  nameArea.value = '';
+  descArea.value = '';
+  var submit_button = document.getElementById("confirm-save");
+  submit_button.disabled = true;
+  var test = document.querySelector('.addForm-header');
+  test.textContent = 'Add Module';
+  document.querySelector('#confirm-save').textContent = 'Add';
+};
+
+function openForm(section, cancel, popup) {
+  var popupOverlay = document.querySelector(popup);
+  var popupSection = document.querySelector(section);
+  var closePopup = document.querySelector(cancel);
   popupSection.classList.add("active");
   popupOverlay.style.display = 'block';
   popupSection.style.display = 'block';
-  
-  
+
   // Add a click event listener to the overlay
   popupOverlay.addEventListener("click", function () {
     popupSection.classList.remove("active");
     popupOverlay.style.display = 'none';
     popupSection.style.display = 'none';
+    reset();
   });
 
   // Add a click event listener to the close button
@@ -26,7 +38,12 @@ function openFormDelete(course_id, module_id, title) {
     popupSection.classList.remove("active");
     popupOverlay.style.display = 'none';
     popupSection.style.display = 'none';
-  }); 
+    reset();
+  });
+};
+
+function openFormDeleteModule(course_id, module_id, title) {
+  openForm(".popup-section2", ".cancel-save2", ".popup-overlay2");
   var message = document.querySelector(".delete-warning");
   message.innerText = "Delete module " + title + "?";
   var button = document.querySelector('.confirm-save2');
@@ -35,31 +52,13 @@ function openFormDelete(course_id, module_id, title) {
   };
 };
 
-function openForm() {
-  var popupSection = document.querySelector(".popup-section");
-  var popupOverlay = document.querySelector(".popup-overlay");
-  var closePopup = document.querySelector(".cancel-save");
-  popupSection.classList.add("active");
-  popupOverlay.style.display = 'block';
-  popupSection.style.display = 'block';
-
-
-  // Add a click event listener to the overlay
-  popupOverlay.addEventListener("click", function () {
-    popupSection.classList.remove("active");
-    popupOverlay.style.display = 'none';
-    popupSection.style.display = 'none';
-  });
-
-  // Add a click event listener to the close button
-  closePopup.addEventListener("click", function () {
-    popupSection.classList.remove("active");
-    popupOverlay.style.display = 'none';
-    popupSection.style.display = 'none';
-  });
+function openFormAddModule() {
+  openForm(".popup-section", ".cancel-save", ".popup-overlay");
 };
 
-const openFormEdit = (course_id, module_id, title, description) => {
+const openFormEditModule = (course_id, module_id, title, description) => {
+  var test = document.querySelector('.addForm-header');
+  test.textContent = 'Edit Module';
   document.querySelector('#confirm-save').textContent = 'Edit';
   document.querySelector('#moduleName').value = title;
   document.querySelector('#moduleDescription').value = description;
@@ -67,19 +66,12 @@ const openFormEdit = (course_id, module_id, title, description) => {
   button.onclick = function() {
     handleEditModule(course_id, module_id);
   };
-  openForm();
+  openForm(".popup-section", ".cancel-save", ".popup-overlay");
 };
 
-
-const cancelButton = document.getElementById('cancel-save');
-cancelButton.addEventListener('click', () => {
-  var nameArea = document.getElementById('moduleName');
-  var descArea = document.getElementById('moduleDescription');
-  nameArea.value = '';
-  descArea.value = '';
-  var submit_button = document.getElementById("confirm-save");
-  submit_button.disabled = true;
-});
+function openFormAddMaterial() {
+  openForm(".popup-section3", ".cancel-save3", ".popup-overlay3");
+}
 
 const check_area = () => {
   var submit_button = document.getElementById("confirm-save");

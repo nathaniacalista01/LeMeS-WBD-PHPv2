@@ -198,7 +198,8 @@ td {
 }
 
 .popup-section,
-.popup-section2 {
+.popup-section2,
+.popup-section3 {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -208,7 +209,8 @@ td {
 }
 
 .popup-overlay,
-.popup-overlay2 {
+.popup-overlay2,
+.popup-overlay3 {
     position: fixed;
     height: 100%;
     width: 100%;
@@ -219,7 +221,8 @@ td {
 }
 
 .popup-box,
-.popup-box2 {
+.popup-box2,
+.popup-box3 {
     position: fixed;
     flex-direction: column;
     align-items: center;
@@ -251,14 +254,16 @@ td {
 }
 
 .popup-section.active .popup-box,
-.popup-section2.active .popup-box2 {
+.popup-section2.active .popup-box2,
+.popup-section3.active .popup-box3 {
     display: block;
     pointer-events: auto;
     transform: translate(-50%, -50%) scale(1);
 }
 
 .popup-buttons,
-.popup-buttons2 {
+.popup-buttons2,
+.popup-buttons3 {
     display: flex;
     margin: 3px;
 }
@@ -266,7 +271,9 @@ td {
 .cancel-save,
 .confirm-save,
 .cancel-save2,
-.confirm-save2 {
+.confirm-save2,
+.cancel-save3,
+.confirm-save3 {
     padding: 10px;
     margin: auto;
     background-color: var(--first-color);
@@ -281,20 +288,23 @@ td {
 }
 
 .cancel-save,
-.cancel-save2 {
+.cancel-save2,
+.cancel-save3 {
     border: 1px solid var(--first-color);
     background-color: #ffffff;
     color: var(--first-color);
 }
 
 .cancel-save:hover,
-.cancel-save2:hover {
+.cancel-save2:hover,
+.cancel-save3:hover {
     background-color: var(--first-color-dark);
     color: #fff;
 }
 
 .confirm-save:hover,
-.confirm-save2:hover {
+.confirm-save2:hover,
+.confirm-save3:hover {
     background-color: var(--first-color-dark);
 }
 
