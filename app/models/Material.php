@@ -23,7 +23,7 @@ class Material extends Model{
         return $this->database->rowCount();
     }
 
-    public function update_module($material_id,$title,$description,$material_type,$material_path){
+    public function update_material($material_id,$title,$description,$material_type,$material_path){
         $query = "UPDATE materials SET title = :title, description = :description, material_type = :material_type, material_path = :material_path WHERE material_id = :material_id";
         $this->database->query($query);
         $this->database->bind("material_id",$material_id);

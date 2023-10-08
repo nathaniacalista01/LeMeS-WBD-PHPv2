@@ -69,6 +69,41 @@ function openFormAddMaterial(module_id) {
   };
 };
 
+const openFormEditMaterial = (module_id, material_id, title, description) => {
+  var test = document.querySelector('.addForm-header3');
+  test.textContent = 'Edit Material';
+  document.querySelector('#confirm-save3').textContent = 'Edit';
+  document.querySelector('#materialName').value = title;
+  document.querySelector('#materialDescription').value = description;
+  var button = document.getElementById('confirm-save3');
+  button.onclick = function() {
+    handleEditMaterial(module_id, material_id);
+  };
+  openForm(".popup-section3", ".cancel-save3", ".popup-overlay3");
+};
+
+const handleEditMaterial = (module_id, material_id) => {
+  let title = document.getElementById('materialName').value;
+  let description = document.getElementById('materialDescription').value;
+  let material = document.getElementById("materialFile");
+  const data = new FormData();
+  data.append("material_id", parseInt(material_id));
+  data.append("title", title);
+  data.append("description", description);
+  data.append("material_path", material.files[0]);
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "/api/material/edit.php", true);
+  xhr.onload = function () {
+    if (this.status === 200) {
+      window.location.href = "/course/module/" + module_id;
+    } else {
+      console.log(this);
+      alert("Something went wrong!");
+    }
+  }
+  xhr.send(data);
+};
+
 const handleAddModule = (course_id, module_id) => {
   let title = document.getElementById("moduleName").value;
   let description = document.getElementById("moduleDescription").value;

@@ -25,11 +25,14 @@
 }
 
 .header {
-    max-width: 1250px;
-    max-height: 200px;
+    max-width: 20%;
+    max-height: fit-content;
     position: relative;
     margin-left: 20px;
     margin-top: 20px;
+    text-align: center;
+    white-space: normal;
+    word-break: break-all;
 }
 
 .course {
@@ -311,7 +314,8 @@ td {
     background-color: var(--first-color-dark);
 }
 
-.addForm-header {
+.addForm-header,
+.addForm-header3 {
     text-align: center;
     font-size: 20px;
     font-weight: 600;
@@ -319,18 +323,21 @@ td {
     margin: 20px 0px;
 }
 
-.addForm-element {
+.addForm-element,
+.addForm-element3 {
     padding: 8px 20px;
 }
 
-.addForm-element label {
+.addForm-element label,
+.addForm-element3 label {
     display: block;
     color: #222;
     margin-bottom: 5px;
     font-size: 15px;
 }
 
-.addForm-element input {
+.addForm-element input,
+.addForm-element input3 {
     width: 100%;
     padding: 8px 10px;
     box-sizing: border-box;

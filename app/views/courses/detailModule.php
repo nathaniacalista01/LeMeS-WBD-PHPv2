@@ -81,23 +81,23 @@
     <section class='popup-section3'>
         <div class='popup-overlay3'></div>
         <div class='popup-box3' style='height: auto;'>
-            <form class='addForm' action='javascript:'>
-                <div class='addForm-header'>
+            <form class='addForm3' action='javascript:'>
+                <div class='addForm-header3'>
                     Add Material
                 </div>
-                <div class='addForm-element'>
+                <div class='addForm-element3'>
                     <label for='materialName'>Material Title (Max 100 char)</label>
                     <textarea class='name-area' id='materialName' maxlength='100' onkeyup="check_area2('confirm-save3', 'materialName', 'materialDescription')"></textarea>
                 </div>
-                <div class='addForm-element'>
+                <div class='addForm-element3'>
                     <label for='materialDescription'>Description (Max 256 char)</label>
                     <textarea class='desc-area' id='materialDescription' maxlength='256' onkeyup="check_area2('confirm-save3', 'materialName', 'materialDescription')"></textarea>
                 </div>
-                <div class='addForm-element'>
+                <div class='addForm-element3'>
                     <label for='materialFile'>Upload File</label>
                     <input type="file" id="materialFile" required name="material_path" accept=".pdf, video/*" onchange="check_area('confirm-save3', 'materialName', 'materialDescription')">
                 </div>
-                <div class='addForm-element'>
+                <div class='addForm-element3'>
                     <div class='popup-buttons'>
                         <button type='reset' class='cancel-save3' id='cancel-save3'>Cancel</button>
                         <?php
@@ -198,41 +198,58 @@
                             foreach ($materials as $material) {
                             echo"
                             <div class='accordion'>
-                                <div class='accordion-content'>
-                                    <header>
-                                        <span class='title'>$material[title]</span>
-                                        <i class='fa-solid fa-plus'></i>
-                                    </header>
-                                    ";
-                                    if ($material['material_type'] == "pdf"){
-                                        echo "
-                                    <div class='description'>
-                                        <span>$material[description]<span>
-                                        <br>
-                                        <br>
-                                        <object data='$material[material_path]' type='application/pdf' width='100%' height='800'>
-                                            <p>It appears your web browser doesn't support embedding PDFs.</p>
-                                        </object>
+                                <div class='accordion-content' style='display: flex; justify-content: space-between;'>
+                                    <div class='judul' style='width:94%'>
+                                        <header>
+                                            <span class='title'>$material[title]</span>
+                                            <i class='fa-solid fa-plus'></i>
+                                        </header>
+                                        ";
+                                        if ($material['material_type'] == "pdf"){
+                                            echo "
+                                        <div class='description'>
+                                            <span>$material[description]<span>
+                                            <br>
+                                            <br>
+                                            <object data='$material[material_path]' type='application/pdf' width='100%' height='800'>
+                                                <p>It appears your web browser doesn't support embedding PDFs.</p>
+                                            </object>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
+                                    
                                 ";
                             } else{
                                 echo "
-                                    <div class='description'>
-                                        <span>$material[description]<span>
-                                        <br>
-                                        <br>
-                                        <video width='100%' height=auto controls>
-                                            <source src='$material[material_path]' type='video/mp4'>
-                                            Your browser does not support the video tag.
-                                        </video>
+                                        <div class='description'>
+                                            <span>$material[description]<span>
+                                            <br>
+                                            <br>
+                                            <video width='100%' height=auto controls>
+                                                <source src='$material[material_path]' type='video/mp4'>
+                                                Your browser does not support the video tag.
+                                            </video>
+                                        </div>
+                                    </div>
+                                ";}
+                                echo "
+                            
+                                    <div class='actions'>
+                                        <i onclick='openFormEditMaterial(\"$module[module_id]\", \"$material[material_id]\", \"$material[title]\", \"$material[description]\")'>
+                                            <svg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 24 24' style='fill: rgba(0, 0, 0, 1);'>
+                                                <path fill='#564C95' d='m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z'></path>
+                                                <path fill='#564C95' d='M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z'></path>
+                                            </svg>
+                                        </i>
+                                        <i onclick='openFormDeleteMaterial(\"$module[module_id]\", \"$material[material_id]\", \"$material[title]\")'>
+                                            <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' style='fill: #564C95 ;'>
+                                                <path d='M6 7H5v13a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7H6zm10.618-3L15 2H9L7.382 4H3v2h18V4z'></path>
+                                            </svg>
+                                        </i>
                                     </div>
                                 </div>
                             </div>
-                                ";}
-                            }
-                            ?>
+                            ";}
+                        ?>
                         </div>
                     </div>
 
