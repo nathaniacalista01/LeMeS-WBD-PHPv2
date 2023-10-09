@@ -9,7 +9,6 @@
 -   [Cara Instalasi](#cara-instalasi)
 -   [Cara Menjalankan Server](#cara-menjalankan-server)
 -   [Screenshot Tampilan Aplikasi](#screenshot-tampilan-aplikasi)
--   [Entity Relationship Diagram](#entity-relationship-diagram)
 -   [Pembagian Tugas](#pembagian-tugas)
 
 ## Deskripsi Aplikasi Web
@@ -111,7 +110,6 @@ Pengguna dapat mengakses berbagai modul dan materi pembelajaran yang terdapat da
 | Search Page                           | 13521139 |
 | User List Admin                       | 13521139, 13521161 |
 | Course List Admin                     | 13521139, 13521164 |
-| Pagination, Search Bar, Filter, Sort  | 13521164 |
+| Pagination, Search Bar, Filter, Sort  | 13521161, 13521164 |
 | Logout Popup                          | 13521164 |
-| Not Found                             | 13521161 |
-| Popup Windows Add, Delete, Edit       | 13521164 |
+| Popup Windows Add, Delete, Edit       | 13521161, 13521164 |
