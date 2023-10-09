@@ -17,7 +17,7 @@
         $course_password =  isset($_POST["course_password"]) ? $_POST["course_password"] : $_POST["old_password"];
         if(isset($_FILES["image"]["name"]) && $_FILES["image"]["name"] !== ""){
             // Kasus kalau imagenya mau diganti
-            $directory = "../../public/image/course/";
+            $directory = "../../../public/image/course/";
             $file_name = $_FILES["image"]["name"];
             $cleaned_file_name = str_replace(' ','',$file_name);
             $targeted_file = $directory . basename($cleaned_file_name);

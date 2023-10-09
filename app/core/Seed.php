@@ -36,6 +36,14 @@
                     break;
                 }   
             }
+            $query_admin = "INSERT INTO users(fullname,username,password,user_role) VALUES (:fullname,:username,:password,'ADMIN')";
+            $admin_username = "admin";
+            $admin_password = "adminpassword";
+            $this->database->query($query_admin);
+            $this->database->bind("fullname",$admin_username);
+            $this->database->bind("username",$admin_username);
+            $this->database->bind("password",password_hash($admin_password,PASSWORD_DEFAULT));
+            $this->database->execute();
         }
         public function seed_courses(){
             $query = "

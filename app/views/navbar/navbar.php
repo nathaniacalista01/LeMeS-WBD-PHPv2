@@ -20,7 +20,16 @@
             </i>
         </div>
         <ul class="nav-list">
-
+        <?php
+            $admin= false;
+            if(isset($_SESSION["user_id"])){
+                $user_modal = new User;
+                $user = $user_modal->getUserById($_SESSION["user_id"]);
+                if($user["user_role"] === "ADMIN"){
+                    $admin = true;
+                }
+            }
+        ?>
         <!-- PROFILE PICTURE, NAME, ROLE -->
         <?php
                     if(session_status() === PHP_SESSION_NONE){
@@ -61,7 +70,7 @@
                     <?php } ?>
             <!-- HOMEPAGE BUTTON -->
             <li>
-                <a href="/">
+                <a href=<?php echo ($admin ? "/admin/users" : "/") ?>>
                     <i>
                         <svg fill="white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M3 13h1v7c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7h1a1 1 0 0 0 .707-1.707l-9-9a.999.999 0 0 0-1.414 0l-9 9A1 1 0 0 0 3 13zm7 7v-5h4v5h-4zm2-15.586 6 6V15l.001 5H16v-5c0-1.103-.897-2-2-2h-4c-1.103 0-2 .897-2 2v5H6v-9.586l6-6z"/>
@@ -74,17 +83,18 @@
 
             <!-- MY COURSES BUTTON -->
             <li>
-                <a href="/course/enrolled">
+                <a href=<?php echo ($admin ? "admin/courses":"/course/enrolled") ?>>
                     <i>
                         <svg fill="white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M6 22h15v-2H6.012C5.55 19.988 5 19.805 5 19s.55-.988 1.012-1H21V4c0-1.103-.897-2-2-2H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3zM5 8V5c0-.805.55-.988 1-1h13v12H5V8z"/>
                             <path d="M8 6h9v2H8z"/>
                         </svg>
                     </i>
-                    <span class="link-name">My Courses</span>
+                    <span class="link-name"><?php echo ($admin ? "Courses" : "My courses") ?></span>
                 </a>
-                <span class="tooltip">My Courses</span>
+                <span class="tooltip"><?php echo ($admin ? "Courses" : "My courses") ?></span>
             </li>
+            <?php if(!$admin){ ?>
             <li>
                 <a href="/search">
                 <i>
@@ -96,7 +106,6 @@
                 </a>
                 <span class="tooltip">Search</span>
             </li>
-            
             <!-- LOGOUT BUTTON -->
                 <?php
                     if(session_status() === PHP_SESSION_NONE){
@@ -116,8 +125,9 @@
                             </button>
                             <span class='tooltip'>Log Out</span>
                         </li>
-                    <?php } ?>
-                
+                    <?php } 
+            }?>
+            
             <div class="footer">
                 <p class="text-xs">
                     <span>Copyright ©</span>

@@ -236,16 +236,16 @@
                                     
                                 ";
                             } else{ ?>
-                                        <div class='description'>
-                                            <span><?php echo $material["description"] ?><span>
-                                            <br>
-                                            <br>
-                                            <video width='100%' height=auto controls>
-                                                <source src=<?php echo $material["material_path"]?> type='video/mp4'>
-                                                Your browser does not support the video tag.
-                                            </video>
-                                        </div>
-                                    </div>
+                                <div class='description'>
+                                    <span><?php echo $material["description"] ?><span>
+                                    <br>
+                                    <br>
+                                    <video width='100%' height=auto controls>
+                                        <source src=<?php echo $material["material_path"]?> type='video/mp4'>
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                </div>
                                 <?php } ?>
                                     <?php 
                                         if($display){
