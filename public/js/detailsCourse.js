@@ -53,6 +53,7 @@ function openFormAddModule() {
 };
 
 const openFormEditModule = (course_id, module_id, title, description) => {
+  console.log("Edit module")
   var test = document.querySelector('.addForm-header');
   test.textContent = 'Edit Module';
   document.querySelector('#confirm-save').textContent = 'Edit';
