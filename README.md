@@ -73,3 +73,45 @@ Pengguna dapat mengakses berbagai modul dan materi pembelajaran yang terdapat da
 
 
 ## Pembagian Tugas
+
+### _Server Side_
+
+| Fitur                         | NIM      |
+| ------------------------------| -------- |
+| Database and Container Setup  | 13521139 |
+| Routing                       | 13521139 |
+| Login                         | 13521139, 13521161 |
+| Register                      | 13521139, 13521161 |
+| Update Profile                | 13521164 |
+| Admin CRUD List Courses       | 13521139 |
+| Admin CRUD List Users         | 13521139 |
+| Enroll Course Process         | 13521139 |
+| Add Module                    | 13521161 |
+| CRUD Modules                  | 13521164 |
+| CRUD Materials                | 13521164 |
+| Logout                        | 13521139 |
+| Modals                        | 13521139 |
+| Middleware                    | 13521139 |
+| Not Found                     | 13521161 |
+
+### _Client Side_
+
+| Fitur                                 | NIM      |
+| ------------------------------------- | -------- |
+| Login                                 | 13521139, 13521161 |
+| Register                              | 13521139, 13521161 |
+| Homepage and Card Courses             | 13521164 |
+| Navbar                                | 13521139, 13521164 |
+| Course Detail                         | 13521139, 13521164 |
+| Module Detail                         | 13521164 |
+| Material Detail (Accordion)           | 13521164 |
+| Not Found                             | 13521161 |
+| Add Module                            | 13521164 |
+| Admin Dashboard                       | 13521139 |
+| Search Page                           | 13521139 |
+| User List Admin                       | 13521139, 13521161 |
+| Course List Admin                     | 13521139, 13521164 |
+| Pagination, Search Bar, Filter, Sort  | 13521164 |
+| Logout Popup                          | 13521164 |
+| Not Found                             | 13521161 |
+| Popup Windows Add, Delete, Edit       | 13521164 |
