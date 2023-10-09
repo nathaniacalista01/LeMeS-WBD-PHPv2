@@ -128,9 +128,13 @@
         </div>
 
         <?php 
-            $parent = "course";
-            $href = $data["type"];
-            include __DIR__ . '/../components/pagination.php'
+            if(isset($data["courses"]) && count($data["courses"]) !== 0){
+                $parent = "course";
+                $href = $data["type"];
+                include __DIR__ . '/../components/pagination.php';
+            }else{
+                echo "<div class='no-course'><p>There is no courses available...</p></div>";
+            }
         ?>
     </section>
 </body>

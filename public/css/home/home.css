@@ -81,6 +81,22 @@
     animation-duration: 1.5s;
 }
 
+.no-course{
+    margin: auto;
+    color: white;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-course p{
+    text-align: center;
+    font-size: 20px;
+    color: #564c95;
+    font-weight: bold;
+}
+
 @keyframes fade{
     from{opacity: .4}
     to{opacity: 1}
