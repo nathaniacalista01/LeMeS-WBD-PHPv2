@@ -34,7 +34,7 @@ Pengguna dapat mengakses berbagai modul dan materi pembelajaran yang terdapat da
 13. Edit Profil
 14. Tambah Materi
 15. Hapus Materi
-16. 
+16. Edit User
 
 ## Cara Instalasi
 
@@ -44,8 +44,10 @@ Pengguna dapat mengakses berbagai modul dan materi pembelajaran yang terdapat da
 ## Cara Menjalankan Server
 
 1. Anda dapat menjalankan program ini dengan menjalankan perintah `docker-compose up -d` pada terminal directory aplikasi web.
-2. Aplikasi web dapat diakses dengan menggunakan browser pada URL `http://localhost/course/lists/page=1`.
+2. Aplikasi web dapat diakses dengan menggunakan browser pada URL `http://localhost/course/lists/page=1`atau dengan memasukkan `http://localhost/`.
 3. Aplikasi web dapat dihentikan dengan menjalankan perintah perintah `docker-compose down` pada terminal directory aplikasi web.
+4. Buat file .env di root folder
+5. Copy .env.example ke dalam file .env dan pastikan isinya sama dengan app/core/Database.php
 
 ## Screenshot Tampilan Aplikasi
 
