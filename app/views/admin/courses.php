@@ -32,7 +32,7 @@
 				<div class="report-header">
 					<h1 class="recent-Articles">Courses List</h1>
                     <div class="header-button">
-                        <button class="add-user"><a href="/admin/addcourse">Add Course</a></button>
+                        <button class="add-user"><a href="/admin/addcourse" style="text-decoration:none">Add Course</a></button>
                     </div>
 				</div>
                 
