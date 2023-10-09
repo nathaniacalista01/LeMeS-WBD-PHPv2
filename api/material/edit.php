@@ -32,6 +32,11 @@
             $response = move_uploaded_file($_FILES["material_path"]["tmp_name"],$targeted_file);
             $saved_file = $material_file;
         }
+
+        $deleted_material = $material->single_material($_POST["material_id"]);
+        $rm_file = 'rm ../..' . $deleted_material["material_path"];
+        exec($rm_file);
+        
         $rows = $material->update_material($material_id,$title,$description,$material_type,$saved_file);
         if($rows){
             http_response_code(200);

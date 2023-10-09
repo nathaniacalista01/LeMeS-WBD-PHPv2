@@ -69,13 +69,13 @@ function openFormAddMaterial(module_id) {
   };
 }
 
-function openFormDeleteMaterial(module_id, material_id, title) {
+function openFormDeleteMaterial(module_id, material_id, title, material_path) {
   openForm(".popup-section2", ".cancel-save2", ".popup-overlay2");
   var message = document.querySelector(".delete-warning");
   message.innerText = "Delete material " + title + "?";
   var button = document.querySelector(".confirm-save2");
   button.onclick = function () {
-    handleDeleteMaterial(module_id, material_id);
+    handleDeleteMaterial(module_id, material_id, material_path);
   };
 }
 
@@ -190,9 +190,10 @@ const handleAddMaterial = (module_id) => {
   xhr.send(data);
 };
 
-const handleDeleteMaterial = (module_id, material_id) => {
+const handleDeleteMaterial = (module_id, material_id, material_path) => {
   const data = new FormData();
   data.append("material_id", parseInt(material_id));
+  data.append("old_file", material_path);
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "/api/material/delete.php", true);
   xhr.onload = function () {
