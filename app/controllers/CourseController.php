@@ -72,10 +72,10 @@
         }
 
         public function module($params = ""){
-            if($params){
+            if(!$params){
                 header("Location: /notfound");
             }
-            // Hanya orang yang sudah login yang bisa liat module
+            // // Hanya orang yang sudah login yang bisa liat module
             $course = new Course();
             $module = new Module();
             $middleware = $this->middleware("LoginMiddleware");
