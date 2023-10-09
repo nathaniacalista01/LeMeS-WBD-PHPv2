@@ -66,9 +66,40 @@ Pengguna dapat mengakses berbagai modul dan materi pembelajaran yang terdapat da
 
 ![Daftar User](./screenshot/user-list.png)
 
+### Pop Up
+
+![Pop Up](./screenshot/pop-up.png)
+
 ### Search, Sort, dan Filter
 
 ![Search, Sort, dan Filter Page](./screenshot/search.png)
+
+### Enroll
+
+![Enroll](./screenshot/enroll.png)
+
+### Add Course
+
+![Add Course](./screenshot/add-courses.png)
+
+### Not-Found
+
+![Not Found](./screenshot/not-found.png)
+
+### Search Page
+
+![Search Page](./screenshot/search.png)
+
+### Lighthous
+![Login](./screenshot/login-lighthouse.png)
+![Homepage](./screenshot/homepage-lighthouse.png)
+![My Course](./screenshot/mycourse-lighthouse.png)
+![Courses](./screenshot/courses-lighthouse.png)
+![Users](./screenshot/users-lighthouse.png)
+![Module](./screenshot/module-lighthouse.png)
+![Profile](./screenshot/profile-lighthouse.png)
+![Search](./screenshot/search-lighthouse.png)
+
 
 
 ## Pembagian Tugas
