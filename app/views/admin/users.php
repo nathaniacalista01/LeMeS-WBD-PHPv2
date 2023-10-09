@@ -52,8 +52,8 @@
                             <thead>
                                 <tr>
                                     <th class="id-column">Id</th>
-                                    <th class="user-attr">Fullname</th>
                                     <th class="user-attr">Username</th>
+                                    <th class="user-attr">Fullname</th>
                                     <th class="user-attr">Role</th>
                                     <th class="user-attr">Action</th>
                                 </tr>
