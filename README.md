@@ -1,20 +1,73 @@
-## Panduan Pengerjaan
-Berikut adalah hal yang harus diperhatikan untuk pengumpulan tugas ini:
-1. Buatlah grup pada Gitlab dengan format "IF3110-2023-01-XX", dengan XX adalah nomor kelompok (untuk K1 dan K2) atau kode kelompok (untuk K3).
-2. Tambahkan anggota tim pada grup anda.
-3. **Fork** pada repository ini dengan organisasi yang telah dibuat.
-4. Ubah hak akses repository hasil Fork anda menjadi **private**.
-5. Hal-hal yang harus diperhatikan.
-    * Silakan commit pada repository anda (hasil fork)
-    * Lakukan beberapa commit dengan pesan yang bermakna, contoh: “add register form”, “fix logout bug”, jangan seperti “final”, “benerin dikit”, “fix bug”.
-    * Disarankan untuk tidak melakukan commit dengan perubahan yang besar karena akan mempengaruhi penilaian (contoh: hanya melakukan satu commit kemudian dikumpulkan).
-    * Commit dari setiap anggota tim akan mempengaruhi penilaian.
-    * Jadi, setiap anggota tim harus melakukan commit yang berpengaruh terhadap proses pembuatan aplikasi.
-    * Sebagai panduan bisa mengikuti [semantic commit](https://gist.github.com/joshbuchea/6f47e86d2510bce28f8e7f42ae84c716).
-6. Buatlah file README yang berisi:
-    * Deskripsi aplikasi web
-    * Daftar requirement
-    * Cara instalasi
-    * Cara menjalankan server
-    * Screenshot tampilan aplikasi (tidak perlu semua kasus, minimal 1 per halaman), dan 
-    * Penjelasan mengenai pembagian tugas masing-masing anggota (lihat formatnya pada bagian pembagian tugas).
+# LeMeS
+
+> Disusun untuk memenuhi Tugas Milestone 1 - Monolithic PHP & Vanilla Web Application IF3110 Pengembangan Aplikasi Berbasis Web
+
+## Daftar Isi
+
+-   [Deskripsi Aplikasi Web](#deskripsi-aplikasi-web)
+-   [Daftar Requirement](#daftar-requirement)
+-   [Cara Instalasi](#cara-instalasi)
+-   [Cara Menjalankan Server](#cara-menjalankan-server)
+-   [Screenshot Tampilan Aplikasi](#screenshot-tampilan-aplikasi)
+-   [Entity Relationship Diagram](#entity-relationship-diagram)
+-   [Pembagian Tugas](#pembagian-tugas)
+
+## Deskripsi Aplikasi Web
+
+*LeMeS* merupakan sebuah aplikasi web pembelajaran yang mirip dengan Edunex.
+Pengguna dapat mengakses berbagai modul dan materi pembelajaran yang terdapat dalam berbagai kursus yang ditawarkan. *LeMeS* menghadirkan fitur manajemen kursus bagi admin dan pengajar untuk menambah, mengubah, dan menghapus kursus. Admin dapat melihat daftar pengguna yang mengakses web ini dan pengajar dapat melihat daftar kursus yang ditawarkan.
+
+## Daftar Requirement
+
+1. Login
+2. Register
+3. Homepage
+4. Daftar Course
+5. Search, Sort, dan Filter
+6. Edit Course
+7. Detail Course
+8. Tambah Course
+9. Tambah Modul
+10. Edit Modul
+11. Delete Modul
+12. Daftar User
+13. Edit Profil
+14. Tambah Materi
+15. Hapus Materi
+16. 
+
+## Cara Instalasi
+
+1. Lakukan pengunduhan repository ini dengan menggunakan perintah `git clone https://gitlab.informatika.org/if3110-2023-01-26/tugas-besar-1.git` pada terminal komputer Anda.
+2. Pastikan komputer Anda telah menginstalasi dan menjalankan aplikasi Docker.
+
+## Cara Menjalankan Server
+
+1. Anda dapat menjalankan program ini dengan menjalankan perintah `docker-compose up -d` pada terminal directory aplikasi web.
+2. Aplikasi web dapat diakses dengan menggunakan browser pada URL `http://localhost/course/lists/page=1`.
+3. Aplikasi web dapat dihentikan dengan menjalankan perintah perintah `docker-compose down` pada terminal directory aplikasi web.
+
+## Screenshot Tampilan Aplikasi
+
+### Login
+
+![Login Page](./screenshot/login.png)
+
+### Register
+
+![Register Page](./screenshot/register.png)
+
+### Home
+
+![Home Page](./screenshot/homepage.png)
+
+### Daftar User
+
+![Daftar User](./screenshot/user-list.png)
+
+### Search, Sort, dan Filter
+
+![Search, Sort, dan Filter Page](./screenshot/search.png)
+
+
+## Pembagian Tugas
