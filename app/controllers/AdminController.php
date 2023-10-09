@@ -8,15 +8,15 @@
 
         // Page admin untuk register
         public function register(){
+            $middleware = $this->middleware('AdminMiddleware');
+            $middleware->isAdmin();
             return $this->view("admin","register",[]);
         }
 
         // Page admin untuk melihat semua students
         public function users($params = "page=1"){
-            if(!isset($_SESSION["user_id"])){
-                $_SESSION["error"] = "You have to log in first";
-                header("Location: /login");
-            }
+            $middleware = $this->middleware('AdminMiddleware');
+            $middleware->isAdmin();
             $components = explode("=",$params);
             $page_number = $components[1];
             $admin = new Admin();
@@ -26,15 +26,20 @@
             return $this->view("admin","users",["page_number" => $page_number,"max_page" =>$max_page,"users"=>$user_page]);
         }
         public function editUser($params = "2"){
+            $middleware = $this->middleware('AdminMiddleware');
+            $middleware->isAdmin();
             $admin = new Admin();
             $user = $admin->getUserById($params);
             return $this->view("admin","editUser",["user"=>$user]);        
         }
         public function addCourse(){
-            
+            $middleware = $this->middleware('AdminMiddleware');
+            $middleware->isAdmin();
             return $this->view("admin","addCourse");
         }
         public function editCourse($params = ""){
+            $middleware = $this->middleware('AdminMiddleware');
+            $middleware->isAdmin();
             if(!$params){
                 // Ini nanti ganti jadi notfound/error
                 header("Location: /login");
@@ -46,6 +51,8 @@
         }
         // Page admin untuk melihat courses
         public function courses($params = "page=1"){
+            $middleware = $this->middleware('AdminMiddleware');
+            $middleware->isAdmin();
             $components = explode("=",$params);
             $page_number = $components[1];
             $course = new Course();

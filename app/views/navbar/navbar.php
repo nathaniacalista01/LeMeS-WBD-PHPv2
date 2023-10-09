@@ -116,7 +116,6 @@
                             </button>
                             <span class='tooltip'>Log Out</span>
                         </li>
-                        ";
                     <?php } ?>
                 
             <div class="footer">

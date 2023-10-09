@@ -292,3 +292,15 @@ td {
   clear: both;
   display: table;
 }
+
+.no-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-content p{
+  font-size: 20px;
+  text-align: center;
+  color: #564c95;
+}

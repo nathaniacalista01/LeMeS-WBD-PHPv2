@@ -61,20 +61,24 @@
                             <tbody>
                             <?php
                                 $users = $data["users"];
-                                foreach ($users as $user ) {
-                                ?>
-                                <tr>
-                                    <td><?php echo $user['user_id'] ?></td>
-                                    <td><?php echo $user['username'] ?></td>
-                                    <td><?php echo $user['fullname'] ?></td>
-                                    <td><?php echo $user['user_role'] ?></td>
-                                    <?php 
-                                        $href = "edituser"; 
-                                        $id = $user["user_id"];
-                                        include __DIR__. '/../components/actionButton.php' 
-                                    ?>
-                                </tr>   
-                                <?php } ?>
+                                if(isset($users) && count($users) !== 0){
+                                    foreach ($users as $user ) {
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $user['user_id'] ?></td>
+                                            <td><?php echo $user['username'] ?></td>
+                                            <td><?php echo $user['fullname'] ?></td>
+                                            <td><?php echo $user['user_role'] ?></td>
+                                            <?php 
+                                                $href = "edituser"; 
+                                                $id = $user["user_id"];
+                                                include __DIR__. '/../components/actionButton.php' 
+                                            ?>
+                                        </tr>   
+                                <?php } }else{
+                                    echo "<div class='no-content'><p>There is no data right now...</p></div>";
+                                } ?>
+                                
                             </tbody>
                         </table>
                         <?php 
