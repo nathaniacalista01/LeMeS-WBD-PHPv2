@@ -107,7 +107,9 @@
                 <span class="tooltip">Search</span>
             </li>
             <!-- LOGOUT BUTTON -->
-                <?php
+                 
+            <?php }?>
+            <?php
                     if(session_status() === PHP_SESSION_NONE){
                         session_start();
                     }
@@ -125,9 +127,7 @@
                             </button>
                             <span class='tooltip'>Log Out</span>
                         </li>
-                    <?php } 
-            }?>
-            
+                    <?php } ?>
             <div class="footer">
                 <p class="text-xs">
                     <span>Copyright ©</span>
