@@ -78,7 +78,6 @@ const handleAddModule = (id) => {
     if (this.status === 200) {
       window.location.href = "/course/preview/" + id;
     } else {
-      console.log(this);
       alert("Something went wrong!");
     }
   }
@@ -98,7 +97,6 @@ const handleEditModule = (course_id, module_id) => {
     if (this.status === 200) {
       window.location.href = "/course/preview/" + course_id;
     } else {
-      console.log(this);
       alert("Something went wrong!");
     }
   }
@@ -114,7 +112,6 @@ const handleDeleteModule = (course_id, module_id) => {
     if (this.status === 200) {
       window.location.href = "/course/preview/" + course_id;
     } else {
-      console.log(this);
       alert("Something went wrong!");
     }
   }

@@ -33,6 +33,8 @@
                 $uploaded = false;
             }
             if($uploaded){
+                $rm = "rm ../../..".$_POST["old_image"];
+                exec($rm);
                 $response = move_uploaded_file($_FILES["image"]["tmp_name"],$targeted_file);
             }else{
                 header("Location: /admin/courses");

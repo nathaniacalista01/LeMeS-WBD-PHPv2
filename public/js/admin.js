@@ -23,6 +23,7 @@ const handleDelete = (type) => {
       } else {
         window.location.href = "/admin/courses";
       }
+      
     } else {
       console.log("gagal");
     }
@@ -35,7 +36,6 @@ let cancelButton = document.getElementById("cancel-btn");
 let confirmButton = document.getElementById("confirm-btn");
 let popup = document.getElementById("popup-container");
 let form = document.getElementById("form");
-let backButton = document.getElementById("back-button");
 let oldUsername = document.getElementById("old-username");
 let oldFullname = document.getElementById("old-fullname");
 updateButton &&
@@ -126,10 +126,7 @@ const check_username = () => {
   }
   check_button();
 };
-backButton.addEventListener("click", (e) => {
-  e.preventDefault();
-  window.location.href = "/admin/users";
-});
+
 
 const handleUpload = () => {
   var image = document.getElementById("course-image");

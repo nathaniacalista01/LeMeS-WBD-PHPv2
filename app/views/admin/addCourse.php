@@ -75,7 +75,7 @@
                 </label>
             </div>
             <div class="button-container">
-                <button id = "back-button" class="back-btn">Back</button>
+                <button id = "back-button" class="back-btn" ><a href="/admin/courses" style="text-decoration:none">Back</a></button>
                 <button type="submit" class="add-btn" id="action-button">Add</button>
             </div>
             </form>
