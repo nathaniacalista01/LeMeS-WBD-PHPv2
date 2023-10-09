@@ -34,5 +34,14 @@ class Material extends Model{
         $this->database->execute();
         return $this->database->rowCount();
     }
+
+    public function single_material($id){
+        $query = "SELECT * FROM materials WHERE material_id = :material_id";
+        $this->database->query($query);
+        $this->database->bind("material_id",$id);
+        $result = $this->database->single_fetch();
+        return $result;            
+    }
+
 }
 ?>

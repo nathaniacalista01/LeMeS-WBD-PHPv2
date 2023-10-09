@@ -35,6 +35,11 @@
         $fullname = $_POST["fullname"];
         $username = $_POST["username"];
         $user_id = $_POST["user_id"];
+
+        $deleted_user = $user->getUserById($_POST["user_id"]);
+        $rm_file = 'rm ../..' . $deleted_user["image_path"];
+        exec($rm_file);
+
         $rows = $user->update_profile($fullname,$username,$image_file,$user_id);
         if($rows){
             http_response_code(200);

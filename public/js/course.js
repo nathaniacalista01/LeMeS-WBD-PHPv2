@@ -26,7 +26,6 @@ const handleSubmit = () => {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "/api/course/add.php", true);
   xhr.onload = function () {
-    console.log(this)
     let response = JSON.parse(this.responseText);
     if (this.status == 200) {
       if(response.status == "success"){
@@ -59,7 +58,6 @@ const handleUpdate = () => {
     if(this.status === 200){
       window.location.href = "/course";
     }else{
-      console.log(this);
       alert("Something went wrong!");
     }
   }

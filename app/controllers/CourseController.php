@@ -18,15 +18,23 @@
             $course = new Course();
             $middleware = $this->middleware("LoginMiddleware");
             $middleware->hasLoggedIn();
+            $user_model = new User();
             $result = $course->single_course($params);
             if(!$result){   
                 header("Location: /notfound");
+            }else{
+                $enrolled = $user_model->check_enroll($result["course_id"]);
+                if(!$enrolled){
+                    $_SESSION["error"] = "You have to enrolled this course first!";
+                    header("Location: /");
+                }else{
+                    $modules = $course->get_modules($params);
+                    return $this->view('courses','detailCourse',["course" => $result,"modules"=>$modules]);
+                }
             }
-            $modules = $course->get_modules($params);
-            return $this->view('courses','detailCourse',["course" => $result,"modules"=>$modules]);
         }
 
-        public function enrolled($params){
+        public function enrolled($params = ""){
             // Bisa liat course yang udah dienrolled cuma kalau udah login
             $middleware = $this->middleware("LoginMiddleware");
             $middleware->hasLoggedIn();
@@ -51,7 +59,10 @@
             return $this->view("courses","add",[]);
         }
 
-        public function editCourse($params){
+        public function editCourse($params = ""){
+            if(!$params){
+                header("Location: /notfound");
+            }
             // Cuma admin yang bisa akses edit course
             $middleware = $this->middleware('AdminMiddleware');
             $middleware->isAdmin();
@@ -60,8 +71,11 @@
             return $this->view("courses","edit",["course" => $result]);
         }
 
-        public function module($params){
-            // Hanya orang yang sudah login yang bisa liat module
+        public function module($params = ""){
+            if(!$params){
+                header("Location: /notfound");
+            }
+            // // Hanya orang yang sudah login yang bisa liat module
             $course = new Course();
             $module = new Module();
             $middleware = $this->middleware("LoginMiddleware");
@@ -79,6 +93,9 @@
 
         public function addmodule($params=""){
             // Hanya teacher yang bisa add module
+            if(!$params){
+                return ("Location: /notfound");
+            }
             $teacher_middleware = $this->middleware("TeacherMiddleware");
             $teacher_middleware->isTeacher();
             $course = new Course();

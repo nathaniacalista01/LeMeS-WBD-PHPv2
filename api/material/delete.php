@@ -10,7 +10,12 @@
 
     if(isset($_POST["material_id"])){
             $material = new Material();
-            $rows = $material->delete_material($_POST["material_id"]);    
+            
+            $deleted_material = $material->single_material($_POST["material_id"]);
+            $rm_file = 'rm ../..' . $deleted_material["material_path"];
+            exec($rm_file);
+
+            $rows = $material->delete_material($_POST["material_id"]);
             if($rows){
                 http_response_code(200);
                 $_SESSION["success"] = "Material has been deleted!";

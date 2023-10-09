@@ -53,6 +53,7 @@ function openFormAddModule() {
 };
 
 const openFormEditModule = (course_id, module_id, title, description) => {
+  console.log("Edit module")
   var test = document.querySelector('.addForm-header');
   test.textContent = 'Edit Module';
   document.querySelector('#confirm-save').textContent = 'Edit';
@@ -78,7 +79,6 @@ const handleAddModule = (id) => {
     if (this.status === 200) {
       window.location.href = "/course/preview/" + id;
     } else {
-      console.log(this);
       alert("Something went wrong!");
     }
   }
@@ -98,7 +98,6 @@ const handleEditModule = (course_id, module_id) => {
     if (this.status === 200) {
       window.location.href = "/course/preview/" + course_id;
     } else {
-      console.log(this);
       alert("Something went wrong!");
     }
   }
@@ -114,7 +113,6 @@ const handleDeleteModule = (course_id, module_id) => {
     if (this.status === 200) {
       window.location.href = "/course/preview/" + course_id;
     } else {
-      console.log(this);
       alert("Something went wrong!");
     }
   }

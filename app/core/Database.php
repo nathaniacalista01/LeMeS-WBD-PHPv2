@@ -10,15 +10,9 @@
         private $stmt;
         public function __construct(){
             $dsn = "pgsql:host=" . $this->host . ";dbname=" . $this->db . ";user=" . $this->username . ";password=" . $this->password;  
-            $option = [
-                PDO::ATTR_PERSISTENT => true,
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-            ];
             try {
-                //code...
                 $this->connection = new PDO($dsn);        
             } catch (PDOException $e) {
-                //throw $th;
                 echo $e->getMessage();
             }
             

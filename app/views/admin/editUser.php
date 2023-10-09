@@ -65,7 +65,7 @@
             </div>
             <p id="username-alert"></p>
             <div class="button-container">
-                <button id = "back-button" class="back-btn">Back</button>
+                <button id = "back-button" class="back-btn"><a href="/admin/users" style="text-decoration:none;color:black">Back</a></button>
                 <button type="submit" class="update-btn" id="update-button">Update</button>
             </div>
         </form>

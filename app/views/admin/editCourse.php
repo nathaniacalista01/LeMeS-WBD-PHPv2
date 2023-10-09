@@ -68,7 +68,7 @@
                     id="password-input" 
                     class="login-input"
                     required
-                    value = <?php echo ($data["course"]["course_password"] && $data["course"]["course_password"]) ?>
+                    value = <?php echo $data["course"]["course_password"]?>
                 ></input>
             </div>
             <div class="login-box">
@@ -84,7 +84,7 @@
                 </label>
             </div>
             <div class="button-container">
-                <button id = "back-button" class="back-btn">Back</button>
+                <button id = "back-button" class="back-btn"><a href="/admin/courses" style="text-decoration:none;color:black">Back</a></button>
                 <button type="submit" class="update-btn" id="action-button">Update</button>
             </div>
         </form>
