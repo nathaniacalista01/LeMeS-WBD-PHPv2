@@ -19,12 +19,12 @@
             $middleware = $this->middleware("LoginMiddleware");
             $middleware->hasLoggedIn();
             $user_model = new User();
-            $enrolled_courses = $user_model->getAllCoursesEnrolled();
             $result = $course->single_course($params);
             if(!$result){   
                 header("Location: /notfound");
             }else{
-                if(!in_array($result,$enrolled_courses)){
+                $enrolled = $user_model->check_enroll($result["course_id"]);
+                if(!$enrolled){
                     $_SESSION["error"] = "You have to enrolled this course first!";
                     header("Location: /");
                 }else{
