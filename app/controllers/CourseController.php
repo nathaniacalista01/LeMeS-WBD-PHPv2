@@ -14,6 +14,7 @@
         }
 
         public function preview($params){
+            // Baru bisa preview kalau udah login
             $course = new Course();
             $middleware = $this->middleware("LoginMiddleware");
             $middleware->hasLoggedIn();
@@ -26,7 +27,7 @@
         }
 
         public function enrolled($params){
-            
+            // Bisa liat course yang udah dienrolled cuma kalau udah login
             $middleware = $this->middleware("LoginMiddleware");
             $middleware->hasLoggedIn();
             $components = explode("=",$params);
@@ -44,16 +45,23 @@
         }
 
         public function addCourse(){
+            // Cuma admin yang bisa akses add course
+            $middleware = $this->middleware("AdminMiddleware");
+            $middleware->isAdmin();
             return $this->view("courses","add",[]);
         }
 
         public function editCourse($params){
+            // Cuma admin yang bisa akses edit course
+            $middleware = $this->middleware('AdminMiddleware');
+            $middleware->isAdmin();
             $course = new Course();
             $result = $course->single_course($params);
             return $this->view("courses","edit",["course" => $result]);
         }
 
         public function module($params){
+            // Hanya orang yang sudah login yang bisa liat module
             $course = new Course();
             $module = new Module();
             $middleware = $this->middleware("LoginMiddleware");
@@ -69,7 +77,10 @@
             return $this->view('courses','detailmodule',["course"=>$result2, "module" => $result,"materials"=>$materials,"modules"=>$modules]);
         }
 
-        public function addmodule($params){
+        public function addmodule($params=""){
+            // Hanya teacher yang bisa add module
+            $teacher_middleware = $this->middleware("TeacherMiddleware");
+            $teacher_middleware->isTeacher();
             $course = new Course();
             $result = $course->single_course($params);
             return $this->view('module','add',["course" => $result]);

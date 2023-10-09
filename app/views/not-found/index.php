@@ -18,7 +18,7 @@
         <h2>I have bad news for you</h2>
         <p>The page you are looking for might be removed or is temporarily unvailable.</p>
         <span class="input-group-btn">
-          <button class="btn" type="button">Back to homepage</button>
+          <button class="btn" type="button"><a href="/" class="link">Back to homepage</a></button>
         </span>
       </div>
     </div>

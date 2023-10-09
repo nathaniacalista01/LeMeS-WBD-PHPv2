@@ -84,6 +84,12 @@ footer {
   margin-top: auto;
 }
 
+.btn a{
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+}
+
 .fa-copyright {
   font-weight: lighter;
 }
