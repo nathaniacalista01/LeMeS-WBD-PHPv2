@@ -1,4 +1,4 @@
-<?php 
+<?php
     class App{
         private $controllers;
         private $methods = 'index';

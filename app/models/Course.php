@@ -56,7 +56,6 @@ require_once(__DIR__."/Model.php");
         public function searchCourses($data){
             $query = "SELECT * FROM courses ";
             $search = false;
-            
             if(isset($data["title"])){
                 $query.= "WHERE (LOWER(title) LIKE :title OR LOWER(description) LIKE :title)";
                 $search = true;

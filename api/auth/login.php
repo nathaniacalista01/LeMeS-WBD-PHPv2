@@ -4,7 +4,8 @@
     require_once("../../app/models/User.php");
     require_once("../../app/core/Table.php");
     require_once("../../config/config.php");
-
+    // $dotenv = DotEnv::getInstance(__DIR__. "/../../.env");
+    // $dotenv->load();
     $xml = file_get_contents('php://input');
     $data = json_decode($xml, true);
     if(session_status() === PHP_SESSION_NONE){
