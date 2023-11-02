@@ -54,6 +54,7 @@ require_once(__DIR__."/Model.php");
         }
 
         public function searchCourses($data){
+            // print_r($data);
             $query = "SELECT * FROM courses ";
             $search = false;
             if(isset($data["title"])){

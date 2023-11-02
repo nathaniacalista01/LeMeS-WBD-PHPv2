@@ -12,6 +12,8 @@ const searchCourse = (page_number = 1) => {
     const release_year = document.getElementById("release_year").value;
     if (title.length > 0) {
       added_url += "title=" + title;
+    }else{
+      added_url += "title=";
     }
     if (sort) {
       added_url += "&sort=" + sort;
