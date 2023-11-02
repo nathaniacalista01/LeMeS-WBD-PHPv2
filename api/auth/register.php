@@ -4,6 +4,9 @@ require_once("../../app/core/Database.php");
 require_once("../../app/models/User.php");
 require_once("../../app/core/Table.php");
 require_once("../../config/config.php");
+
+// $dotenv = DotEnv::getInstance(__DIR__. "/../../.env");
+// $dotenv->load();
 if(session_status() === PHP_SESSION_NONE){
     session_start();
 }

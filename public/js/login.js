@@ -16,6 +16,7 @@ const check_username = () => {
     const xml = new XMLHttpRequest();
     xml.open("POST", "/api/auth/login.php");
     xml.onload = function () {
+      console.log(this);
       if (this.status == 200) {
         let response = JSON.parse(this.responseText);
         if (response.status === "success") {

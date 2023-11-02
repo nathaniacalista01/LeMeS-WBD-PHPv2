@@ -1,14 +1,18 @@
 <?php
     class Database{
         public static $instance;
-        private $host = "db";
-        private $username = "postgres";
-        private $password = "postgres";
-        private $db = "labpro";
+        private $host;
+        private $username;
+        private $password;
+        private $db;
         private $connection;
         private $port = 5432;
         private $stmt;
         public function __construct(){
+            $this->host = getenv("POSTGRES_HOST");
+            $this->username = getenv("POSTGRES_USER");
+            $this->password = getenv("POSTGRES_PASSWORD");
+            $this->db = getenv("POSTGRES_DB");
             $dsn = "pgsql:host=" . $this->host . ";dbname=" . $this->db . ";user=" . $this->username . ";password=" . $this->password;  
             try {
                 $this->connection = new PDO($dsn);        
