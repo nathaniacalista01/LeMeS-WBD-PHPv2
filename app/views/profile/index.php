@@ -7,6 +7,8 @@
     <title>Profile Update</title>
     <link href="../../public/css/profile/profile.css" rel="stylesheet">
     <script src="../../public/js/profile.js" defer></script>
+    <script src="../../public/js/subscribe.js"></script>
+
 </head>
 
 <body>
@@ -19,6 +21,18 @@
             // Fetch the user by ID
             include __DIR__ . '/../navbar/navbar.php';
             $thisUser = $user->getUserById($_SESSION["user_id"]);
+        }
+        if(isset($_SESSION["success"])){
+            $message = $_SESSION["success"];
+            $type = "success";
+            include(__DIR__."/../components/alertBox.php");
+            unset($_SESSION["success"]);
+        }
+        if(isset($_SESSION["error"])){
+            $message = $_SESSION["error"];
+            $type = "error";
+            include(__DIR__."/../components/alertBox.php");
+            unset($_SESSION["error"]);
         }
     ?>
     <section class='popup-section'>
@@ -113,6 +127,9 @@
                 </div>
                 <div class='profile-toggle-fixed'>
                     <button type='button' onclick='toggle()' class='edit-button' id='profile-button'>Edit</button>
+                </div>
+                <div>
+                    <button id="subscribe-button" type="button" class="edit-button" ><a href="/api/subscribe/subscribe.php">Subscribe</a></button>
                 </div>
             </form>
         </div>

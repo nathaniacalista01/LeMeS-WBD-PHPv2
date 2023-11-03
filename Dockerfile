@@ -6,5 +6,7 @@ RUN apt-get update
 
 RUN apt-get install -y libpq-dev \
     && docker-php-ext-install pgsql pdo pdo_pgsql 
-
+EXPOSE 8080
+EXPOSE 80
+EXPOSE 5432
 RUN service apache2 restart
