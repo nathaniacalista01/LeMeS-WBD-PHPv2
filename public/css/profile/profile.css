@@ -152,6 +152,12 @@ a {
   color: var(--first-color-light);
 }
 
+.premium-status{
+  font-weight: 700;
+  color: var(--first-color-dark);
+  font-size: var(--normal-font-size);
+}
+
 .change-buttons {
   display: flex;
   margin: 3px;

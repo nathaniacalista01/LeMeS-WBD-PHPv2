@@ -103,7 +103,10 @@
                         />
                 </div>
                 <p id='username-alert'></p>
-
+                <div class='profile-box' id='username-box'>
+                    <p>Premium status :<span class="premium-status"> <?php echo $data['premium_status'] ?></span> </p>
+                    
+                </div>
                 <div class='profile-toggle-change'>
                     <div class='profile-box' id='password-box'>
                         <p>Password&nbsp; :</p>
@@ -129,7 +132,9 @@
                     <button type='button' onclick='toggle()' class='edit-button' id='profile-button'>Edit</button>
                 </div>
                 <div>
-                    <button id="subscribe-button" type="button" class="edit-button" ><a href="/api/subscribe/subscribe.php">Subscribe</a></button>
+                    <?php if ($data["premium_status"] === 'REJECTED' || $data["premium_status"] === "NOT PREMIUM"){ ?>
+                        <button id="subscribe-button" type="button" class="edit-button" ><a href="/api/subscribe/subscribe.php">Subscribe</a></button>
+                    <?php } ?>
                 </div>
             </form>
         </div>
