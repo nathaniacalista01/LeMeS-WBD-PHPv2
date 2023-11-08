@@ -158,6 +158,11 @@ a {
   font-size: var(--normal-font-size);
 }
 
+.edit-button a{
+  text-decoration: none;
+  color: white;
+}
+
 .change-buttons {
   display: flex;
   margin: 3px;

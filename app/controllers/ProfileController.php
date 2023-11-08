@@ -16,6 +16,7 @@
             </soap:Envelope>';
             $headers = array(
                 "Content-Type: text/xml;charset=\"utf-8\"",
+                'Content-Length: ' .strlen($request_param),
             );
             $url = $_ENV["SOAP_URL"];
             $ch = curl_init();
@@ -25,11 +26,10 @@
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             $response = curl_exec($ch);
-            // if($response === FALSE){
-            //     var_dump("Gagal request");
-            // }
-            // var_dump($response);
-            return $this->view('profile','index',["premium_status" => $response]);
+            curl_close($ch);
+            $temp = str_replace('<?xml version=\'1.0\' encoding=\'UTF-8\'?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:getPremiumStatusResponse xmlns:ns2="http://service.LMS.com/"><return>',"",$response);
+            $temp2 = str_replace('</return></ns2:getPremiumStatusResponse></S:Body></S:Envelope>',"",$temp);
+            return $this->view('profile','index',["premium_status" => $temp2]);
         }
     }
 ?>

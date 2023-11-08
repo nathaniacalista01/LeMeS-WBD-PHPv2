@@ -138,8 +138,10 @@
                     <button type='button' onclick='toggle()' class='edit-button' id='profile-button'>Edit</button>
                 </div>
                 <div>
-                    <?php if (($data["premium_status"] === 'REJECTED' || $data["premium_status"] === "NOT PREMIUM") && $thisUser["user_role"] === "STUDENT"){ ?>
-                        <button id="subscribe-button" type="button" class="edit-button" ><a href="/api/subscribe/subscribe.php">Subscribe</a></button>
+                    <?php 
+                        if($thisUser["user_role"] === "STUDENT" &&($data['premium_status'] === "NOT PREMIUM" || $data["premium_status" === "REJECTED"])){
+                    ?>
+                    <button id="subscribe-button" type="button" class="edit-button" ><a href="/api/subscribe/subscribe.php">Subscribe</a></button>
                     <?php } ?>
                 </div>
             </form>
