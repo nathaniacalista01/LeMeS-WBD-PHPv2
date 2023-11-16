@@ -18,6 +18,7 @@
         </soap:Body>
     </soap:Envelope>';
     $headers = array(
+        "X-API-KEY: PHPApp",
         "Content-Type: text/xml;charset=\"utf-8\"",
       );
       $url = $_ENV["SOAP_URL"];

@@ -28,8 +28,13 @@
                 $this->params = array_values($url);
             }else{
                 if($this->methods == "lists"){
-                    header("Location: /course/lists/page=1");
-                    exit;
+                    if($this->controllers === "course"){
+                        header("Location: /course/lists/page=1");
+                        exit;
+                    }else if($this->controllers === "premimum"){
+                        header("Location: /premium/lists/page=1");
+                    }
+                    
                 }else if($this->methods == "enrolled"){
                     header("Location: /course/enrolled/page=1");
                     exit;
