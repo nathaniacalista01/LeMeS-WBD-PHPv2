@@ -71,7 +71,8 @@
                         $image_path = isset($course["image_path"]) ? $course["image_path"]:"../../public/asset/banner1.png";
                         $formattedDate = date('d-m-y', strtotime($course['release_date']));
                         echo"
-                        <div class='card' onclick='openModal(\"$joined\",\"$course[id]\",\"$course[title]\",\"$course[description]\",\"$formattedDate\")' style='cursor: pointer;'>
+                        <a href='/premium/preview/$course[id]' style='text-decoration: none; color: inherit; cursor: pointer;'>
+                        <div class='card' style='cursor: pointer;'>
                             <div class='card-top'>
                                 <img src='$image_path' alt='Blog Name'>
                             </div>
@@ -85,6 +86,7 @@
                                 <p>$formattedDate</p>
                             </div>
                         </div>
+                        </a>
                         ";
                     }
                 ?>

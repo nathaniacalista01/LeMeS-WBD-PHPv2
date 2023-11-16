@@ -24,5 +24,19 @@
             // Meneruskan data ke view
             return $this->view('premium','index',["page_number"=>$page_number,"courses"=>$courses,"type"=>"lists","max_page"=>$total_page]);
         }
+
+        public function preview($params){
+            $middleware = $this->middleware("LoginMiddleware");
+            $middleware->hasLoggedIn();
+            $raw_modules = file_get_contents("http://host.docker.internal:8000/api/modul/course/".$params);
+            $raw_course = file_get_contents("http://host.docker.internal:8000/api/course/".$params);
+
+            $data = json_decode($raw_modules,true);
+            $data_course = json_decode($raw_course,true);
+            $course = $data_course["data"];
+            $modules = $data["data"];
+
+            return $this->view('premium','detailCourse',["course"=>$course,"modules"=>$modules]);
+        }
     }
 ?>
