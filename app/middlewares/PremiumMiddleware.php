@@ -1,8 +1,15 @@
 <?php
-    class ProfileController extends Controller{
-        public function index(){
-            $middleware = $this->middleware('LoginMiddleware');
-            $middleware->hasLoggedIn();
+    require_once("LoginMiddleware.php");
+    class PremiumMiddleware{
+        private $database;
+
+        public function __construct(){
+            $this->database = Database::instance();
+        }
+
+        public function isPremium(){
+            $user_middleware = new LoginMiddleware();
+            $user_middleware->hasLoggedIn();
             $user_id = $_SESSION["user_id"];
             $request_param = '<?xml version="1.0" encoding="utf-8" ?>
             <soap:Envelope
@@ -15,9 +22,8 @@
                 </soap:Body>
             </soap:Envelope>';
             $headers = array(
+                "X-API-KEY: PHPApp",
                 "Content-Type: text/xml;charset=\"utf-8\"",
-                'Content-Length: ' .strlen($request_param),
-                "X-API-KEY: PHPApp"
             );
             $url = $_ENV["SOAP_URL"];
             $ch = curl_init();
@@ -30,7 +36,9 @@
             curl_close($ch);
             $temp = str_replace('<?xml version=\'1.0\' encoding=\'UTF-8\'?><S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/"><S:Body><ns2:getPremiumStatusResponse xmlns:ns2="http://service.LMS.com/"><return>',"",$response);
             $temp2 = str_replace('</return></ns2:getPremiumStatusResponse></S:Body></S:Envelope>',"",$temp);
-            return $this->view('profile','index',["premium_status" => $temp2]);
+            if($temp2 !== "ACCEPTED"){
+                header("Location: /notfound");
+            }
         }
     }
 ?>

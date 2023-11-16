@@ -5,7 +5,8 @@
             exit;
         }
         public function lists($params){
-
+            $premium_middleware = $this->middleware("PremiumMiddleware");
+            $premium_middleware->isPremium();
             $components = explode("=",$params);
             $page_number = $components[1];
             // Fetch data courses

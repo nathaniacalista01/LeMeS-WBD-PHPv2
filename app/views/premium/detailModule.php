@@ -68,7 +68,7 @@
                             $materials = $data["materials"];
                             
                             foreach ($materials as $material) {
-                                $path = "http://localhost:8000/".$material["material_path"] ;
+                                $path = "http://localhost:8000/file/".$material["material_path"] ;
                             echo"
                             <div class='accordion'>
                                 <div class='accordion-content' style='display: flex; justify-content: space-between;'>
@@ -78,7 +78,7 @@
                                             <i class='fa-solid fa-plus'></i>
                                         </header>
                                         ";
-                                        if ($material['source_type'] == "pdf"){
+                                        if ($material['source_type'] == "PDF"){
                                             echo "
                                         <div class='description'>
                                             <span>$material[description]<span>

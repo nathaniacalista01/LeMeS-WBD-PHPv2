@@ -139,7 +139,7 @@
                 </div>
                 <div>
                     <?php 
-                        if($thisUser["user_role"] === "STUDENT" &&($data['premium_status'] === "NOT PREMIUM" || $data["premium_status" === "REJECTED"])){
+                        if($thisUser["user_role"] === "STUDENT" && ($data['premium_status'] !== "WAITING" && $data["premium_status"] !== "ACCEPTED")){
                     ?>
                     <button id="subscribe-button" type="button" class="edit-button" ><a href="/api/subscribe/subscribe.php">Subscribe</a></button>
                     <?php } ?>
