@@ -32,14 +32,16 @@
                                 foreach ($modules as $module) { ?>
                                     <tr>
                                         <td>
-                                            <div class='row-container'>
-                                                <div class='module-title' onclick='navigateToMaterials(<?php echo $module["module_id"] ?>)'>
-                                                    <span><?php echo $module['title'] ?></span>
+                                            <a href='/premium/module/<?php echo $module["id"]; ?>' style='text-decoration: none; cursor: pointer;  display: block; width: 100%;'>
+                                                <div class='row-container'>
+                                                    <div class='module-title'>
+                                                        <span><?php echo $module['title'] ?></span>
+                                                    </div>
                                                 </div>
-                            
-                                            </div>
+                                            </a>
                                         </td>
                                     </tr>
+
                                 <?php } ?>
                             </tbody>
                         </table>

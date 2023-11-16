@@ -35,8 +35,38 @@
             $data_course = json_decode($raw_course,true);
             $course = $data_course["data"];
             $modules = $data["data"];
-
             return $this->view('premium','detailCourse',["course"=>$course,"modules"=>$modules]);
+        }
+
+        public function module($params){
+            // Menerima parameter berupa module_id
+            if(!$params){
+                header("Location: /notfound");
+            }
+            $middleware = $this->middleware("LoginMiddleware");
+            $middleware->hasLoggedIn();
+
+            $raw_materials = file_get_contents("http://host.docker.internal:8000/api/material/module/".$params);
+            $data_materials = json_decode($raw_materials,true);
+            $materials = $data_materials["data"];
+
+            
+            $raw_modul = file_get_contents("http://host.docker.internal:8000/api/modul/".$params);
+            $data_modul = json_decode($raw_modul,true);
+            $modul = $data_modul["data"];
+
+            $course_id = $modul["course_id"];
+            
+            $raw_modul2 = file_get_contents("http://host.docker.internal:8000/api/modul/course/".$course_id);
+            $data_modul2 = json_decode($raw_modul2,true);
+            $modul2 = $data_modul2["data"];
+
+
+            $raw_course = file_get_contents("http://host.docker.internal:8000/api/course/".$course_id);
+            $data_course = json_decode($raw_course,true);
+            $course = $data_course["data"];
+            
+            return $this->view('premium','detailModule',["course"=>$course,"module"=>$modul,"materials"=>$materials,"modules"=>$modul2]);            
         }
     }
 ?>
