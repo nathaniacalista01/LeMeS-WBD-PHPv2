@@ -66,7 +66,9 @@
 
                             <?php
                             $materials = $data["materials"];
+                            
                             foreach ($materials as $material) {
+                                $path = "http://localhost:8000/".$material["material_path"] ;
                             echo"
                             <div class='accordion'>
                                 <div class='accordion-content' style='display: flex; justify-content: space-between;'>
@@ -82,7 +84,7 @@
                                             <span>$material[description]<span>
                                             <br>
                                             <br>
-                                            <object data='$material[material_path]' type='application/pdf' width='100%' height='800'>
+                                            <object data='$path' type='application/pdf' width='100%' height='800'>
                                                 <p>It appears your web browser doesn't support embedding PDFs.</p>
                                             </object>
                                         </div>
@@ -95,7 +97,7 @@
                                     <br>
                                     <br>
                                     <video width='100%' height=auto controls>
-                                        <source src=<?php echo $material["material_path"]?> type='video/mp4'>
+                                        <source src=<?php echo $path?> type='video/mp4'>
                                         Your browser does not support the video tag.
                                     </video>
                                 </div>
