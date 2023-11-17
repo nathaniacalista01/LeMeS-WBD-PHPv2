@@ -1,5 +1,9 @@
 <?php
     require_once("../../config/config.php");
+    require_once("../../app/models/User.php");
+    require_once("../../app/core/Database.php");
+    require_once("../../app/core/Table.php");
+
     if(session_status() === PHP_SESSION_NONE){
         session_start();
     }
@@ -7,6 +11,9 @@
         header("Location: /login");
     }
     $user_id = $_SESSION["user_id"];
+    $user_modal = new User();
+    $user = $user_modal->getUserById($user_id);
+    $username = $user["username"];
     $request_param = '<?xml version="1.0" encoding="utf-8" ?>
     <soap:Envelope
         xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
@@ -14,6 +21,7 @@
         <soap:Body>
             <tns:upgrade>
                 <user_id>' . $user_id . '</user_id>
+                <username>'.$username. '</username>
             </tns:upgrade>
         </soap:Body>
     </soap:Envelope>';
