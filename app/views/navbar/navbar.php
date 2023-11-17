@@ -59,6 +59,8 @@
                 }else{
                     $premium = true;
                 }
+            }else{
+                $premium = false;
             }
 
         ?>
