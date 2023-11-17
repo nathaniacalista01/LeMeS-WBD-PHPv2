@@ -144,3 +144,29 @@ Pengguna dapat mengakses berbagai modul dan materi pembelajaran yang terdapat da
 | Pagination, Search Bar, Filter, Sort  | 13521161, 13521164 |
 | Logout Popup                          | 13521164 |
 | Popup Windows Add, Delete, Edit       | 13521161, 13521164 |
+
+
+## Fitur Tambahan 
+1. Fitur Upgrade ke premium
+2. Fitur melihat course premium
+3. Fitur melihat material premium
+4. Fitur melihat material premium
+
+## Pembagian Tugas
+### _Server Side_
+
+| Fitur                          | NIM      |
+| -------------------------------| -------- |
+| Upgrade ke premium             | 13521139 |
+| Fitur melihat course premium   | 13521139 |
+| Fitur melihat modul premium    | 13521139 |
+| Fitur melihat material premium | 13521139 |
+| Premium middleware             | 13521139 |
+
+### _Client Side_
+| Fitur                          | NIM      |
+| -------------------------------| -------- |
+| Upgrade ke premium             | 13521139 |
+| Fitur melihat course premium   | 13521139 |
+| Fitur melihat modul premium    | 13521139 |
+| Fitur melihat material premium | 13521139 |
